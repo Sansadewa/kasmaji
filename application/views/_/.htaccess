@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L]
+</IfModule>
+RewriteCond %{HTTP_HOST} ^dokumentasi\.stislimatuju\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.dokumentasi\.stislimatuju\.com$
+RewriteRule ^/?$ "https\:\/\/drive\.google\.com\/drive\/folders\/1LPkbjDqNQZsmpJYDWAqADi1cjI7Cv96J\?usp\=sharing" [R=301,L]
+

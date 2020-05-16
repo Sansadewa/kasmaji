@@ -1,0 +1,1 @@
+Itu yang belom ngisi suruh pada ngisi  dulu

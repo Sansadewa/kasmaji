@@ -37,7 +37,7 @@ class Ceklogin_model extends CI_Model {
 
 
   public function ceksesi() { //cek session user login setelah login
-    redirect('register');
+
     
     //cek apakah session lengkap
     if ($this->session_complete()) { //jika session lengkap
@@ -52,6 +52,24 @@ class Ceklogin_model extends CI_Model {
       if($valid[1][0]['step']<12){
         redirect('register');
       } 
+    } else { //jika session tidak lengkap
+      $this->session->set_flashdata('informasi', 'Broken Session, mohon login kembali');
+      redirect('login'); //redirect ke controller login
+    }
+  }
+
+  public function ceksesiregister() { //cek session user login setelah login
+
+    
+    //cek apakah session lengkap
+    if ($this->session_complete()) { //jika session lengkap
+      //lakukan validasi data session user dengan database, jika data yang didapat jumlah nya 1 berarti benar
+      
+      $valid=$this->valid();
+      if (!$valid[0]) { //jika validasi tidak benar
+        $this->session->set_flashdata('informasi', 'Validation error');
+        redirect('login'); //redirect ke controller login
+      }
     } else { //jika session tidak lengkap
       $this->session->set_flashdata('informasi', 'Broken Session, mohon login kembali');
       redirect('login'); //redirect ke controller login

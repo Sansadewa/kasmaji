@@ -5,12 +5,26 @@ class Register extends CI_Controller {
 
 	function __construct(){
 		parent ::__construct();
+		$this->ceklogin->ceksesiregister();
 		$this->load->model('register_model');
+		
 	}
+
 	public function index()
 	{	
-		$this->session->sess_destroy();
-		$this->load->view('register');
+		$aku=$this->register_model->get_info($this->session->userdata('username'));
+		// echo($aku->username);
+		if($aku->step==0){
+			//kalau belum ngapa-ngapain, ke first. Bikin Password baru dan email.
+			redirect('register/first');
+		} elseif ($aku->step==1){
+			//kalau udah pass sama email, masuk ke biodata dasar
+			redirect('register/second');
+			
+		} else {
+			$this->session->set_flashdata('informasi', 'Error pada registrasi.');
+			redirect('login');
+		}
 	}
 
 	//Ini manggil halaman buat input email untuk dikirimkan kode aktivasi
@@ -59,105 +73,40 @@ class Register extends CI_Controller {
 	// }
 
 	public function first() {
-		$key=$this->input->post('key');
-		//$this->session->sess_destroy();
-		if(empty($key)){redirect('register');} else{
-			$profil=$this->register_model->get_info($key);
-			if($profil[0]['step']==0){
-				$this->session->set_userdata('key',$key);
-				$this->load->view('first');		
-			} elseif ($profil[0]['step']==1){
-				$this->session->set_userdata('key',$key);
-				redirect('register/second');
-			} else {
-				$this->session->set_flashdata('report','Terjadi kesalahan, 1.');
-				redirect('register');
-			}
-		}
-
+		$aku=$this->register_model->get_info($this->session->userdata('username'));
+		//yang boleh kesini cuma yang step=0, yg belom pernah masuk samsasekali.
+		if ($aku->step!=0) redirect('register');
+ 		$this->load->view('first');		
 	}
 
 	public function procpass() {
-		$key=$this->session->userdata('key');
-		$profil=$this->register_model->get_info($key);
-		$nim=$profil[0]['nim'];
-		if($profil[0]['step']==0){
+		$profil=$this->register_model->get_info($this->session->userdata('username'));
+		if($profil->step==0){
 			$pa=$this->input->post('pa');
 			$pb=$this->input->post('pb');
+			$email=$this->input->post('email');
 			if ($pa!=$pb){
-				$this->session->set_flashdata('report','Password tidak sama');
+				$this->session->set_flashdata('informasi','Password tidak sama');
 				redirect('register/first');
 			} else{
-				$this->register_model->putpass($pa,$nim);
+				$this->register_model->putpass($pa, $email, $profil->username);
 				redirect('register/second');
 			}
 		} else {
-			$this->session->set_flashdata('report','Terjadi kesalahan, 2.');
+			$this->session->set_flashdata('informasi','Terjadi kesalahan, R1.');
 			redirect('register');
 		}
 	}
 
 	public function second() {
-		$key=$this->session->userdata('key');
-		$profil=$this->register_model->get_info($key);
-		if($profil[0]['step']==1){
-			$this->load->model('orang_model');
-			$nim = $profil[0]['nim'];
-			$data['topik']=$this->orang_model->get_mytopik($nim);
-			$this->session->set_userdata('nim',$profil[0]['nim']);
-			$this->session->set_userdata('nama',$profil[0]['nama']);
-			$this->session->set_userdata('kelas',$profil[0]['kelas']);
-			//$this->session->unset_userdata('key');
-			
-			if($data['topik']->num_rows()<1){
-			    $this->load->view('secondblank',$data);
-			} else { 
-			$this->load->view('second',$data); 
-			}
-			
-		} else {
-			$this->session->set_flashdata('report','Terjadi kesalahan, 3.');
-			redirect('register');
-		}
+		$aku=$this->register_model->get_info($this->session->userdata('username'));
+		//yang boleh kesini cuma yang step=1, yg belom pernah isi biodata dasar
+		if ($aku->step!=1) redirect('register');
+ 		$this->load->view('secondblank');	
 	}	
 
-	public function topik() {
-		$this->load->model('input_model');
-		$nama = $this->session->userdata('nama');
-		$nim = $this->session->userdata('nim');
-		$kelas = $this->session->userdata('kelas');
-		$dosbing = $this->input->post('dosbing');
-		$topik = $this->input->post('topik');
-		$validi=$this->input_model->cek_topik($nim);
-		if ($kelas[1]=='K'){
-			$kelompok_tema = $this->input->post('kelompok_tema');
-			$platform = $this->input->post('platform');
-
-			if($validi ==1) {
-				$this->input_model->update_topikks($nim,$nama,$kelas,$dosbing,$topik,$kelompok_tema,$platform);
-			} else {
-				$this->input_model->insert_topikks($nim,$nama,$kelas,$dosbing,$topik,$kelompok_tema,$platform);
-			}
-		} else {
-			$metode = $this->input->post('metode');
-			$y = $this->input->post('y');
-			$lokus = $this->input->post('lokus');
-			$sumberdata = $this->input->post('sumberdata');
-
-			if($validi ==1) {
-				$this->input_model->update_topik($nim,$nama,$kelas,$dosbing,$topik,$metode,$y,$lokus,$sumberdata);
-			} else {
-				$this->input_model->insert_topik($nim,$nama,$kelas,$dosbing,$topik,$metode,$y,$lokus,$sumberdata);
-			}
-		}
-		$this->register_model->update_step($nim);
-		$this->session->set_flashdata('result','Perubahan Sukses');
-		$this->session->set_userdata('logged_in',TRUE);
-		redirect('akun/topik/'.$nim);
-	}
-
 	public function ah(){
-		$this->load->view('second');
+		$this->load->view('first');
 	}
 
 	public function ih(){

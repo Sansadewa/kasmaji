@@ -5,25 +5,25 @@ class Register_model extends CI_Model {
         $this->load->helper('date');
     }
 
-	public function putpass($pa,$nim){
-      $q="INSERT INTO cek VALUES ('".$nim."','".$pa."')";
+	public function putpass($pa, $email, $username){
+      $q="INSERT INTO cek VALUES ('".$username."','".$pa."')";
       $this->db->query($q);
     	$data = array(
-              'password' => md5($pa)
+              'email' => $email,
+              'pass' => md5($pa),
+              'step' => 1
               );
-      $this->db->where('nim',$nim);
-      $this->db->update('sipaju_mahasiswa',$data);
+      $this->db->where('username',$username);
+      $this->db->update('orang',$data);
   	}
 
   	public function get_info($key){
 	    $SQL1 ="
-	    SELECT nim, nama, email, password, kelas, step
-	    FROM sipaju_mahasiswa
-	    WHERE login_token = '".$key."'
+	    SELECT username, nama, email, pass, kelas, step
+	    FROM orang
+	    WHERE username = '".$key."'
 	    ";
-	    $Q = $this->db->query($SQL1);
-	    return $Q->result_array();
-	    $Q->free_result();
+	    return $this->db->query($SQL1)->row();
   	}
 
     public function update_step($nim){

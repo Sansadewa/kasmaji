@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Aktivasi Akun</title>
+  <title>Registrasi Akun</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="<?php echo base_url();?>public/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="<?php echo base_url();?>public/vendors/css/vendor.bundle.base.css">
@@ -25,9 +25,24 @@
       <div class="content-wrapper d-flex align-items-center auth register-bg-1 theme-one">
         <div class="row w-100">
           <div class="col-lg-4 mx-auto">
-            <h2 class="text-center mb-4">Aktivasi 1 : Buat Sandi</h2>
+            <h2 class="text-center mb-4">Registrasi 1 : Data Login <h2>
             <div class="auto-form-wrapper">
               <form action="<?php echo base_url().'register/procpass' ?>" method="post">
+              <div class="form-group row">
+                  <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Nama</label>
+                    <div class=" col-sm-9">
+                      <input class="form-control" placeholder="<?php echo($this->session->userdata('nama')); ?>" name="username" value="" reqiured disabled>
+                    </div>
+              </div>
+              <div class="form-group">
+                  <div class="input-group">
+                    <input type="email" class="form-control" placeholder="Email" name="email" reqiured>
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                      </span>
+                    </div>
+                  </div>
+                </div>
                 <div class="form-group">
                   <div class="input-group">
                     <input type="password" class="form-control" placeholder="Password" name="pa" pattern=".{8,}" title="Password minimal 8 karakter" reqiured>
@@ -46,17 +61,13 @@
                     </div>
                   </div>
                 </div><a class="text-danger"><?php
-                  $report = $this->session->flashdata('report');
-                  if(!empty($report)){
-                    echo $report;
+                  $informasi = $this->session->flashdata('informasi');
+                  if(!empty($informasi)){
+                    echo $informasi;
                   }
                   ?></a>
                 <div class="form-group">
                   <button class="btn btn-primary submit-btn btn-block">Lanjut gan!</button>
-                </div>
-                <div class="text-block text-center my-3">
-                  <span class="text-small font-weight-semibold">Sudah Aktivasi ?</span>
-                  <a href="<?php echo base_url();?>login" class="text-black text-small">Login</a>
                 </div>
               </form>
             </div>

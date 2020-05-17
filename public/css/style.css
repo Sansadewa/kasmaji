@@ -7587,6 +7587,7 @@ th {
 
 label {
   display: inline-block;
+  margin-bottom: .5rem;
    }
 
 button {
@@ -15696,7 +15697,7 @@ select.form-control {
   padding: 0.4375rem 0.75rem; }
 
 .form-group label {
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1;
   vertical-align: top; }
 

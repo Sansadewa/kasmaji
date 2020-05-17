@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Login SIPAJU</title>
+  <title>Login Kasmaji</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="<?php base_url();?>public/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="<?php base_url();?>public/vendors/css/vendor.bundle.base.css">
@@ -25,13 +25,13 @@
       <div class="content-wrapper d-flex align-items-center auth auth-bg-1 theme-one">
         <div class="row w-100">
           <div class="col-lg-4 mx-auto">
-            <h2 class="text-center mb-4 text-white">Login SIPAJU</h2>
+            <h2 class="text-center mb-4 text-white">Login Kasmaji</h2>
             <div class="auto-form-wrapper">
               <form action="<?php echo base_url().'login/identify' ?>" method="post">
                 <div class="form-group">
-                  <label class="label">NIM</label>
+                  <label class="label">Username</label>
                   <div class="input-group">
-                    <input type="text" class="form-control" placeholder="NIM" name="nim" pattern=".{7,8}" title="NIM berisikan 7 karakter" required>
+                    <input type="text" class="form-control" placeholder="Username" name="username" pattern=".{13,15}" title="Username berisikan XXX karakter" required>
                     <div class="input-group-append">
                       <span class="input-group-text">
                       </span>
@@ -41,7 +41,7 @@
                 <div class="form-group">
                   <label class="label">Password</label>
                   <div class="input-group">
-                    <input type="password" class="form-control" placeholder="*********" name="pass"required>
+                    <input type="password" class="form-control" placeholder="*********" name="pass" required>
                     <div class="input-group-append">
                       <span class="input-group-text">
                       </span>
@@ -58,15 +58,16 @@
                   <button class="btn btn-primary submit-btn btn-block">Login</button>
                 </div>
                 <div class="form-group d-flex justify-content-between">
-                  <!-- <a href="#" class="text-small forgot-password text-black">Forgot Password</a> -->
                 </div>
+                
                 <div class="text-block text-center my-3">
-                  <span class="text-small font-weight-semibold">Teledor? Lupa password?</span>
+                  <span class="text-small font-weight-semibold">Lupa password?</span>
                   <a href="<?php echo base_url();?>lupa" class="text-black text-small">klik disini!</a>
                 </div>
+                
               </form>
             </div>
-            <p class="footer-text text-center">copyright © 2019 SIPAJU. All rights reserved.</p>
+            <p class="footer-text text-center">copyright © 2020 GSA. All rights reserved.</p>
           </div>
         </div>
       </div>

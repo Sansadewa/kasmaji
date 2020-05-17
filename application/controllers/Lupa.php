@@ -5,7 +5,7 @@ class Lupa extends CI_Controller {
 
 	function __construct(){
 		parent ::__construct();
-		$this->load->model('mahasiswa_model');
+		$this->load->model('orang_model');
 	}
 
 	public function index() {
@@ -15,8 +15,8 @@ class Lupa extends CI_Controller {
 	public function first() {
 		$nim = $this->input->post('nimbodoh'); //inputan dengan nama = nim yang ada di popup Lupa Password
 
-	    $cek = $this->mahasiswa_model->get_info($nim);
-	    $btm = $this->mahasiswa_model->get_btm($nim);
+	    $cek = $this->orang_model->get_info($nim);
+	    $btm = $this->orang_model->get_btm($nim);
 	    if(!empty($cek) && !empty($btm)){
 	    $characters = '123456789zxcvbnmasdfghjkqwertyuipZXCVBNMASDFGHJKLQWERTYUP'; //membuat string dengan semua kemungkinan karakter yang ada
 	    $password_token = ''; //membuat password baru
@@ -51,7 +51,7 @@ class Lupa extends CI_Controller {
 	      redirect('Login');
 	    }
 	    else{
-	      $this->mahasiswa_model->savekode($nim,$password_token); //menuju model untuk menyimpan nim dan kode
+	      $this->orang_model->savekode($nim,$password_token); //menuju model untuk menyimpan nim dan kode
 	      $this->load->view('teledor');
 	    }
 	  } else {
@@ -62,7 +62,7 @@ class Lupa extends CI_Controller {
 
 	public function second() {
 		$nim=$this->input->post('nim');
-		$hm=$this->mahasiswa_model->get_info($nim);
+		$hm=$this->orang_model->get_info($nim);
 		$kode=$this->input->post('kode');
 		$pw1=$this->input->post('Pass');
 		$pw2=$this->input->post('Pass2');

@@ -1,1 +1,0 @@
-Belom belom. Sabar~

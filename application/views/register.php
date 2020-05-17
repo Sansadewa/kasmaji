@@ -1,4 +1,3 @@
-
 <html lang="en">
 
 <head>
@@ -7,16 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Aktivasi Akun</title>
   <!-- plugins:css -->
-  <link rel="stylesheet" href="<?php echo base_url();?>public/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="<?php echo base_url();?>public/vendors/css/vendor.bundle.base.css">
-  <link rel="stylesheet" href="<?php echo base_url();?>public/vendors/css/vendor.bundle.addons.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>public/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>public/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>public/vendors/css/vendor.bundle.addons.css">
   <!-- endinject -->
   <!-- plugin css for this page -->
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="<?php echo base_url();?>public/css/style.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>public/css/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="<?php echo base_url();?>public/images/favicon.png" />
+  <link rel="shortcut icon" href="<?php echo base_url(); ?>public/images/favicon.png" />
 </head>
 
 <body>
@@ -27,13 +26,13 @@
           <div class="col-lg-4 mx-auto">
             <h2 class="text-center mb-4">Aktivasi : Input Kode Unik</h2><br>
             <div class="auto-form-wrapper">
-            <a class="text-danger"><?php
-                  $report = $this->session->flashdata('report');
-                  if(!empty($report)){
-                    echo $report;
-                  }
-                  ?></a>
-              <form action="<?php echo base_url().'register/first' ?>" method="post">
+              <a class="text-danger"><?php
+                $report = $this->session->flashdata('report');
+                if (!empty($report)) {
+                  echo $report;
+                }
+                ?></a>
+              <form action="<?php echo base_url() . 'register/first' ?>" method="post">
                 <div class="form-group">
                   <div class="input-group">
                     <input class="form-control" placeholder="Kode Unik" name="key" pattern=".{32,32}" title="Kode sepanjang 32 karakter" reqiured>
@@ -43,13 +42,13 @@
                     </div>
                   </div>
                 </div>
-                
+
                 <div class="form-group">
                   <button class="btn btn-primary submit-btn btn-block">Lanjutkeun!</button>
                 </div>
                 <div class="text-block text-center my-3">
                   <span class="text-small font-weight-semibold">Sudah Aktivasi ?</span>
-                  <a href="<?php echo base_url();?>login" class="text-black text-small">Login</a>
+                  <a href="<?php echo base_url(); ?>login" class="text-black text-small">Login</a>
                 </div>
               </form>
             </div>
@@ -62,12 +61,12 @@
   </div>
   <!-- container-scroller -->
   <!-- plugins:js -->
-  <script src="<?php echo base_url();?>public/vendors/js/vendor.bundle.base.js"></script>
-  <script src="<?php echo base_url();?>public/vendors/js/vendor.bundle.addons.js"></script>
+  <script src="<?php echo base_url(); ?>public/vendors/js/vendor.bundle.base.js"></script>
+  <script src="<?php echo base_url(); ?>public/vendors/js/vendor.bundle.addons.js"></script>
   <!-- endinject -->
   <!-- inject:js -->
-  <script src="<?php echo base_url();?>public/js/off-canvas.js"></script>
-  <script src="<?php echo base_url();?>public/js/misc.js"></script>
+  <script src="<?php echo base_url(); ?>public/js/off-canvas.js"></script>
+  <script src="<?php echo base_url(); ?>public/js/misc.js"></script>
   <!-- endinject -->
 </body>
 

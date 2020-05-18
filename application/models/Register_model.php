@@ -17,6 +17,29 @@ class Register_model extends CI_Model {
       $this->db->update('orang',$data);
   	}
 
+  public function putprofil($username, $nomorhp,$nomorwa,$linkedin,$facebook,$ig,$twitter,$prov,$kabkot,$alamat_lengkap,$lanjut_belajar,$kegiatan){
+    $data = array (
+              'nomorhp' => $nomorhp,
+              'nomorwa' => $nomorwa,
+              'linkedin' => $linkedin,
+              'facebook' => $facebook,
+              'ig' => $ig,
+              'twitter' => $twitter,
+              'prov' => $prov,
+              'kabkot' => $kabkot,
+              'alamat_lengkap' => $alamat_lengkap,
+              'lanjut_belajar' => $lanjut_belajar,
+              'kegiatan' => $kegiatan
+            );
+    $this->db->where('username', $username);
+    $this->db->update('profil',$data);
+    $data = array(
+      'step' => 2
+      );
+    $this->db->where('username', $username);
+    $this->db->update('orang',$data);
+  }
+
   	public function get_info($key){
 	    $SQL1 ="
 	    SELECT username, nama, email, pass, kelas, step
@@ -24,16 +47,23 @@ class Register_model extends CI_Model {
 	    WHERE username = '".$key."'
 	    ";
 	    return $this->db->query($SQL1)->row();
-  	}
-
-    public function update_step($nim){
-      $data = array(
-              'step' => 2
-              );
-      $this->db->where('nim',$nim);
-      $this->db->update('sipaju_mahasiswa',$data);
+    }
+    
+    public function get_profil($username){
+      $SQL1 ="
+	    SELECT username, lanjut_belajar, kegiatan
+	    FROM profil
+	    WHERE username = '".$key."'
+	    ";
+	    return $this->db->query($SQL1)->row();
     }
 
+    public function update_step($username, $step){
+      $this->db->where('username', $username);
+      $data= array('step' = $step);
+      $this->db->update('orang', $data);
+    }
+    
     public function update_unik($nim,$code){
       $data = array(
               'login_token' => $code
@@ -41,11 +71,5 @@ class Register_model extends CI_Model {
       $this->db->where('nim',$nim);
       $this->db->update('sipaju_mahasiswa',$data);
     }
-
-    public function get_profile($nim){
-    $SQL1="SELECT * FROM sipaju_profil WHERE nim='".$nim."'";
-    $query = $this->db->query($SQL1);
-    return $query->row();
-    $query->free_result();
  }
 }

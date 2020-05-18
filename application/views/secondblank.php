@@ -119,7 +119,7 @@
                       </div>
                       <div class="form-radio">
                         <label class="form-check-label">
-                          <input type="radio" class="form-check-input" name="lanjut_belajar" id="tidaklanjut" value="2"> Tidak
+                          <input type="radio" class="form-check-input" name="lanjut_belajar" id="tidaklanjut" value="0"> Tidak
                         <i class="input-helper"></i></label>
                       </div>
                     </div>

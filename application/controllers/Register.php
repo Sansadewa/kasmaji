@@ -59,7 +59,10 @@ class Register extends CI_Controller {
 	public function second() {
 		$aku=$this->register_model->get_info($this->session->userdata('username'));
 		//yang boleh kesini cuma yang step=1, yg belom pernah isi biodata dasar
-		if ($aku->step!=1) redirect('register');
+		if ($aku->step!=1) {
+			$this->session->set_flashdata('informasi','Terjadi kesalahan, R2.');
+			redirect('register');
+		}
  		$this->load->view('secondblank');	
 	}
 	
@@ -81,7 +84,26 @@ class Register extends CI_Controller {
 		$lanjut_belajar=$this->input->post('lanjut_belajar');
 		$kegiatan=$this->input->post('kegiatan');
 
-		$this->register_model->putprofil($nomorhp,$nomorwa,$linkedin,$facebook,$ig,$twitter,$prov,$kabkot,$alamat_lengkap,$lanjut_belajar,$kegiatan);
+		$this->register_model->putprofil($this->session->userdata('username'), $nomorhp,$nomorwa,$linkedin,$facebook,$ig,$twitter,$prov,$kabkot,$alamat_lengkap,$lanjut_belajar,$kegiatan);
+
+		redirect('register/third');
+	}
+
+	public function third() {
+		$aku=$this->register_model->get_info($this->session->userdata('username'));
+		if($aku->step!=2){
+			$this->session->set_flashdata('informasi','Terjadi kesalahan, R3.');
+			redirect('register');
+		}
+
+		$profil=$this->register_model->get_profil($this->session->userdata('username'));
+		if($profil->lanjut_belajar=1){
+			echo('kamu belajar');
+		}else{
+			$this->register_model->update_step($this->session->userdata('username'),3);
+			redirect('register/fourth');
+		}
+
 
 	}
 

@@ -19,8 +19,9 @@ class Register_model extends CI_Model {
 
   public function putprofil($username, $nomorhp,$nomorwa,$linkedin,$facebook,$ig,$twitter,$prov,$kabkot,$alamat_lengkap,$lanjut_belajar,$kegiatan){
     $data = array (
-              'nomorhp' => $nomorhp,
-              'nomorwa' => $nomorwa,
+              'username' => $username,
+              'nomor_hp' => $nomorhp,
+              'nomor_wa' => $nomorwa,
               'linkedin' => $linkedin,
               'facebook' => $facebook,
               'ig' => $ig,
@@ -31,13 +32,18 @@ class Register_model extends CI_Model {
               'lanjut_belajar' => $lanjut_belajar,
               'kegiatan' => $kegiatan
             );
-    $this->db->where('username', $username);
-    $this->db->update('profil',$data);
-    $data = array(
-      'step' => 2
-      );
-    $this->db->where('username', $username);
-    $this->db->update('orang',$data);
+
+    if($this->db->insert('profil',$data)){
+      $data = array(
+        'step' => 2
+        );
+      $this->db->where('username', $username);
+      $this->db->update('orang',$data);
+      return TRUE;
+    } else {
+
+    }
+
   }
 
   	public function get_info($key){
@@ -53,14 +59,14 @@ class Register_model extends CI_Model {
       $SQL1 ="
 	    SELECT username, lanjut_belajar, kegiatan
 	    FROM profil
-	    WHERE username = '".$key."'
+	    WHERE username = '".$username."'
 	    ";
 	    return $this->db->query($SQL1)->row();
     }
 
     public function update_step($username, $step){
       $this->db->where('username', $username);
-      $data= array('step' = $step);
+      $data= array('step' => $step);
       $this->db->update('orang', $data);
     }
     
@@ -72,4 +78,4 @@ class Register_model extends CI_Model {
       $this->db->update('sipaju_mahasiswa',$data);
     }
  }
-}
+//}

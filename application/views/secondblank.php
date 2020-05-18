@@ -66,7 +66,7 @@
                 <div class="form-group row">
                   <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Akun Facebook</label>
                     <div class=" col-sm-9">
-                      <input class="form-control" placeholder="" name="facebok" >
+                      <input class="form-control" placeholder="" name="facebook" >
                     </div>
                 </div>
 

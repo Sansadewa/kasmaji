@@ -84,9 +84,13 @@ class Register extends CI_Controller {
 		$lanjut_belajar=$this->input->post('lanjut_belajar');
 		$kegiatan=$this->input->post('kegiatan');
 
-		$this->register_model->putprofil($this->session->userdata('username'), $nomorhp,$nomorwa,$linkedin,$facebook,$ig,$twitter,$prov,$kabkot,$alamat_lengkap,$lanjut_belajar,$kegiatan);
-
+		if($this->register_model->putprofil($this->session->userdata('username'), $nomorhp,$nomorwa,$linkedin,$facebook,$ig,$twitter,$prov,$kabkot,$alamat_lengkap,$lanjut_belajar,$kegiatan)){
 		redirect('register/third');
+
+		} else {
+			echo ('Error PB 1');
+		}
+
 	}
 
 	public function third() {
@@ -97,7 +101,7 @@ class Register extends CI_Controller {
 		}
 
 		$profil=$this->register_model->get_profil($this->session->userdata('username'));
-		if($profil->lanjut_belajar=1){
+		if($profil->lanjut_belajar==1){
 			echo('kamu belajar');
 		}else{
 			$this->register_model->update_step($this->session->userdata('username'),3);

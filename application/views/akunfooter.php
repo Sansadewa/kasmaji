@@ -19,7 +19,7 @@
   <!-- container-scroller -->
 
   <!-- plugins:js -->
-  <script src="<?php echo base_url();?>/public/vendors/js/vendor.bundle.base.js"></script>
+  
   <script src="<?php echo base_url();?>/public/vendors/js/vendor.bundle.addons.js"></script>
   <!-- endinject -->
   <!-- Plugin js for this page-->

@@ -19,9 +19,25 @@ class Akun extends CI_Controller {
 
 	public function pendidikan()
 	{
-		$data['profile']=$this->orang_model->get_profile($this->session->userdata('nim'));
+		$data['pendidikan']=$this->orang_model->get_pendidikan($this->session->userdata('username'));
 		$this->load->view('akunhead');
-		$this->load->view('akun',$data);
+		$this->load->view('pendidikan',$data);
+		$this->load->view('akunfooter');
+	}
+
+	public function pekerjaan()
+	{
+		$data['pekerjaan']=$this->orang_model->get_pekerjaan($this->session->userdata('username'));
+		$this->load->view('akunhead');
+		$this->load->view('pekerjaan',$data);
+		$this->load->view('akunfooter');
+	}
+
+	public function usaha()
+	{
+		$data['usaha']=$this->orang_model->get_usaha($this->session->userdata('username'));
+		$this->load->view('akunhead');
+		$this->load->view('usaha',$data);
 		$this->load->view('akunfooter');
 	}
 

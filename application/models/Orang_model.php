@@ -24,6 +24,38 @@ class Orang_model extends CI_Model
     $Q->free_result();
   }
 
+  public function get_profile($username)
+  {
+    $SQL1 = "SELECT * FROM profil WHERE username='" . $username . "'";
+    $query = $this->db->query($SQL1);
+    return $query;
+    $query->free_result();
+  }
+
+  public function get_pendidikan($username)
+  {
+    $SQL1 = "SELECT * FROM pendidikan WHERE username='" . $username . "'";
+    $query = $this->db->query($SQL1);
+    return $query;
+    $query->free_result();
+  }
+
+  public function get_pekerjaan($username)
+  {
+    $SQL1 = "SELECT * FROM pekerjaan WHERE username='" . $username . "'";
+    $query = $this->db->query($SQL1);
+    return $query;
+    $query->free_result();
+  }
+
+  public function get_usaha($username)
+  {
+    $SQL1 = "SELECT * FROM usaha WHERE username='" . $username . "'";
+    $query = $this->db->query($SQL1);
+    return $query;
+    $query->free_result();
+  }
+
   public function update_login($username, $last, $sess)
   {
     $data = array('last_login' => $last, 'session_token' => $sess);
@@ -38,56 +70,8 @@ class Orang_model extends CI_Model
     $this->db->update('mahasiswa', $data);
   }
 
-  public function get_profile($username)
-  {
-    $SQL1 = "SELECT * FROM profil WHERE username='" . $username . "'";
-    $query = $this->db->query($SQL1);
-    return $query;
-    $query->free_result();
-  }
 
 
-  //  public function get_history(){
-  //  		$SQL1="SELECT * FROM log_topik UNION SELECT * FROM log_topikbaru";
-  //  		$query = $this->db->query($SQL1);
-  //  		return $query;
-  //  		$query->free_result();
-  //  }
-
-  //  public function getRank($kode){
-  //     $sql="SELECT * FROM rank_".$kode;
-  //     return $this->db->query($sql);
-  //     $sql->free_result();
-  //  }
-
-  //  public function get_mytopik($nim){
-  //  		$SQL1="SELECT * FROM sipaju_topik WHERE nim='".$nim."'";
-  //  		$query = $this->db->query($SQL1);
-  //  		return $query;
-  //  		$query->free_result();
-  //  }
-
-  //  public function get_btm($nim){
-  //  		$SQL1="SELECT btm.nim, namapanggilan, email_personal, himada, kabkot, provinsi FROM sipaju_btm btm, sipaju_profil prof WHERE btm.nim=prof.nim AND btm.nim='".$nim."'";
-  //  		$query = $this->db->query($SQL1);
-  //  		return $query;
-  //  		$query->free_result();
-  //  }
-
-  //  public function rekap_btm($ket){
-  //   if($ket=='all'){
-  //     $SQL1="SELECT mhs.nim, mhs.nama, mhs.kelas, kabkot, provinsi, namapanggilan, email_personal, himada FROM sipaju_mahasiswa mhs LEFT JOIN (SELECT prof.nim, kabkot, provinsi, namapanggilan, email_personal, himada FROM sipaju_btm btm, sipaju_profil prof WHERE prof.nim=btm.nim) t ON t.nim=mhs.nim ORDER BY mhs.kelas,mhs.nim ASC";
-  //     $query = $this->db->query($SQL1);
-  //     return $query;
-  //     $query->free_result();
-  //   } else {
-  //    $SQL1="SELECT mhs.nim, mhs.nama, mhs.kelas, kabkot, provinsi, namapanggilan, email_personal, himada FROM sipaju_mahasiswa mhs LEFT JOIN (SELECT prof.nim, kabkot, provinsi, namapanggilan, email_personal, himada FROM sipaju_btm btm, sipaju_profil prof WHERE prof.nim=btm.nim) t ON t.nim=mhs.nim WHERE mhs.kelas='".$ket."'";
-  //     $query = $this->db->query($SQL1);
-  //     return $query;
-  //     $query->free_result();
-  //   }
-
-  //  }
 
 
 }

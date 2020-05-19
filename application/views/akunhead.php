@@ -26,6 +26,7 @@
     margin: 0 auto;
 }
   </style>
+  <script src="<?php echo base_url();?>/public/vendors/js/vendor.bundle.base.js"></script>
 </head>
 
 <body style="padding:0; min-height: 100%">
@@ -42,8 +43,9 @@
         </a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center">
+        <div style="float:left"><a><i class="icon mdi mdi-magnify mdi-lg lg"></i></a></div>
         <ul class="navbar-nav navbar-nav-right">
-          <li class="nav-item dropdown d-none d-xl-inline-block">
+          <li class="nav-item dropdown d-none d-lg-inline-block d-xl-inline-block">
             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
               <span class="profile-text"><?php echo $this->session->userdata('nama'); ?></span>
               <img class="img-xs rounded-circle" src="<?php echo base_url();?>public/images/user.png" alt="Profile image">
@@ -65,6 +67,7 @@
     <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
+      <hr class="my-0">
         <ul class="nav">
           <li class="nav-item nav-profile align-self-center">
             <div class="nav-link align-self-center">
@@ -84,7 +87,9 @@
                 </div>
               </div>
             </div>
+            <hr class="my-0">
           </li>
+          
           <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url(); ?>/akun">
               <i class="menu-icon mdi mdi-account-card-details"></i>
@@ -139,14 +144,6 @@
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-          <div class="row purchace-popup">
-            <div class="col-12">
-              <span class="d-block d-md-flex align-items-center">
-                <p>RANK DISINI NIH</p>
-                  <a class="btn ml-auto purchase-button d-none d-md-block" href="<?php echo base_url(); ?>akun/rank">PENCET SINI</a>
-                <i class="mdi mdi-close popup-dismiss d-none d-md-block"></i>
-              </span>
-            </div>
-          </div>
+          
 
           <!--CONTENT MASUK SINI-->

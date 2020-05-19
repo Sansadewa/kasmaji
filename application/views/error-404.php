@@ -32,14 +32,14 @@
                 <h3 class="font-weight-light">Sepertinya kamu nyasar kak!</h3>
               </div>
             </div>
-            <div class="row mt-5">
-              <div class="col-12 text-center mt-xl-2">
-                <a class="text-white font-weight-medium" href="<?php echo base_url();?>">Balik lagi yuk!</a>
+            <div class="row mt-5 justify-content-center">
+              <div class="col-4 text-center mt-xl-2">
+                <a class="font-weight-medium btn btn-primary submit-btn btn-block" style="background-color:white; border-color:white; color:#007280; border-radius:4rem" href="<?php echo base_url();?>akun">Balik lagi yuk!</a>
               </div>
             </div>
             <div class="row mt-5">
               <div class="col-12 mt-xl-2">
-                <p class="text-white font-weight-medium text-center">Copyright &copy; 2019 All rights reserved.</p>
+                <p class="text-white font-weight-medium text-center">Copyright &copy; GSA 2020 All rights reserved.</p>
               </div>
             </div>
           </div>

@@ -17,34 +17,108 @@ class Register_model extends CI_Model {
       $this->db->update('orang',$data);
   	}
 
-  public function putprofil($username, $nomorhp,$nomorwa,$linkedin,$facebook,$ig,$twitter,$prov,$kabkot,$alamat_lengkap,$lanjut_belajar,$kegiatan){
-    $data = array (
-              'username' => $username,
-              'nomor_hp' => $nomorhp,
-              'nomor_wa' => $nomorwa,
-              'linkedin' => $linkedin,
-              'facebook' => $facebook,
-              'ig' => $ig,
-              'twitter' => $twitter,
-              'prov' => $prov,
-              'kabkot' => $kabkot,
-              'alamat_lengkap' => $alamat_lengkap,
-              'lanjut_belajar' => $lanjut_belajar,
-              'kegiatan' => $kegiatan
-            );
-
-    if($this->db->insert('profil',$data)){
-      $data = array(
-        'step' => 2
-        );
-      $this->db->where('username', $username);
-      $this->db->update('orang',$data);
-      return TRUE;
-    } else {
-
+    public function putprofil($username, $nomorhp,$nomorwa,$linkedin,$facebook,$ig,$twitter,$prov,$kabkot,$alamat_lengkap,$lanjut_belajar,$kegiatan){
+      $data = array (
+                'username' => $username,
+                'nomor_hp' => $nomorhp,
+                'nomor_wa' => $nomorwa,
+                'linkedin' => $linkedin,
+                'facebook' => $facebook,
+                'ig' => $ig,
+                'twitter' => $twitter,
+                'prov' => $prov,
+                'kabkot' => $kabkot,
+                'alamat_lengkap' => $alamat_lengkap,
+                'lanjut_belajar' => $lanjut_belajar,
+                'kegiatan' => $kegiatan
+              );
+  
+      if($this->db->insert('profil',$data)){
+        $data = array(
+          'step' => 2
+          );
+        $this->db->where('username', $username);
+        $this->db->update('orang',$data);
+        return TRUE;
+      } else {
+  
+      }
+  
+    }
+    
+    public function putpendidkan($username, $pendidikan, $tahun_masuk, $tahun_keluar, $instansi, $jurusan, $pascasarjana, $instansi_lanjut, $jurusan_lanjut, $beasiswa){
+      $data = array (
+                'username' => $username,
+                'sedang_or_selesai' => $pendidikan,
+                'th_masuk' => $tahun_masuk,
+                'th_keluar' => $tahun_keluar,
+                'instansi' => $instansi,
+                'jurusan' => $jurusan,
+                'pascasarjana' => $pascasarjana,
+                'instansi_lanjut' => $instansi_lanjut,
+                'jurusan_lanjut' => $jurusan_lanjut,
+                'beasiswa' => $beasiswa, 
+              );
+  
+      if($this->db->insert('pendidikan',$data)){
+        $data = array(
+          'step' => 3
+          );
+        $this->db->where('username', $username);
+        $this->db->update('orang',$data);
+        return TRUE;
+      } else {
+  
+      }
+  
     }
 
-  }
+    public function putpekerjaan($username, $kegiatan, $status_pekerjaan, $tempat_kerja,$bidang, $jabatan, $deskripsi_pekerjaan, $rencana){
+      $data = array (
+                'username' => $username,
+                'jenis' => $kegiatan,
+                'status' => $status_pekerjaan,
+                'tempat_kerja' => $tempat_kerja,
+                'bidang' => $bidang,
+                'jabatan' => $jabatan,
+                'deskripsi_kerja' => $deskripsi_pekerjaan,
+                'rencana' => $rencana,
+              );
+  
+      if($this->db->insert('pekerjaan',$data)){
+        $data = array(
+          'step' => 4
+          );
+        $this->db->where('username', $username);
+        $this->db->update('orang',$data);
+        return TRUE;
+      } else {
+  
+      }
+  
+    }
+
+    public function putusaha($username, $nama_usaha, $bidang, $alamat_usaha, $deskripsi_usaha ){
+      $data = array (
+                'username' => $username,
+                'nama_usaha' => $nama_usaha,
+                'bidang_usaha' => $bidang,
+                'alamat_usaha' => $alamat_usaha,
+                'deskripsi_usaha' => $deskripsi_usaha
+              );
+  
+      if($this->db->insert('usaha',$data)){
+        $data = array(
+          'step' => 5
+          );
+        $this->db->where('username', $username);
+        $this->db->update('orang',$data);
+        return TRUE;
+      } else {
+  
+      }
+  
+    }
 
   	public function get_info($key){
 	    $SQL1 ="
@@ -63,6 +137,8 @@ class Register_model extends CI_Model {
 	    ";
 	    return $this->db->query($SQL1)->row();
     }
+
+
 
     public function update_step($username, $step){
       $this->db->where('username', $username);

@@ -15,7 +15,7 @@ class Orang_model extends CI_Model
   public function get_info($username)
   {
     $SQL1 = "
-	    SELECT nama, email, pass, kelas, jabatan, foto, step
+	    SELECT nama, email, pass, kelas, jabatan, foto,tgl_lahir, step
 	    FROM orang
 	    WHERE username = '" . $username . "'
 	    ";

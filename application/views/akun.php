@@ -22,7 +22,7 @@
                   <br>
                   <div class="form-group">
                     <label for="nim" style="line-height: 10px; font-size: 13px;">NIM</label>
-                    <input class="form-control-plaintext" id="nim" value="<?php echo $this->session->userdata('nim')?>" readonly>
+                    <input class="form-control-plaintext" id="nim" value="<?php echo $this->session->userdata('username')?>" readonly>
                   </div>
                   <div class="form-group">
                     <label for="nama" style="line-height: 10px; font-size: 13px;">Nama Lengkap</label>
@@ -31,7 +31,7 @@
 
                   <div class="form-group">
                     <label for='date'>Tanggal Lahir</label> 
-                    <input type="date" name="date" class="form-control-plaintext" value="<?php echo $row->date;?>" readonly>
+                    <input type="date" name="date" class="form-control-plaintext" value="<?php echo $row->tgl_lahir;?>" readonly>
                     </div>
                 <div class="form-group">
                   <label for="alamat">Alamat Mahasiswa</label>

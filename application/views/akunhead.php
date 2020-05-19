@@ -4,7 +4,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Sipaju</title>
+  <title>KASMAJI</title>
 
   <!-- plugins:css -->
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
@@ -34,11 +34,11 @@
 
     <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-        <a class="navbar-brand brand-logo" href="<?php echo base_url(); ?>">
-          <img src="<?php echo base_url(); ?>/public/images/sipaju.png" alt="logo" />
+        <a class="navbar-brand brand-logo" href="<?php echo base_url(); ?>" style="height:63">
+          <img src="<?php echo base_url(); ?>/public/images/kasmaji-panjang.png" alt="logo" height="63" />
         </a>
         <a class="navbar-brand brand-logo-mini" href="<?php echo base_url(); ?>">
-          <img src="<?php echo base_url(); ?>/public/images/logo57fix.png" alt="logo" />
+          <img src="<?php echo base_url(); ?>/public/images/logo-mini.jpeg" alt="logo" />
         </a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center">
@@ -66,16 +66,19 @@
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
-          <li class="nav-item nav-profile">
-            <div class="nav-link">
+          <li class="nav-item nav-profile align-self-center">
+            <div class="nav-link align-self-center">
               <div class="user-wrapper">
-               <!-- <div class="profile-image">
-                  <img src="images/faces/face1.jpg" alt="profile image"> 
-                </div> -->
+                <br>
+               <div class="profile-image">
+                  <!-- <img src="<?php base_url(); ?>foto/masukinlinkdisini.jpg" alt="profile image">  -->
+                  <img src="<?php base_url(); ?>public/images/user.png" alt="profile image"> 
+
+                </div>
                 <div class="text-wrapper">
                   <p class="profile-name"><?php echo wordwrap(strtoupper($this->session->userdata('nama')),20,"<br>\n"); ?></p>
                   <div>
-                    <small class="designation text-muted"><?php echo $this->session->userdata('nim'); ?></small>
+                    <small class="designation text-muted"><?php echo $this->session->userdata('kelas'); ?></small>
                     <span class="status-indicator online"></span>
                   </div>
                 </div>
@@ -88,7 +91,8 @@
               <span class="menu-title">Profil</span>
             </a>
           </li>
-          <li class="nav-item">
+
+          <!-- <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <i class="menu-icon mdi mdi-library-books"></i>
               <span class="menu-title">Skripsi</span>
@@ -104,57 +108,26 @@
                 </li>
               </ul>
             </div>
-          </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url(); ?>akun/IPK">
-              <i class="menu-icon mdi mdi-backup-restore"></i>
-              <span class="menu-title">Kalkulator IPK</span>
-            </a>
           </li> -->
+
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url(); ?>akun/BTM">
+            <a class="nav-link" href="<?php echo base_url(); ?>akun/pendidikan">
               <i class="menu-icon mdi mdi-book-open-page-variant"></i>
-              <span class="menu-title">Buku Tahunan Mahasiswa</span>
+              <span class="menu-title">Pendidikan</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#uii-basic" aria-expanded="false" aria-controls="uii-basic">
-              <i class="menu-icon mdi mdi-library-books"></i>
-              <span class="menu-title">Simsalabim!</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="uii-basic">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item">
-                  <a class="nav-link" href="<?php echo base_url(); ?>akun/abrakadabra">Entri Pilihan Simulasi</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="<?php echo base_url(); ?>akun/simsalabim">Hasil Simulasi</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url(); ?>akun/rank">
+            <a class="nav-link" href="<?php echo base_url(); ?>akun/pekerjaan">
               <i class="menu-icon mdi mdi-book-open-page-variant"></i>
-              <span class="menu-title">Ranking Disini~</span>
+              <span class="menu-title">Pekerjaan</span>
+            </a>
+          </li>          
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo base_url(); ?>akun/usaha">
+              <i class="menu-icon mdi mdi-book-open-page-variant"></i>
+              <span class="menu-title">Usaha</span>
             </a>
           </li>
-
-          <?php $nim=$this->session->userdata('nim');
-                if($nim=='15.8658' || $nim== '15.8918' || $nim== '15.8605' || $nim== '15.8889' || $nim=='15.8792' || $nim=='15.8507' || $nim== '15.8825' || $nim== '15.8888' || $nim== '15.8898' || $nim== '15.8608' || $nim== '15.8493' || $nim== '15.8756' || $nim== '15.8873' || $nim== '15.8893'  || $nim== '15.8861' || $nim== '15.8636' ||  $nim== '15.8668'|| $nim== '15.8643'|| $nim== '15.8468'|| $nim== '15.8680'|| $nim== '15.8770'|| $nim== '15.8499' || $nim=='15.8725') { ?>
-
-                  <li class="nav-item">
-                    <a class="nav-link" href="<?php echo base_url(); ?>akun/rekap_btm">
-                    <i class="menu-icon mdi mdi-book-open-page-variant"></i>
-                    <span class="menu-title">Rekap BTM</span>
-                    </a>
-                  </li>
-
-                <?php  
-                } ?>
-         
-
           <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url(); ?>akun/logout">
               <i class="menu-icon mdi mdi-logout-variant"></i>

@@ -30,32 +30,24 @@
               <form action="<?php echo base_url().'login/identify' ?>" method="post">
                 <div class="form-group">
                   <label class="label">Username</label>
-                  <div class="input-group">
                     <input type="text" class="form-control" placeholder="Username" name="username" pattern=".{13,15}" title="Username berisikan XXX karakter" required>
-                    <div class="input-group-append">
-                      <span class="input-group-text">
-                      </span>
-                    </div>
-                  </div>
                 </div>
+
                 <div class="form-group">
                   <label class="label">Password</label>
-                  <div class="input-group">
+
                     <input type="password" class="form-control" placeholder="*********" name="pass" required>
-                    <div class="input-group-append">
-                      <span class="input-group-text">
-                      </span>
-                    </div>
-                  </div>
                 </div>
-                <a class="text-danger"><?php
+                <a class="text-danger" <?php
                   $informasi = $this->session->flashdata('informasi');
                   if(!empty($informasi)){
-                    echo $informasi."\r\n";
+                    echo ">".$informasi."\r\n";
+                  } else {
+                    echo "hidden>";
                   }
                   ?><br></a>
                 <div class="form-group">
-                  <button class="btn btn-primary submit-btn btn-block">Login</button>
+                  <button class="btn submit-btn btn-block text-white">Login</button>
                 </div>
                 <div class="form-group d-flex justify-content-between">
                 </div>

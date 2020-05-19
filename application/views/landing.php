@@ -16,39 +16,36 @@
     <!-- font -->
     <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet">
 
-    <title>STIS 57</title>
+    <title>KASMAJI</title>
   </head>
   <body>
     <div class="bg-header">
       <div class="container">
-        <div class="row">
-          <div class="col-lg-3 col-sm-12 d-sm-none d-none d-md-block d-lg-block">
+        <div class="row justify-content-center align-items-center">
+
+          <div class="col-lg-3 col-md-3 col-sm-12 d-sm-none d-md-block d-lg-block">
             <a class="navbar-brand" href="#">
-              <img src="<?php echo base_url(); ?>public/landing/assets/img/logo.png" style="height: 50px">
+              <img src="<?php echo base_url(); ?>public/landing/assets/img/logo.png" style="height: 90px">
             </a>
           </div>
-          <div class="col-lg-9 d-sm-none d-none d-md-block d-lg-block">
+          <div class="col-lg-9 col-md-9 d-sm-none d-md-block d-lg-block">
             <ul class="nav nav-white justify-content-end">
               <li class="nav-item">
-                <a class="nav-link btn" style="background-color: white; color: #0045ba !important; border-radius: 99px;" href="<?php echo base_url(); ?>login"> &nbsp;&nbsp;&nbsp; Login &nbsp;&nbsp;&nbsp;</a>
+                <a class="nav-link btn" style="background-color: white; color: #259b87  !important; border-radius: 99px;" href="<?php echo base_url(); ?>login"> &nbsp;&nbsp;&nbsp; Login &nbsp;&nbsp;&nbsp;</a>
               </li>
-              <!-- <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Disabled</a>
-              </li> -->
             </ul>
           </div>
+          <div class="col-sm-12 d-sm-block d-md-none d-lg-none justify-content-center mx-auto">
+            <a class="navbar-brand justify-content-center mx-auto" href="#">
+              <img src="<?php echo base_url(); ?>public/landing/assets/img/logo.png" class="mx-auto justify-content-center" style="width: 500px">
+            </a>
+          </div>
         </div>
-        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br>
         <center>
           <h1 style="color:white" data-aos="flip-up" data-aos-delay="300"><b>SELAMAT DATANG!</b></h1>
           <p style="color:rgba(255,255,255,0.7); padding: 0 10%;" data-aos="flip-down" data-aos-delay="600">"Website ini bertujuan untuk memudahkan akses informasi kegiatan kemahasiswaan dan berisi data mengenai Mahasiswa Tingkat IV T.A 2018/2019. Anda dapat mengakses baik informasi akademik maupun kegiatan non akademik yang ada di Politeknik Statistika STIS."</p>
-          <a class="btn d-lg-none d-md-none d-sm-block d-block" style="background-color: white; color: #0045ba !important; border-radius: 99px; max-width: 150px" href="<?php echo base_url(); ?>login"> &nbsp;&nbsp;&nbsp; Login &nbsp;&nbsp;&nbsp;</a>
+          <a class="btn d-lg-none d-md-none d-sm-block d-block" style="background-color: white; color: #259b87  !important; border-radius: 99px; max-width: 150px" href="<?php echo base_url(); ?>login"> &nbsp;&nbsp;&nbsp; Login &nbsp;&nbsp;&nbsp;</a>
         </center>
       </div>
     </div>
@@ -135,7 +132,7 @@
     </div>
 
     <div class="container" style="padding: 30px; color: grey; background-color: white;">
-      <center> From KOMINFO-TI with   &#10084; </center>
+      <center> Copyright &copy; GSA 2020 All rights reserved.</center>
     </div>
     <!-- jQuery first, then Popper.js, Bootstrap JS, then AOS JS kampret -->
     <script src="<?php echo base_url(); ?>public/landing/assets/js/jquery.min.js"></script>

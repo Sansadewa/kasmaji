@@ -17,6 +17,11 @@
   <link rel="stylesheet" href="<?php echo base_url();?>public/css/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="<?php echo base_url();?>public/images/favicon.png" />
+  <style>
+  label {
+    vertical-align: middle !important
+  }
+    </style>
 </head>
 
 <body>
@@ -24,42 +29,27 @@
     <div class="container-fluid page-body-wrapper full-page-wrapper auth-page">
       <div class="content-wrapper d-flex align-items-center auth register-bg-1 theme-one">
         <div class="row w-100">
-          <div class="col-lg-4 mx-auto">
+          <div class="col-lg-5 mx-auto">
             <h2 class="text-center mb-4">Registrasi 1 : Data Login <h2>
             <div class="auto-form-wrapper">
               <form action="<?php echo base_url().'register/procpass' ?>" method="post">
-              <div class="form-group row">
-                  <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Nama</label>
-                    <div class=" col-sm-9">
-                      <input class="form-control" placeholder="<?php echo($this->session->userdata('nama')); ?>" name="username" value="" reqiured disabled>
-                    </div>
-              </div>
               <div class="form-group">
-                  <div class="input-group">
-                    <input type="email" class="form-control" placeholder="Email" name="email" reqiured>
-                    <div class="input-group-append">
-                      <span class="input-group-text">
-                      </span>
-                    </div>
-                  </div>
+                    <label for="nama" style="margin-bottom:0">Nama</label>
+                    <input class="form-control" value="<?php echo($this->session->userdata('nama')); ?>" name="nama" id="nama" style="margin-top:0" reqiured disabled>
+              </div>
+
+                <div class="form-group">
+                  <label for="email" style="margin-bottom:0">Email</label>
+                  <input type="email" class="form-control" placeholder="Email" name="email" reqiured>
                 </div>
                 <div class="form-group">
-                  <div class="input-group">
-                    <input type="password" class="form-control" placeholder="Password" name="pa" pattern=".{8,}" title="Password minimal 8 karakter" reqiured>
-                    <div class="input-group-append">
-                      <span class="input-group-text">
-                      </span>
-                    </div>
-                  </div>
+                  <label for="pa" style="margin-bottom:0">Password</label>
+                  <input type="password" class="form-control" placeholder="Password" name="pa" pattern=".{8,}" title="Password minimal 8 karakter" reqiured>
                 </div>
                 <div class="form-group">
-                  <div class="input-group">
-                    <input type="password" class="form-control" placeholder="Confirm Password"name="pb" pattern=".{8,}" title="Password minimal 8 karakter" required>
-                    <div class="input-group-append">
-                      <span class="input-group-text">
-                      </span>
-                    </div>
-                  </div>
+                  <label for="pb" style="margin-bottom:0">Re-type Password</label>
+                  
+                  <input type="password" class="form-control" placeholder="Confirm Password"name="pb" pattern=".{8,}" title="Password minimal 8 karakter" required>
                 </div><a class="text-danger"><?php
                   $informasi = $this->session->flashdata('informasi');
                   if(!empty($informasi)){
@@ -67,7 +57,7 @@
                   }
                   ?></a>
                 <div class="form-group">
-                  <button class="btn btn-primary submit-btn btn-block">Lanjut gan!</button>
+                  <button class="btn submit-btn text-white btn-block">Lanjut gan!</button>
                 </div>
               </form>
             </div>

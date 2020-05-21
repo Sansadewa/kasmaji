@@ -21,9 +21,9 @@
   <body>
     <div class="bg-header">
       <div class="container">
-        <div class="row justify-content-center align-items-center">
+        <div class="row  justify-contents-center justify-content-center align-items-center">
 
-          <div class="col-lg-3 col-md-3 col-sm-12 d-sm-none d-md-block d-lg-block">
+          <!-- <div class="col-lg-3 col-md-3 col-sm-12 d-sm-none d-md-block d-lg-block">
             <a class="navbar-brand" href="#">
               <img src="<?php echo base_url(); ?>public/landing/assets/img/logo.png" style="height: 90px">
             </a>
@@ -34,18 +34,19 @@
                 <a class="nav-link btn" style="background-color: white; color: #259b87  !important; border-radius: 99px;" href="<?php echo base_url(); ?>login"> &nbsp;&nbsp;&nbsp; Login &nbsp;&nbsp;&nbsp;</a>
               </li>
             </ul>
-          </div>
-          <div class="col-sm-12 d-sm-block d-md-none d-lg-none justify-content-center mx-auto">
-            <a class="navbar-brand justify-content-center mx-auto" href="#">
-              <img src="<?php echo base_url(); ?>public/landing/assets/img/logo.png" class="mx-auto justify-content-center" style="width: 500px">
+          </div> -->
+          <div class="col-sm-12 d-sm-block d-md-block d-lg-block d-flex justify-contents-center justify-content-center align-items-center mx-auto">
+            <a class="navbar-brand d-flex justify-contents-center justify-content-center align-items-center mx-auto" href="#">
+              <img src="<?php echo base_url(); ?>public/landing/assets/img/logo.png" class="mx-auto justify-contents-center justify-content-center align-items-center" style="width: 500px">
             </a>
           </div>
         </div>
         <br><br><br><br>
         <center>
-          <h1 style="color:white" data-aos="flip-up" data-aos-delay="300"><b>SELAMAT DATANG!</b></h1>
-          <p style="color:rgba(255,255,255,0.7); padding: 0 10%;" data-aos="flip-down" data-aos-delay="600">"Website ini bertujuan untuk memudahkan akses informasi kegiatan kemahasiswaan dan berisi data mengenai Mahasiswa Tingkat IV T.A 2018/2019. Anda dapat mengakses baik informasi akademik maupun kegiatan non akademik yang ada di Politeknik Statistika STIS."</p>
-          <a class="btn d-lg-none d-md-none d-sm-block d-block" style="background-color: white; color: #259b87  !important; border-radius: 99px; max-width: 150px" href="<?php echo base_url(); ?>login"> &nbsp;&nbsp;&nbsp; Login &nbsp;&nbsp;&nbsp;</a>
+          <h1 style="color:white" data-aos="flip-up" data-aos-delay="300"><b>SELAMAT DATANG SEDULUR KASMAJI 15!</b></h1>
+          <p style="color:rgba(255,255,255,0.7); padding: 0 10%;" data-aos="flip-down" data-aos-delay="600">"Sebagai alumni SMA yang rata-rata sedang mulai meniti karir profesional setelah menyelesaikan masa perkuliahan, Kasmaji 2015 dihadapkan dengan banyak pilihan penting. Pada momen seperti ini, sangatlah baik untuk dapat mengumpulkan informasi dan pengetahuan sebanyak-banyaknya. Salah satu alternatif sarana untuk memeroleh hal-hal tersebut bisa melalui suatu jaringan sosial yang dekat, kredibel, dan terpercaya. Website Database Kasmaji 2015 hadir untuk memenuhi kebutuhan teersebut."</p>
+          <br><br>
+          <a class="btn d-lg-block d-md-block d-sm-block d-block" style="background-color: white; color: #259b87  !important; border-radius: 99px; max-width: 150px" href="<?php echo base_url(); ?>login"> &nbsp;&nbsp;&nbsp; Login &nbsp;&nbsp;&nbsp;</a>
         </center>
       </div>
     </div>
@@ -55,7 +56,7 @@
         <div class="card" data-aos="fade-up" style="top: -220px; padding: 20px 0; max-width: 700px; margin: 0 auto -180px;">
           <div class="card-body">
             <center>
-              <h4 class="card-title"><b>Countdown KKBS</b></h4>
+              <h4 class="card-title"><b>Countdown Pengisian Database</b></h4>
               <hr>
               <ul class="countdown">
                 <li><span id="days"></span>days</li>
@@ -68,64 +69,54 @@
         </div>
         <!-- timeline -->
         <center>
-          <h3 data-aos="fade-up"> T I M E L I N E </h3><br><br>
+          <h3 data-aos="fade-up"> P U S A T &nbsp;&nbsp; B A N T U A N </h3><br><br>
         </center>  
         <section id="timeline">
           <article data-aos="fade-up">
             <div class="inner">
               <span class="date">
-                <span class="day">22</span>
-                <span class="month">Feb</span>
+                <span class="day"></span>
+                <span class="month"></span>
                 <!-- <span class="year">2014</span> -->
               </span>
-              <h2>Lomba Gambar</h2>
-              <p>Yuk, kembangkan imajinasi dan kreasimu disini! Persiapkan dirimu ya!</p>
+              <h2>Admin 1</h2>
+              <p>085156326385</p>
             </div>
           </article>
           <article data-aos="fade-up">
             <div class="inner">
               <span class="date">
-                <span class="day">23</span>
-                <span class="month">Mar</span>
+                <span class="day"></span>
+                <span class="month"></span>
                 <!-- <span class="year">2014</span> -->
               </span>
-              <h2>Fun Games!</h2>
-              <p>Disini kamu bakalan di tes keakrabannya dengan teman-teman kamu!</p>
-            </div>
-          </article>
-          <article data-aos="fade-up">
-            <div class="inner">
-              <span class="date">
-                <span class="day">27</span>
-                <span class="month">Mar</span>
-                <!-- <span class="year">2014</span> -->
-              </span>
-              <h2>OLIMPIADE 57</h2>
-              <p>Kendurkan otot kencangkan tenaga! Ayok kita bermain dan berolahraga lagi!</p>
-            </div>
-          </article>
-          <article data-aos="fade-up">
-            <div class="inner">
-              <span class="date">
-                <span class="day">6</span>
-                <span class="month">Apr</span>
-                <!-- <span class="year">2014</span> -->
-              </span>
-              <h2>Ranking 1</h2>
-              <p>Ayo uji kecepatan dan reflek kamu disini, jangan lupa perluas wawasan ya!</p>
+              <h2>Admin 2</h2>
+              <p>088290026071</p>
             </div>
           </article>
           <article data-aos="fade-up">
             <div class="inner">
               <span class="date">
                 <span class="day">27</span>
-                <span class="month">Apr</span>
+                <span class="month">Mar</span>
                 <!-- <span class="year">2014</span> -->
               </span>
-              <h2>Last Gathering 57</h2>
-              <p>Ini bukan menjadi pertanda sebuah perpisahan, melainkan menjadi tempat kita untuk saling mengakrabkan :)</p>
+              <h2>Admin 3</h2>
+              <p>081818897485</p>
             </div>
           </article>
+          <article data-aos="fade-up">
+            <div class="inner">
+              <span class="date">
+                <span class="day"></span>
+                <span class="month"></span>
+                <!-- <span class="year">2014</span> -->
+              </span>
+              <h2>Admin 4</h2>
+              <p>08782418809</p>
+            </div>
+          </article>
+          
         </section>
 
       </div>
@@ -146,7 +137,7 @@
       hour = minute * 60,
       day = hour * 24;
 
-      let countDown = new Date('Feb 15, 2019 00:08:00').getTime(),
+      let countDown = new Date('Jun 17, 2020 23:59:00').getTime(),
           x = setInterval(function() {
 
             let now = new Date().getTime(),

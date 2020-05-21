@@ -25,13 +25,13 @@
       <div class="content-wrapper d-flex align-items-center auth register-bg-1 theme-one">
         <div class="row w-100">
           <div class="col-lg-4 mx-auto">
-            <h2 class="text-center mb-4">Lupa Password : Input NIM</h2>
+            <h2 class="text-center mb-4">Lupa Password : Input Username</h2>
             <div class="auto-form-wrapper">
-              <p>Kode Unik akan dikirmkan ke <b>Email STIS & Email di biodata BTM</b> kamu untuk keperluan lupa password.</p>
+              <p>Kode Unik akan dikirmkan ke <b>Email yang terdaftar pada akun kamu</b> untuk keperluan lupa password.</p>
               <form action="<?php echo base_url().'lupa/first' ?>" method="post">
                 <div class="form-group">
                   <div class="input-group">
-                    <input class="form-control" placeholder="NIM" name="nimbodoh" pattern=".{7,7}" title="NIM sepanjang 7 karakter" reqiured>
+                    <input class="form-control" placeholder="Username" name="username" pattern=".{12,15}" title="Username tidak sesuai format." reqiured>
                     <div class="input-group-append">
                       <span class="input-group-text">
                       </span>

@@ -13,11 +13,11 @@ class Lupa extends CI_Controller {
 	}
 
 	public function first() {
-		$nim = $this->input->post('nimbodoh'); //inputan dengan nama = nim yang ada di popup Lupa Password
+		$username = $this->input->post('username'); //inputan dengan nama = nim yang ada di popup Lupa Password
 
-	    $cek = $this->orang_model->get_info($nim);
-	    $btm = $this->orang_model->get_btm($nim);
-	    if(!empty($cek) && !empty($btm)){
+		$cek = $this->orang_model->get_info($username);
+		$ha=$cek;
+	    if(!empty($cek)){
 	    $characters = '123456789zxcvbnmasdfghjkqwertyuipZXCVBNMASDFGHJKLQWERTYUP'; //membuat string dengan semua kemungkinan karakter yang ada
 	    $password_token = ''; //membuat password baru
 	    for ($i = 0; $i<8; $i++) {
@@ -25,54 +25,62 @@ class Lupa extends CI_Controller {
 	    } 
 
 	    //berjumlah 8 char. terdiri dari char random dengan kemungkinan mulai dari char pertama(0) di "characters" sampe ke bagian panjang "characters" akhir -1. karena array.
-	    $data['nim'] = $nim;
+		$data['username'] = $username;
+		$data['nama'] = $ha[0]['nama'];
 	    $data['code']= $password_token;	    
 		
-	    $this->load->library('email');
+		$this->load->library('email');
+		
 	    $surat['protocol']    = 'smtp';
-	    $surat['smtp_host']    = 'ssl://mail.stislimatuju.com';
+	    $surat['smtp_host']    = 'ssl://sipaju.kasmaji15.web.id';
 	    $surat['smtp_port']    = '465';
-	    $surat['smtp_user']    = 'no-reply@stislimatuju.com';
-	    $surat['smtp_pass']    = 'tgUBET9qAbCP5Lh';
-	    $surat['charset']    = 'utf-8';
+	    $surat['smtp_user']    = 'no-reply@sipaju.kasmaji15.web.id';
+	    $surat['smtp_pass']    = 'c^Z3C%mgaryi';
+		$surat['charset']    = 'utf-8';
+		$surat['smtp_timeout'] = 12;
 	    $surat['newline']  = "\r\n";
 	    $surat['validate'] = TRUE;
     	$this->email->initialize($surat);	
-    	$ha=$btm->result_array();
-	    $this->email->from('no-reply@stislimatuju.com','STISLIMATUJU');
-	    $this->email->subject('Reset Password SIPAJU');
+	    $this->email->from('no-reply@kasmaji15.web.id','KASMAJI');
+	    $this->email->subject('Reset Password KASMAJI');
 	    $this->email->message($this->load->view('email_lupa',$data,true));
 	    $this->email->set_mailtype("html");
-	    $this->email->to($nim.'@stis.ac.id, '.$ha[0]['email_personal']);
+	    $this->email->to($ha[0]['email']);
+
 
 	    if(!$this->email->send()){
 	      echo "Mailer Error: " . $this->email->print_debugger();
-	      echo "Gagal";
+		  echo "Gagal";
+	      $this->orang_model->savekode($username,$password_token); //menuju model untuk menyimpan nim dan kode
 	      redirect('Login');
 	    }
 	    else{
-	      $this->orang_model->savekode($nim,$password_token); //menuju model untuk menyimpan nim dan kode
+	      $this->orang_model->savekode($username,$password_token); //menuju model untuk menyimpan nim dan kode
 	      $this->load->view('teledor');
 	    }
 	  } else {
-	    $this->session->set_flashdata('informasi','NIM tidak terdaftar/kosong');
+	    $this->session->set_flashdata('informasi','Username tidak terdaftar');
 	    redirect('login');
 	  }
 	}
 
+	 public function inputpass()
+	{
+		$this->load->view('teledor');
+	}
 	public function second() {
-		$nim=$this->input->post('nim');
-		$hm=$this->orang_model->get_info($nim);
+		$username=$this->input->post('username');
+		$hm=$this->orang_model->get_info($username);
 		$kode=$this->input->post('kode');
 		$pw1=$this->input->post('Pass');
 		$pw2=$this->input->post('Pass2');
-		if ( $pw1==NULL ||$pw2==NULL || $nim==NULL) {
-		 	$this->load->view('teledor');
+		if ( $pw1==NULL ||$pw2==NULL || $username==NULL) {
+		 	redirect('lupa/inputpass');
 		 } else{
 		 	$go=TRUE;
-			if($pw1!=$pw2){$this->session->set_flashdata('report', 'Gak sama Passwordnya :('); $go=FALSE;}
+			if($pw1!=$pw2){$this->session->set_flashdata('report', 'Gak sama Passwordnya :('); redirect('lupa/inputpass');$go=FALSE;}
 
-			if($hm[0]['kodeLupaPass']===$kode && $go){
+			if($hm[0]['forgot_token']===$kode && $go){
 				$this->load->model('register_model');
 				$this->register_model->putPass($pw1,$nim);
 				$this->session->set_flashdata('informasi', 'Password Updated.');

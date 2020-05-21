@@ -28,6 +28,14 @@ class Register extends CI_Controller {
 		} elseif ($aku->step==3){
 			//kalau udah pass sama email, masuk ke biodata dasar
 			redirect('register/fourth');
+
+		} elseif ($aku->step==4){
+			//kalau udah pass sama email, masuk ke biodata dasar
+			redirect('register/fifth');
+
+		} elseif ($aku->step==5){
+			//kalau udah pass sama email, masuk ke biodata dasar
+			redirect('register/selesai');
 			
 		} else {
 			$this->session->set_flashdata('informasi', 'Error pada registrasi.');
@@ -250,6 +258,14 @@ class Register extends CI_Controller {
 		$profil=$this->register_model->get_info($this->session->userdata('username'));
 		if ($profil->step!=5) redirect('register');
 		$this->load->view('selesai');
+	}
+
+	public function kabkot(){
+		$prov=$this->input->post('prov');
+		$kabkot=$this->register_model->get_kabkot($prov);
+		foreach($kabkot->result() as $row){
+			echo("<option value='".$row->name."' >".$row->name."</option>");
+		}
 	}
 
 	public function a(){

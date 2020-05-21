@@ -1,6 +1,6 @@
 <div class="row">
-  <div class="col-md-12 d-flex align-items-stretch grid-margin">
-    <div class="row flex-grow">
+  <div class="col-md-12 grid-margin">
+    <div class="row ">
       <div class="col-12">
         <div class="card">
           <div class="card-body">
@@ -75,8 +75,8 @@
 </div>
 
 <div class="row">
-  <div class="col-md-12 d-flex align-items-stretch grid-margin">
-    <div class="row flex-grow">
+  <div class="col-md-12  grid-margin">
+    <div class="row ">
       <div class="col-12">
         <div class="card">
           <div class="card-body">
@@ -84,7 +84,7 @@
             <hr>
             <p class="card-description">
             </p>
-            <div class="table-responsive sebuah-tabelWrapper" style="width:800px" width="500px">
+            <div class="table-responsive sebuah-tabelWrapper" >
               <table id="sebuah-tabel" class="table table-striped" style="width:100%" width="100%">
                 <thead>
                 <tr>

@@ -9,12 +9,24 @@ class Akun extends CI_Controller {
 		$this->ceklogin->ceksesi();
 	}
 
+	
 	public function index()
 	{
 		$data['profile']=$this->orang_model->get_profile($this->session->userdata('username'));
 		$this->load->view('akunhead');
 		$this->load->view('akun',$data);
 		$this->load->view('akunfooter');
+	}
+
+	public function kabkot(){
+		$prov=$this->input->post('prov');
+		$sess_kab=$this->input->post('sess_kab');
+		$this->load->model('register_model');
+		$kabkot=$this->register_model->get_kabkot($prov);
+		foreach($kabkot->result() as $row){
+			if($row->name==$sess_kab){$selected='selected';} else $selected='';
+			echo("<option value='".$row->name."' ".$selected.">".$row->name."</option>");
+		}
 	}
 
 	public function pendidikan()

@@ -218,6 +218,25 @@
   <!-- inject:js -->
   <script src="<?php echo base_url();?>public/js/off-canvas.js"></script>
   <script src="<?php echo base_url();?>public/js/misc.js"></script>
+  <script>
+    $(document).ready(function () {
+
+$('[name="prov"]').change(function(){
+
+  $.ajax({
+           type: "POST",
+           url: "<?php echo base_url(); ?>register/kabkot",
+           data : {
+            "prov" : this.value
+            }, 
+           success: function(res)
+           {
+               $("#kabkot").html(res);
+           }
+         });
+});
+});
+  </script>
   <!-- endinject -->
 </body>
 

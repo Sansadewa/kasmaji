@@ -57,6 +57,7 @@
   
       // DataTable
       var table = $('#sebuah-tabel').DataTable({
+        "dom": 'lfrtBip',
           "scrollX": true,
           initComplete: function () {
               // Apply the search

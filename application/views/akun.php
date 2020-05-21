@@ -1,6 +1,6 @@
 <div class="row">
-  <div class="col-md-12 d-flex align-items-stretch grid-margin">
-    <div class="row flex-grow">
+  <div class="col-md-12 grid-margin">
+    <div class="row">
       <div class="col-12">
         <div class="card">
           <div class="card-body">
@@ -68,63 +68,63 @@
                   <div class="form-group row">
                     <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Nomor HP</label>
                       <div class=" col-sm-9">
-                        <input class="form-control" value="<?php echo $row->nomor_hp; ?>" name="nomorhp" reqiured>
+                        <input class="form-control" value="<?php echo $row->nomor_hp; ?>" name="nomorhp" readonly>
                       </div>
                   </div>
                   
                   <div class="form-group row">
                     <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Nomor WhatsApp</label>
                       <div class=" col-sm-9">
-                        <input class="form-control" value="<?php echo $row->nomor_wa; ?>" name="nomorwa"  reqiured>
+                        <input class="form-control" value="<?php echo $row->nomor_wa; ?>" name="nomorwa"  readonly>
                       </div>
                   </div>
                   <hr>
                   <div class="form-group row">
                     <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Akun LinkedIn</label>
                       <div class=" col-sm-9">
-                        <input class="form-control" value="<?php echo $row->linkedin; ?>" name="linkedin" >
+                        <input class="form-control" value="<?php echo $row->linkedin; ?>" name="linkedin" readonly>
                       </div>
                   </div>
 
                   <div class="form-group row">
                     <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Akun Facebook</label>
                       <div class=" col-sm-9">
-                        <input class="form-control" value="<?php echo $row->facebook; ?>" name="facebook" >
+                        <input class="form-control" value="<?php echo $row->facebook; ?>" name="facebook" readonly>
                       </div>
                   </div>
 
                   <div class="form-group row">
                     <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Akun Instagram</label>
                       <div class=" col-sm-9">
-                        <input class="form-control" value="<?php echo $row->ig; ?>" name="ig" >
+                        <input class="form-control" value="<?php echo $row->ig; ?>" name="ig" readonly>
                       </div>
                   </div>
 
                   <div class="form-group row">
                     <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Akun twitter</label>
                       <div class=" col-sm-9">
-                        <input class="form-control" value="<?php echo $row->twitter; ?>" name="twitter">
+                        <input class="form-control" value="<?php echo $row->twitter; ?>" name="twitter" readonly>
                       </div>
                   </div>
                   <hr>
                   <div class="form-group row">
                     <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Provinsi</label>
                       <div class=" col-sm-9">
-                      <input class="form-control" value="<?php echo $row->prov; ?>" name="twitter">
+                      <input class="form-control" value="<?php echo $row->prov; ?>" name="twitter" readonly>
                       </div>
                   </div>
 
                   <div class="form-group row">
                     <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Kabupaten / Kota</label>
                       <div class=" col-sm-9">
-                      <input class="form-control" value="<?php echo $row->kabkot; ?>" name="twitter">
+                      <input class="form-control" value="<?php echo $row->kabkot; ?>" name="twitter" readonly>
                       </div>
                   </div>
 
                   <div class="form-group row">
                     <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Alamat Lengkap</label>
                       <div class=" col-sm-9">
-                        <textarea class="form-control" value="" name="alamat_lengkap" rows="4" required><?php echo $row->alamat_lengkap; ?></textarea>
+                        <textarea class="form-control" value="" name="alamat_lengkap" rows="4" readonly><?php echo $row->alamat_lengkap; ?></textarea>
                       </div>
                   </div>
                   <hr>
@@ -306,6 +306,8 @@
                                       } else $selected='';
                                       echo "<option value='".$lala."'".$selected.">".$lala."</option>";
                                   }
+
+                                  $kabkot=$row->kabkot;
                                   ?>
                                   </select>
                                 </div>
@@ -383,4 +385,37 @@
     </div>
   </div>
 </div>
+
+<script>
+$(document).ready(function () {
+  var provinsi = $("#prov").val();
+  $.ajax({
+            type: "POST",
+            url: "<?php echo base_url(); ?>akun/kabkot",
+            data : {
+              "prov" : provinsi,
+              "sess_kab" : '<?php echo $kabkot; ?>'
+              }, 
+            success: function(res)
+            {
+                $("#kabkot").html(res);
+            }
+    });
+$('[name="prov"]').change(function(){
+
+    $.ajax({
+            type: "POST",
+            url: "<?php echo base_url(); ?>akun/kabkot",
+            data : {
+              "prov" : this.value,
+              "sess_kab" : '<?php echo $kabkot; ?>'
+              }, 
+            success: function(res)
+            {
+                $("#kabkot").html(res);
+            }
+    });
+  });
+});
+</script>
 

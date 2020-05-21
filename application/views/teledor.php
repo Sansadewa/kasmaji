@@ -27,25 +27,19 @@
           <div class="col-lg-4 mx-auto">
             <h2 class="text-center mb-4">Lupa Password : Input KODE</h2>
             <div class="auto-form-wrapper">
-              <p>Kode Unik telah dikirmkan ke <b>Email STIS & Email di biodata BTM</b> kamu untuk keperluan lupa password.</p>
+              <p>Kode Unik telah dikirmkan ke <b>email kamu </b> untuk keperluan lupa password.</p>
               <form action="<?php echo base_url().'lupa/second' ?>" method="post">
-                <div class="form-group">
-                  <div class="input">
-                    <input class="form-control" placeholder="NIM" name="nim" pattern=".{7,7}" title="NIM sepanjang 7 karakter" reqiured>
+                  <div class="form-group">
+                    <input class="form-control" placeholder="Username" name="username" pattern=".{12,15}" title="Username minimal 12 karakter" required>
                   </div>
-                  <div class="input">
-                    <input class="form-control" placeholder="KODE" name="kode" reqiured>
+                  <div class="form-group">
+                    <input class="form-control" placeholder="KODE" name="kode" required>
                   </div>
-                  <div class="input">
-                  	<input class="form-control" placeholder="Pass" name="Pass" pattern=".{8,}" type="password" title="Pendek Amat." reqiured>
+                  <div class="form-group">
+                  	<input class="form-control" placeholder="Password Baru" name="Pass" pattern=".{8,}" type="password" title="Terlalu Pendek" required>
                   </div>
-                  <div class="input">
-                    <input class="form-control" placeholder="Ketik lagi" name="Pass2"  type="password" reqiured>
-                  </div>
-                    <div class="input-group-append">
-                      <span class="input-group-text">
-                      </span>
-                    </div>
+                  <div class="form-group">
+                    <input class="form-control" placeholder="Ketik Ulang Password Baru" name="Pass2"  type="password" required>
                   </div>
                 </div>
                 <a class="text-danger"><?php

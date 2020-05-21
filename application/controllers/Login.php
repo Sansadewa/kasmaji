@@ -19,7 +19,7 @@ class Login extends CI_Controller
 	public function identify()
 	{
 		//assign username dan password dari post dari view
-		$username = $this->input->post('username');
+		$username = strtoupper($this->input->post('username'));
 		$password = $this->input->post('pass');
 
 		//Cek di db apakah ada username

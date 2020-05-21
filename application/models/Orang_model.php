@@ -92,11 +92,11 @@ class Orang_model extends CI_Model
     $this->db->update('orang', $data);
   }
 
-  public function savekode($nim, $kode)
+  public function savekode($username, $kode)
   {
-    $data = array('kodeLupaPass' => $kode);
-    $this->db->where('nim', $nim);
-    $this->db->update('mahasiswa', $data);
+    $data = array('forgot_token' => $kode);
+    $this->db->where('username', $username);
+    $this->db->update('orang', $data);
   }
 
 

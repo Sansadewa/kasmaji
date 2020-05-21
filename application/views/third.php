@@ -132,7 +132,7 @@
                   ?></a>
                 <center>
                 <div class="form-group  center">
-                  <button class="btn text-white submit-btn btn-block">Next!</button>
+                  <button class="btn text-white submit-btn btn-block">Lanjut!</button>
                 </div>
                 </center>
               </form>

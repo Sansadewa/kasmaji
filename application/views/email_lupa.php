@@ -109,7 +109,7 @@ div[style*="margin: 16px 0;"] { margin: 0 !important; }
               <!-- COPY -->
               <table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
-                  <td align="center" style="font-size: 32px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding-copy">Lupa Password SIPAJU</td>
+                  <td align="center" style="font-size: 32px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding-copy">Lupa Password KASMAJI</td>
                 </tr>
               </table>
 
@@ -128,10 +128,10 @@ div[style*="margin: 16px 0;"] { margin: 0 !important; }
           <td style="padding: 10px 0 0 0; border-top: 1px dashed #aaaaaa;"> 
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
-                <td align="left" style="font-size: 15px; font-family: Helvetica, Arial, sans-serif; color: #333333;" class="padding-copy">Dear, <?php echo $nim;?>,<br></td>
+                <td align="left" style="font-size: 15px; font-family: Helvetica, Arial, sans-serif; color: #333333;" class="padding-copy">Dear, <?php echo $nama;?>,<br></td>
               </tr>
               <tr>
-                <td align="left" style="font-size: 15px; font-family: Helvetica, Arial, sans-serif; color: #333333;" class="padding-copy">Kode Teledor untuk akun <?php echo $nim.' adalah <br>'.$code;?></td>
+                <td align="left" style="font-size: 15px; font-family: Helvetica, Arial, sans-serif; color: #333333;" class="padding-copy">Kode Lupa Password untuk akun <?php echo $username.' adalah <br>'.$code;?></td>
               </tr>
               <tr>
                 <td align="left" style="font-size: 15px; font-family: Helvetica, Arial, sans-serif; color: #333333;" class="padding-copy">Masukkan kode pada</td>
@@ -155,7 +155,7 @@ div[style*="margin: 16px 0;"] { margin: 0 !important; }
                         <td align="center" style="padding-top: 25px;" class="padding">
                           <table border="0" cellspacing="0" cellpadding="0" class="mobile-button-container">
                             <tr>
-                              <td align="center" style="border-radius: 3px;" bgcolor="#256F9C"><a href="<?php echo base_url();?>lupa/second" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; border-radius: 3px; padding: 15px 25px; border: 1px solid #256F9C; display: inline-block;" class="mobile-button">Lupa Password SIPAJU</a></td>
+                              <td align="center" style="border-radius: 3px;" bgcolor="#256F9C"><a href="<?php echo base_url();?>lupa/second" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; border-radius: 3px; padding: 15px 25px; border: 1px solid #256F9C; display: inline-block;" class="mobile-button">Lupa Password KASMAJI</a></td>
                             </tr>
                           </table>
                         </td>
@@ -178,7 +178,7 @@ div[style*="margin: 16px 0;"] { margin: 0 !important; }
           <table width="100%" border="0" cellspacing="0" cellpadding="0"  style="max-width: 500px;">
             <tr>
               <td align="left" style="font-size: 15px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 2em; padding-bottom: 2em;" class="padding-copy">Regards,
-                <br>SIPAJU ❤</td>
+                <br>KASMAJI ❤</td>
               </tr>
             </table>
           </td>
@@ -189,9 +189,9 @@ div[style*="margin: 16px 0;"] { margin: 0 !important; }
             <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" style="max-width: 500px;" class="responsive-table">
               <tr>
                 <td align="center" style="font-size: 12px; line-height: 18px; font-family: Helvetica, Arial, sans-serif; color:#666666;">
-                  Jalan Otto Iskandardinata Raya No 64C, Kampung Melayu, Jakarta Timur, DKI Jakarta
+                  
                   <br>
-                  <a href="http://stislimatuju.com" target="_blank" style="color: #666666; text-decoration: none;">Kunjungi SIPAJU</a>                        
+                  <a href="https://kasmaji15.web.id" target="_blank" style="color: #666666; text-decoration: none;">Kunjungi KASMAJI</a>                        
                 </td>
               </tr>
             </table>  

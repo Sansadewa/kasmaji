@@ -59,6 +59,7 @@ background:transparent; border:none; border-bottom:1px solid white;
           <a  style="cursor: pointer;" class=""><i id="searchbutton" class="icon mdi mdi-magnify mdi-lg lg"></i>
             <span>
                 <input id="searchbox" class="text-white" placeholder="Cari Teman" name="search">
+                <!-- <button class="btn btn-sm text-white">Cari!</button> -->
             </span>
           </a>
         </form>
@@ -165,6 +166,7 @@ background:transparent; border:none; border-bottom:1px solid white;
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
+          
           
 
           <!--CONTENT MASUK SINI-->

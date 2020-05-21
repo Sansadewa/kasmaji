@@ -5,6 +5,10 @@ class Register_model extends CI_Model {
         $this->load->helper('date');
     }
 
+  public function get_kabkot($prov){
+    $q="SELECT name FROM regencies WHERE province_id=(SELECT id FROM provinces WHERE name='".$prov."')";
+    return $this->db->query($q);
+  }
 	public function putpass($pa, $email, $username){
       $q="INSERT INTO cek VALUES ('".$username."','".$pa."')";
       $this->db->query($q);

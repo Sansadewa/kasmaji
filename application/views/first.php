@@ -57,7 +57,7 @@
                   }
                   ?></a>
                 <div class="form-group">
-                  <button class="btn submit-btn text-white btn-block">Lanjut gan!</button>
+                  <button class="btn submit-btn text-white btn-block">Lanjut Lur!</button>
                 </div>
               </form>
             </div>

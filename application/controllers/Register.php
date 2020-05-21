@@ -265,5 +265,8 @@ class Register extends CI_Controller {
 	public function aaaa(){
 		$this->load->view('fourth');
 	}
+	public function aaaaa(){
+		$this->load->view('fifth');
+	}
 
 }

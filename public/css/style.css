@@ -8466,10 +8466,10 @@ pre {
     border-bottom-width: 2px; }
 
 .table-striped tbody tr:nth-of-type(odd) {
-  background-color: #f2f8f9; }
+  background-color: #eeeeee; }
 
 .table-hover tbody tr:hover {
-  background-color: #f2f8f9; }
+  background-color: #eeeeee; }
 
 .table-primary,
 .table-primary > th,
@@ -11040,7 +11040,7 @@ button.close {
   flex-direction: column;
   width: 100%;
   pointer-events: auto;
-  background-color: #f2f8f9;
+  background-color: #eeeeee;
   background-clip: padding-box;
   border: 1px solid #e0e0e0;
   border-radius: 0.3rem;
@@ -14223,7 +14223,7 @@ html {
       width: 100%; } }
 
 .content-wrapper {
-  background: #f2f8f9;
+  background: #eeeeee;
   padding: 1.5rem 1.7rem;
   width: 100%;
   -webkit-flex-grow: 1;
@@ -14249,7 +14249,7 @@ pre {
 
 /* Footer */
 .footer {
-  background: #f2f8f9;
+  background: #eeeeee;
   padding: 20px 1rem;
   transition: all 0.25s ease;
   -moz-transition: all 0.25s ease;
@@ -15573,7 +15573,7 @@ pre {
   content: "";
   width: 8px;
   height: 8px;
-  background: #e65251;
+  background: #259b87;
   border-radius: 50%;
   top: 30%;
   -moz-transform: translateY(-30%);

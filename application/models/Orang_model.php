@@ -15,7 +15,7 @@ class Orang_model extends CI_Model
   public function get_info($username)
   {
     $SQL1 = "
-	    SELECT nama, email, pass, kelas, jabatan, foto,tgl_lahir, step
+	    SELECT nama, email, pass, kelas, role, foto,tgl_lahir, step
 	    FROM orang
 	    WHERE username = '" . $username . "'
 	    ";
@@ -24,7 +24,8 @@ class Orang_model extends CI_Model
     $Q->free_result();
   }
 
-  public function get_profile($username)
+    //QUERY NOT OPTIMIZED
+    public function get_profile($username)
   {
     $SQL1 = "SELECT * FROM profil WHERE username='" . $username . "'";
     $query = $this->db->query($SQL1);
@@ -32,7 +33,8 @@ class Orang_model extends CI_Model
     $query->free_result();
   }
 
-  public function get_pendidikan($username)
+    //QUERY NOT OPTIMIZED
+    public function get_pendidikan($username)
   {
     $SQL1 = "SELECT * FROM pendidikan WHERE username='" . $username . "'";
     $query = $this->db->query($SQL1);
@@ -40,7 +42,8 @@ class Orang_model extends CI_Model
     $query->free_result();
   }
 
-  public function get_pekerjaan($username)
+    //QUERY NOT OPTIMIZED
+    public function get_pekerjaan($username)
   {
     $SQL1 = "SELECT * FROM pekerjaan WHERE username='" . $username . "'";
     $query = $this->db->query($SQL1);
@@ -48,13 +51,39 @@ class Orang_model extends CI_Model
     $query->free_result();
   }
 
-  public function get_usaha($username)
+    //QUERY NOT OPTIMIZED
+    public function get_usaha($username)
   {
     $SQL1 = "SELECT * FROM usaha WHERE username='" . $username . "'";
     $query = $this->db->query($SQL1);
     return $query;
     $query->free_result();
   }
+
+  
+    //QUERY NOT OPTIMIZED
+    public function get_all_pendidikan(){
+      $SQL1 = "SELECT * FROM pendidikan a RIGHT JOIN orang b On a.username=b.username";
+      $query = $this->db->query($SQL1);
+      return $query;
+      $query->free_result();
+    }
+  
+    //QUERY NOT OPTIMIZED
+    public function get_all_pekerjaan(){
+      $SQL1 = "SELECT * FROM pekerjaan a RIGHT JOIN orang b On a.username=b.username";
+      $query = $this->db->query($SQL1);
+      return $query;
+      $query->free_result();
+    }
+  
+    //QUERY NOT OPTIMIZED
+    public function get_all_usaha(){
+      $SQL1 = "SELECT * FROM usaha a RIGHT JOIN orang b On a.username=b.username";
+      $query = $this->db->query($SQL1);
+      return $query;
+      $query->free_result();
+    }
 
   public function update_login($username, $last, $sess)
   {
@@ -69,9 +98,6 @@ class Orang_model extends CI_Model
     $this->db->where('nim', $nim);
     $this->db->update('mahasiswa', $data);
   }
-
-
-
 
 
 }

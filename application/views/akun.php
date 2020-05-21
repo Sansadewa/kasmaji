@@ -262,8 +262,51 @@
                             <div class="form-group row">
                               <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Provinsi</label>
                                 <div class=" col-sm-9">
-                                  <select class="form-control" name="prov" id="prov" required value="<?php   echo $row->prov; ?>">
-                                    <option>1</option>
+                                  <select class="form-control" name="prov" id="prov" required>
+                                  <?php 
+                                  $buat_select= array(
+                                    "ACEH",
+                                    "SUMATERA UTARA",
+                                    "SUMATERA BARAT",
+                                    "RIAU",
+                                    "JAMBI",
+                                    "SUMATERA SELATAN",
+                                    "BENGKULU",
+                                    "LAMPUNG",
+                                    "KEPULAUAN BANGKA BELITUNG",
+                                    "KEPULAUAN RIAU",
+                                    "DKI JAKARTA",
+                                    "JAWA BARAT",
+                                    "JAWA TENGAH",
+                                    "DI YOGYAKARTA",
+                                    "JAWA TIMUR",
+                                    "BANTEN",
+                                    "BALI",
+                                  "NUSA TENGGARA BARAT",
+                                    "NUSA TENGGARA TIMUR",
+                                    "KALIMANTAN BARAT",
+                                    "KALIMANTAN TENGAH",
+                                    "KALIMANTAN SELATAN",
+                                    "KALIMANTAN TIMUR",
+                                    "KALIMANTAN UTARA",
+                                    "SULAWESI UTARA",
+                                    "SULAWESI TENGAH",
+                                    "SULAWESI SELATAN",
+                                    "SULAWESI TENGGARA",
+                                    'GORONTALO',
+                                    "SULAWESI BARAT",
+                                    "MALUKU",
+                                    "MALUKU UTARA",
+                                    "PAPUA BARAT",
+                                    "PAPUA" ,
+                                  );
+                                  foreach($buat_select as $lala){
+                                        if($lala==$row->bidang){
+                                          $selected='selected';
+                                      } else $selected='';
+                                      echo "<option value='".$lala."'".$selected.">".$lala."</option>";
+                                  }
+                                  ?>
                                   </select>
                                 </div>
                             </div>
@@ -272,7 +315,7 @@
                               <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Kabupaten / Kota</label>
                                 <div class=" col-sm-9">
                                   <select class="form-control" name="kabkot" id="kabkot" required >
-                                    <option>1</option>
+                                    <option>-</option>
                                     <!-- SELECTED BELOM DIBIKIN -->
                                   </select>
                                 </div>

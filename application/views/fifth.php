@@ -40,7 +40,24 @@
                     <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Bidang Usaha</label>
                     <div class=" col-sm-9">
                         <select class="form-control asn" name="bidang_usaha" >
-                            <option value="">HHH</option>
+                        <?php 
+                                        $buat_select= array(
+                                            "Perdagangan (pakaian, makanan, produk kesehatan, produk kecantikan, alat olahraga, dll)
+                                            Seni atau desain",
+                                            "Pabrikasi / manufaktur (Tekstil dan garmen, Otomotif, Elektronik, Makanan dan
+                                            minuman, Kerajinan, dll)",
+                                            "Tour dan travel",
+                                            "Pendidikan",
+                                            "Agrikultur",
+                                            "Perikanan",
+                                            "Konstruksi",
+                                            "Jasa (laundry, salon, bengkel, cuci kendaraan, pengantaran, keuangan)",
+                                        );
+                                        foreach($buat_select as $lala){
+                                            $selected='';
+                                            echo "<option value='".$lala."'".$selected.">".$lala."</option>";
+                                        }
+                                        ?>
                             <option value="Lainnya">Lainnya</option>
                         </select>
                     </div>

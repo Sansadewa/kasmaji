@@ -82,7 +82,39 @@
                     <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">bidang Pekerjaan</label>
                         <div class=" col-sm-9">
                         <select class="form-control asn" name="bidang" >
-                            <option value="">HHH</option>
+                        <?php 
+                                        $buat_select= array(
+                                            "Akuntansi/ keuangan",
+                                            "Administrasi dan koordinasi",
+                                            "Arsitektur dan konstruksi",
+                                            "Teknik",
+                                            "Olahraga",
+                                            "Customer service",
+                                            "Pendidikan dan pelatihan",
+                                            "Kesehatan",
+                                            "Pariwisata",
+                                            "Hotel atau restoran",
+                                            "Personalia",
+                                            "IT dan software",
+                                            "Legal",
+                                            "Manajemen dan konsultasi",
+                                            "Manufaktur dan produksi",
+                                            "Media dan kreatif (visual designer, UI/UX researcher, UI/UX designer)",
+                                            "Pelayanan publik (LSM?) dan NGO",
+                                            "Safety dan security",
+                                            "Sales dan marketing",
+                                            "Ilmu pengetahuan (pekerjaan di lab, data analyst, data scientist, peneliti)
+                                            Supply chain",
+                                            "Writing dan content (digital content writer, digital journalist, social media officer,
+                                            communication specialist, copywriter, dll)",
+                                            "Perikanan",
+                                            "Pertanian/perkebunan",
+                                            "PNS"
+                                        );
+                                        foreach($buat_select as $lala){
+                                            echo "<option value='".$lala."'>".$lala."</option>";
+                                        }
+                                        ?>
                             <option value="Lainnya">Lainnya</option>
                         </select>
                         </div>

@@ -7,10 +7,13 @@
   <title>KASMAJI</title>
 
   <!-- plugins:css -->
+  <!-- <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>public/css/jquery.dataTables.min.css"> -->
+
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
   <link rel="stylesheet" href="https://cdn.materialdesignicons.com/3.4.93/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="<?php echo base_url();?>/public/vendors/css/vendor.bundle.base.css">
   <link rel="stylesheet" href="<?php echo base_url();?>/public/vendors/css/vendor.bundle.addons.css">
+
   <!-- endinject -->
   <!-- plugin css for this page -->
   <!-- End plugin css for this page -->
@@ -22,9 +25,16 @@
   <link rel="shortcut icon" href="<?php echo base_url();?>/public/images/favicon.png" />
   <style type="text/css">
     .sebuah-tabelWrapper {
-    width: 100%;
+    width: auto;
     margin: 0 auto;
 }
+
+#searchbox{
+background:transparent; border:none; border-bottom:1px solid white;
+}
+#searchbox::placeholder {color: white;opacity: 1;}
+}
+
   </style>
   <script src="<?php echo base_url();?>/public/vendors/js/vendor.bundle.base.js"></script>
 </head>
@@ -43,7 +53,18 @@
         </a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center">
-        <div style="float:left"><a><i class="icon mdi mdi-magnify mdi-lg lg"></i></a></div>
+        <!-- //Searchbox -->
+        <div style="float:left" class="d-inline-block">
+        <form action="<?php echo base_url().'search' ?>" method="post" style="margin-bottom:0;">
+          <a  style="cursor: pointer;" class=""><i id="searchbutton" class="icon mdi mdi-magnify mdi-lg lg"></i>
+            <span>
+                <input id="searchbox" class="text-white" placeholder="Cari Teman" name="search">
+            </span>
+          </a>
+        </form>
+        </div>
+
+
         <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item dropdown d-none d-lg-inline-block d-xl-inline-block">
             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
@@ -74,8 +95,8 @@
               <div class="user-wrapper">
                 <br>
                <div class="profile-image">
-                  <!-- <img src="<?php base_url(); ?>foto/masukinlinkdisini.jpg" alt="profile image">  -->
-                  <img src="<?php base_url(); ?>public/images/user.png" alt="profile image"> 
+                  <!-- <img src="<?php echo base_url(); ?>foto/masukinlinkdisini.jpg" alt="profile image">  -->
+                  <img src="<?php echo base_url(); ?>public/images/user.png" alt="profile image"> 
 
                 </div>
                 <div class="text-wrapper">

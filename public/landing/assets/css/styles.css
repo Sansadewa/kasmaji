@@ -153,25 +153,52 @@ section#timeline article:nth-child(5) div.inner h2:after {
    overflow-x: auto;
    padding:0px;
    white-space: nowrap;
-   max-width: 600px;
+   /* max-width: 600px; */
 }
-
 @media only screen and (max-width: 600px) {
   .countdown {
-    overflow-x: scroll;
+  }
+  .countdown li {
+    font-size: 0.9em;
+    
+  }
+  .countdown li span{
+    font-size: 1.9em;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .countdown {
+  }
+  .countdown li {
+    font-size: 1.5em;
+    
+  }
+  .countdown li span{
+    font-size: 2.5em;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .countdown {
+  }
+  .countdown li {
+    font-size: 1.5em;
+    
+  }
+  .countdown li span{
+    font-size: 2.5em;
   }
 }
 
 .countdown li {
   display: inline-block;
-  font-size: 1.5em;
   list-style-type: none;
   padding: 1em;
 }
 
 .countdown li span {
   display: block;
-  font-size: 2.5em;
   font-weight: 600;
 }
 

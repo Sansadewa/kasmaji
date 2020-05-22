@@ -37,7 +37,8 @@
           </div> -->
           <div class="col-sm-12 d-sm-block d-md-block d-lg-block d-flex justify-contents-center justify-content-center align-items-center mx-auto">
             <a class="navbar-brand d-flex justify-contents-center justify-content-center align-items-center mx-auto" href="#">
-              <img src="<?php echo base_url(); ?>public/landing/assets/img/logo.png" class="mx-auto justify-contents-center justify-content-center align-items-center" style="width: 500px">
+              <img src="<?php echo base_url(); ?>public/landing/assets/img/logo.png" class="mx-auto img-fluid d-sm-block d-md-none">
+              <img src="<?php echo base_url(); ?>public/landing/assets/img/logo.png" class="mx-auto img-fluid d-none d-sm-none d-md-block" style="width:auto; max-width:500px">
             </a>
           </div>
         </div>
@@ -55,7 +56,7 @@
         <!-- countdown -->
         <div class="card" data-aos="fade-up" style="top: -220px; padding: 20px 0; max-width: 700px; margin: 0 auto -180px;">
           <div class="card-body">
-            <center>
+            <center><div class="col-12">
               <h4 class="card-title"><b>Countdown Pengisian Database</b></h4>
               <hr>
               <ul class="countdown">
@@ -64,7 +65,7 @@
                 <li><span id="minutes"></span>Minutes</li>
                 <li><span id="seconds"></span>Seconds</li>
               </ul>
-            </center>
+            </div></center>
           </div>
         </div>
         <!-- timeline -->
@@ -97,8 +98,8 @@
           <article data-aos="fade-up">
             <div class="inner">
               <span class="date">
-                <span class="day">27</span>
-                <span class="month">Mar</span>
+                <span class="day"></span>
+                <span class="month"></span>
                 <!-- <span class="year">2014</span> -->
               </span>
               <h2>Admin 3</h2>

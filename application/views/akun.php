@@ -41,11 +41,11 @@
                   <div class="row">
                     <div class="form-group col-md-6">
                       <label for='email' style="line-height: 5px; margin-bottom:0;">Email</label> 
-                      <input type="text" name="email" class="form-control-plaintext" value="<?php echo $this->session->userdata('email');?>" readonly>
+                      <input type="text" class="form-control-plaintext" value="<?php echo $this->session->userdata('email');?>" readonly>
                     </div>
                     <div class="form-group col-md-6">
                       <label for='date' style="line-height: 5px; margin-bottom:0;">Tanggal Lahir</label> 
-                      <input type="date" name="date" class="form-control-plaintext" value="<?php echo $this->session->userdata('tgl_lahir');?>" readonly>
+                      <input type="date" class="form-control-plaintext" value="<?php echo $this->session->userdata('tgl_lahir');?>" readonly>
                     </div>
                   </div>
             </div>
@@ -53,7 +53,7 @@
         </form> <?php } ?>
         <br><br>
         <div class="row">
-            <h4 class="col-12"> Profil </h4>
+            <h3 class="col-12" style="margin-bottom: 0"> Profil </h3>
             </div>
         <hr class="mb-0">
         <div class="row text-right">
@@ -65,69 +65,95 @@
           <div class="row mt-3">
             <div class="col-12">
             <form> <?php foreach ($profile->result() as $row){?>
-                  <div class="form-group row">
+              <h4 style="margin-bottom: 1rem">Kontak</h4>
+                
+                  <div class="form-group row ">
                     <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Nomor HP</label>
                       <div class=" col-sm-9">
-                        <input class="form-control" value="<?php echo $row->nomor_hp; ?>" name="nomorhp" readonly>
+                        <input class="form-control" value="<?php echo $row->nomor_hp; ?>"  readonly>
+                      </div>
+                  </div>
+                  
+                  <div class="form-group row ">
+                    <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Nomor WhatsApp</label>
+                      <div class=" col-sm-9">
+                        <input class="form-control" value="<?php echo $row->nomor_wa; ?>"   readonly>
+                      </div>
+                  </div>
+                
+                  <br><h4 style="margin-bottom: 1rem">Sosial Media</h4>
+                  
+                  <div class="form-group row ">
+                    <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Akun LinkedIn</label>
+                      <div class=" col-sm-9">
+                        <input class="form-control" value="<?php echo $row->linkedin; ?>"  readonly>
+                      </div>
+                  </div>
+
+                  <div class="form-group row ">
+                    <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Akun Facebook</label>
+                      <div class=" col-sm-9">
+                        <input class="form-control" value="<?php echo $row->facebook; ?>" readonly>
                       </div>
                   </div>
                   
                   <div class="form-group row">
-                    <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Nomor WhatsApp</label>
-                      <div class=" col-sm-9">
-                        <input class="form-control" value="<?php echo $row->nomor_wa; ?>" name="nomorwa"  readonly>
-                      </div>
-                  </div>
-                  <hr>
-                  <div class="form-group row">
-                    <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Akun LinkedIn</label>
-                      <div class=" col-sm-9">
-                        <input class="form-control" value="<?php echo $row->linkedin; ?>" name="linkedin" readonly>
-                      </div>
-                  </div>
-
-                  <div class="form-group row">
-                    <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Akun Facebook</label>
-                      <div class=" col-sm-9">
-                        <input class="form-control" value="<?php echo $row->facebook; ?>" name="facebook" readonly>
-                      </div>
-                  </div>
-
-                  <div class="form-group row">
                     <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Akun Instagram</label>
                       <div class=" col-sm-9">
-                        <input class="form-control" value="<?php echo $row->ig; ?>" name="ig" readonly>
+                        <input class="form-control" value="<?php echo $row->ig; ?>" readonly>
                       </div>
                   </div>
 
                   <div class="form-group row">
                     <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Akun twitter</label>
                       <div class=" col-sm-9">
-                        <input class="form-control" value="<?php echo $row->twitter; ?>" name="twitter" readonly>
+                        <input class="form-control" value="<?php echo $row->twitter; ?>"  readonly>
                       </div>
                   </div>
-                  <hr>
+                  <br><h4 style="margin-bottom: 1rem">Alamat Rumah</h4>
                   <div class="form-group row">
                     <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Provinsi</label>
                       <div class=" col-sm-9">
-                      <input class="form-control" value="<?php echo $row->prov; ?>" name="twitter" readonly>
+                      <input class="form-control" value="<?php echo $row->prov; ?>"  readonly>
                       </div>
                   </div>
 
                   <div class="form-group row">
                     <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Kabupaten / Kota</label>
                       <div class=" col-sm-9">
-                      <input class="form-control" value="<?php echo $row->kabkot; ?>" name="twitter" readonly>
+                      <input class="form-control" value="<?php echo $row->kabkot; ?>"  readonly>
+                      </div>
+                  </div>
+              
+                  <div class="form-group row">
+                    <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Alamat Lengkap</label>
+                      <div class=" col-sm-9">
+                        <textarea class="form-control" value=""  rows="4" readonly><?php echo $row->alamat_lengkap; ?></textarea>
+                      </div>
+                  </div>
+
+                  <br><h4 style="margin-bottom: 1rem">Alamat Domisili</h4>
+                  <div class="form-group row">
+                    <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Provinsi</label>
+                      <div class=" col-sm-9">
+                      <input class="form-control" value="<?php echo $row->prov_dom; ?>"  readonly>
+                      </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Kabupaten / Kota</label>
+                      <div class=" col-sm-9">
+                      <input class="form-control" value="<?php echo $row->kabkot_dom; ?>" readonly>
                       </div>
                   </div>
 
                   <div class="form-group row">
                     <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Alamat Lengkap</label>
                       <div class=" col-sm-9">
-                        <textarea class="form-control" value="" name="alamat_lengkap" rows="4" readonly><?php echo $row->alamat_lengkap; ?></textarea>
+                        <textarea class="form-control" value=""rows="4" readonly><?php echo $row->alamat_lengkap_dom; ?></textarea>
                       </div>
                   </div>
-                  <hr>
+                  <br><h4 style="margin-bottom: 1rem">Kegiatan</h4>
                   <div class="form-group row">
                     <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Melanjutkan Pendidikan Setelah SMA?</label>
                       <div class=" col-sm-9">
@@ -191,7 +217,7 @@
                             </div>
                             <div class="form-group">
                               <label for="nama" style="line-height: 10px; font-size: 13px;">Email</label>
-                              <input class="form-control" id="email" value="<?php echo $this->session->userdata('email'); ?>" required>
+                              <input class="form-control" id="email" name="email" value="<?php echo $this->session->userdata('email'); ?>" required>
                             </div>
                               <div class="form-group">
                                 <label for="date">Tanggal Lahir <i>(Format menyesuaikan)</i></label>
@@ -225,7 +251,7 @@
                             </div>
                             <div class="form-group">
                               <label for="nama" style="line-height: 10px; font-size: 13px;">Nomor HP</label>
-                              <input class="form-control" id="nomor_hp" value="<?php echo $row->nomor_hp; ?>" required>
+                              <input class="form-control" name="nomor_hp" id="nomor_hp" value="<?php echo $row->nomor_hp; ?>" required>
                             </div>
                             <div class="form-group">
                                 <label for="date">Nomor Whatsapp</label>
@@ -301,7 +327,7 @@
                                     "PAPUA" ,
                                   );
                                   foreach($buat_select as $lala){
-                                        if($lala==$row->bidang){
+                                        if($lala==$row->prov){
                                           $selected='selected';
                                       } else $selected='';
                                       echo "<option value='".$lala."'".$selected.">".$lala."</option>";
@@ -329,6 +355,77 @@
                                   <textarea class="form-control" placeholder="" name="alamat_lengkap" rows="4" required><?php   echo $row->alamat_lengkap; ?></textarea>
                                 </div>
                             </div>
+                                
+                            
+                            <br><h3 style="margin-bottom: 0">Alamat Domisili</h3><hr>
+                            <div class="form-group row">
+                              <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Provinsi</label>
+                                <div class=" col-sm-9">
+                                  <select class="form-control" name="prov_dom" id="prov_dom" required>
+                                  <?php 
+                                    $buat_select= array(
+                                      "ACEH",
+                                      "SUMATERA UTARA",
+                                      "SUMATERA BARAT",
+                                      "RIAU",
+                                      "JAMBI",
+                                      "SUMATERA SELATAN",
+                                      "BENGKULU",
+                                      "LAMPUNG",
+                                      "KEPULAUAN BANGKA BELITUNG",
+                                      "KEPULAUAN RIAU",
+                                      "DKI JAKARTA",
+                                      "JAWA BARAT",
+                                      "JAWA TENGAH",
+                                      "DI YOGYAKARTA",
+                                      "JAWA TIMUR",
+                                      "BANTEN",
+                                      "BALI",
+                                    "NUSA TENGGARA BARAT",
+                                      "NUSA TENGGARA TIMUR",
+                                      "KALIMANTAN BARAT",
+                                      "KALIMANTAN TENGAH",
+                                      "KALIMANTAN SELATAN",
+                                      "KALIMANTAN TIMUR",
+                                      "KALIMANTAN UTARA",
+                                      "SULAWESI UTARA",
+                                      "SULAWESI TENGAH",
+                                      "SULAWESI SELATAN",
+                                      "SULAWESI TENGGARA",
+                                      'GORONTALO',
+                                      "SULAWESI BARAT",
+                                      "MALUKU",
+                                      "MALUKU UTARA",
+                                      "PAPUA BARAT",
+                                      "PAPUA" ,
+                                    );
+                                    foreach($buat_select as $lala){
+                                      if($lala==$row->prov_dom){
+                                        $selected='selected';
+                                    } else $selected='';
+                                    echo "<option value='".$lala."'".$selected.">".$lala."</option>";
+                                     }
+                                     $kabkota=$row->kabkot_dom;
+                                    ?>
+                                  </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                              <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Kabupaten / Kota</label>
+                                <div class=" col-sm-9">
+                                  <select class="form-control" id="kabkot_dom" name="kabkot_dom" required>
+                                    <option>-</option>
+                                  </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                              <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Alamat Lengkap</label>
+                                <div class=" col-sm-9">
+                                  <textarea class="form-control" placeholder="" name="alamat_lengkap_dom" rows="4" required></textarea>
+                                </div>
+                            </div>
+
+
                             <hr>
                             <div class="form-group row">
                               <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Melanjutkan Pendidikan Setelah SMA?</label>
@@ -388,6 +485,7 @@
 
 <script>
 $(document).ready(function () {
+  // Buat awal, gapake on changed
   var provinsi = $("#prov").val();
   $.ajax({
             type: "POST",
@@ -401,6 +499,21 @@ $(document).ready(function () {
                 $("#kabkot").html(res);
             }
     });
+    var provinsia = $("#prov_dom").val();
+  $.ajax({
+            type: "POST",
+            url: "<?php echo base_url(); ?>akun/kabkot",
+            data : {
+              "prov" : provinsia,
+              "sess_kab" : '<?php echo $kabkota; ?>'
+              }, 
+            success: function(res)
+            {
+                $("#kabkot_dom").html(res);
+            }
+    });
+
+    
 $('[name="prov"]').change(function(){
 
     $.ajax({
@@ -416,6 +529,20 @@ $('[name="prov"]').change(function(){
             }
     });
   });
+
+  $('[name="prov_dom"]').change(function(){
+$.ajax({
+         type: "POST",
+         url: "<?php echo base_url(); ?>register/kabkot",
+         data : {
+          "prov" : this.value
+          }, 
+         success: function(res)
+         {
+             $("#kabkot_dom").html(res);
+         }
+       });
+});
 });
 </script>
 

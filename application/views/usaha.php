@@ -116,7 +116,7 @@
                             <h4 class="modal-title text-xs-center">Edit Data Usaha</h4>
                         </div>
                         <div class="modal-body">
-                        <form action="<?php echo base_url().'input/pekerjaan' ?>" method="post"><?php foreach ($usaha->result() as $row) { ?>
+                        <form action="<?php echo base_url().'input/usaha' ?>" method="post"><?php foreach ($usaha->result() as $row) { ?>
     
                             <div class="form-group row" >
                                 <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Nama Usaha</label>

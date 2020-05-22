@@ -59,11 +59,12 @@ class Register extends CI_Controller {
 			$pa=$this->input->post('pa');
 			$pb=$this->input->post('pb');
 			$email=$this->input->post('email');
+			$tgl_lahir=$this->input->post('tgl_lahir');
 			if ($pa!=$pb){
 				$this->session->set_flashdata('informasi','Password tidak sama');
 				redirect('register/first');
 			} else{
-				$this->register_model->putpass($pa, $email, $profil->username);
+				$this->register_model->putpass($pa, $email, $profil->username, $tgl_lahir);
 				redirect('register/second');
 			}
 		} else {
@@ -97,10 +98,13 @@ class Register extends CI_Controller {
 		$prov=$this->input->post('prov');
 		$kabkot=$this->input->post('kabkot');
 		$alamat_lengkap=$this->input->post('alamat_lengkap');
+		$prov_dom=$this->input->post('prov_dom');
+		$kabkot_dom=$this->input->post('kabkot_dom');
+		$alamat_lengkap_dom=$this->input->post('alamat_lengkap-dom');
 		$lanjut_belajar=$this->input->post('lanjut_belajar');
 		$kegiatan=$this->input->post('kegiatan');
 
-		if($this->register_model->putprofil($this->session->userdata('username'), $nomorhp,$nomorwa,$linkedin,$facebook,$ig,$twitter,$prov,$kabkot,$alamat_lengkap,$lanjut_belajar,$kegiatan)){
+		if($this->register_model->putprofil($this->session->userdata('username'), $nomorhp,$nomorwa,$linkedin,$facebook,$ig,$twitter,$prov,$kabkot,$alamat_lengkap,$prov_dom,$kabkot_dom,$alamat_lengkap_dom,$lanjut_belajar,$kegiatan)){
 		redirect('register/third');
 
 		} else {
@@ -181,34 +185,38 @@ class Register extends CI_Controller {
 		$aku=$this->register_model->get_info($this->session->userdata('username'));
 		if ($aku->step!=3) redirect('register');
 		
+		$profil=$this->register_model->get_profil($this->session->userdata('username'));
+		if($profil->kegiatan==1 || $profil->kegiatan==3){
 		//BELOM DIAMANKAN ISINYA
-
-		$kegiatan=$this->input->post('kegiatan');
-		if ($kegiatan=='Bekerja' || $kegiatan=='Magang'){
-			$status_pekerjaan=$this->input->post('status_pekerjaan');
-			$tempat_kerja=$this->input->post('tempat_kerja');
-			$bidang=$this->input->post('bidang');
-			if ($bidang=='Lainnya'){
-				$bidang='(Lainnya) '.$this->input->post('lainnya');
+			$kegiatan=$this->input->post('kegiatan');
+			if ($kegiatan=='Bekerja' || $kegiatan=='Magang'){
+				$status_pekerjaan=$this->input->post('status_pekerjaan');
+				$tempat_kerja=$this->input->post('tempat_kerja');
+				$bidang=$this->input->post('bidang');
+				if ($bidang=='Lainnya'){
+					$bidang='(Lainnya) '.$this->input->post('lainnya');
+				}
+				$jabatan=$this->input->post('jabatan');
+				$deskripsi_pekerjaan=$this->input->post('deskripsi_pekerjaan');
+				$rencana=NULL;
+	
+			} else if($kegiatan=='Koas'){
+				$status_pekerjaan=NULL;
+				$tempat_kerja=NULL;
+				$bidang=NULL;
+				$jabatan=NULL;
+				$deskripsi_pekerjaan=NULL;
+				$rencana=$this->input->post('rencana');
 			}
-			$jabatan=$this->input->post('jabatan');
-			$deskripsi_pekerjaan=$this->input->post('deskripsi_pekerjaan');
-			$rencana=NULL;
-
-		} else if($kegiatan=='Koas'){
-			$status_pekerjaan=NULL;
-			$tempat_kerja=NULL;
-			$bidang=NULL;
-			$jabatan=NULL;
-			$deskripsi_pekerjaan=NULL;
-			$rencana=$this->input->post('rencana');
-		}
-
-
-		if($this->register_model->putpekerjaan($this->session->userdata('username'), $kegiatan, $status_pekerjaan, $tempat_kerja,$bidang, $jabatan, $deskripsi_pekerjaan, $rencana )){
-		redirect('register/selesai');
-		} else {
-			echo ('Error PB 4');
+	
+	
+			if($this->register_model->putpekerjaan($this->session->userdata('username'), $kegiatan, $status_pekerjaan, $tempat_kerja,$bidang, $jabatan, $deskripsi_pekerjaan, $rencana )){
+			redirect('register/selesai');
+			} else {
+				echo ('Error PB 4');
+			}
+		} else{
+			echo ("Error ProcKerja.");
 		}
 	}
 
@@ -221,8 +229,11 @@ class Register extends CI_Controller {
 
 		$profil=$this->register_model->get_profil($this->session->userdata('username'));
 		if($profil->kegiatan==2 || $profil->kegiatan==3){
-			//kalau bekerja, ngisi di data pekerjaan
+			//kalau usaha, ngisi di data usaha
 			$this->load->view('fifth');
+		} else {
+			$this->register_model->update_step($this->session->userdata('username'),5);
+			redirect('register/selesai');
 		}
 	}
 
@@ -230,10 +241,9 @@ class Register extends CI_Controller {
 		$aku=$this->register_model->get_info($this->session->userdata('username'));
 		if ($aku->step!=4) redirect('register');
 		
-		//BELOM DIAMANKAN ISINYA
-
-		$kegiatan=$this->input->post('kegiatan');
-
+		$profil=$this->register_model->get_profil($this->session->userdata('username'));
+		if($profil->kegiatan==2 || $profil->kegiatan==3){
+			//BELOM DIAMANKAN ISINYA
 			$nama_usaha=$this->input->post('nama_usaha');
 			$alamat_usaha=$this->input->post('alamat_usaha');
 			$deskripsi_usaha=$this->input->post('deskripsi_usaha');
@@ -243,14 +253,13 @@ class Register extends CI_Controller {
 				$bidang='(Lainnya) '.$this->input->post('lainnya');
 			}
 
-
-		
-
-
 		if($this->register_model->putusaha($this->session->userdata('username'), $nama_usaha, $bidang, $alamat_usaha, $deskripsi_usaha )){
 		redirect('register/selesai');
 		} else {
 			echo ('Error PB 5');
+		}
+		} else {
+			echo('Error Procusaha');
 		}
 	}
 
@@ -266,6 +275,11 @@ class Register extends CI_Controller {
 		foreach($kabkot->result() as $row){
 			echo("<option value='".$row->name."' >".$row->name."</option>");
 		}
+	}
+
+	public function back(){
+		$profil=$this->register_model->get_info($this->session->userdata('username'));
+		redirect('register');
 	}
 
 	public function a(){

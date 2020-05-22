@@ -13,6 +13,134 @@ class Input extends CI_Controller {
 		redirect('Akun');
 	}
 
-	
+	public function profilbase(){
+			//BELOM DIAMANKAN ISINYA.
+			$email=$this->input->post('email');
+			$tgl_lahir=$this->input->post('tgl_lahir');
+			if($this->input_model->update_profilbase($email,$this->session->userdata('username'),$tgl_lahir)){
+				$this->session->set_userdata('email', $email);
+				$this->session->set_userdata('tgl_lahir', $tgl_lahir);
+				$this->session->set_flashdata('report', 'Perubahan Sukses.');
+				redirect('akun');
+			}		
+	}
 
+	public function profil(){
+			//BELOM DIAMANKAN ISINYA.
+		$nomorhp=$this->input->post('nomor_hp');
+		$nomorwa=$this->input->post('nomor_wa');
+		$linkedin=$this->input->post('linkedin');
+		$facebook=$this->input->post('facebook');
+		$ig=$this->input->post('ig');
+		$twitter=$this->input->post('twitter');
+		$prov=$this->input->post('prov');
+		$kabkot=$this->input->post('kabkot');
+		$alamat_lengkap=$this->input->post('alamat_lengkap');
+		$prov_dom=$this->input->post('prov_dom');
+		$kabkot_dom=$this->input->post('kabkot_dom');
+		$alamat_lengkap_dom=$this->input->post('alamat_lengkap_dom');
+		$lanjut_belajar=$this->input->post('lanjut_belajar');
+		$kegiatan=$this->input->post('kegiatan');
+
+		if($this->input_model->update_profil($this->session->userdata('username'), $nomorhp,$nomorwa,$linkedin,$facebook,$ig,$twitter,$prov,$kabkot,$alamat_lengkap,$prov_dom,$kabkot_dom,$alamat_lengkap_dom,$lanjut_belajar,$kegiatan)){
+			$this->session->set_flashdata('report', 'Perubahan Sukses.');
+			redirect('akun');
+		} else {
+			$this->session->set_flashdata('report', 'Perubahan Gagal.');
+			redirect('akun');
+		}
+	}
+
+
+	public function pendidikan(){
+			//BELOM DIAMANKAN ISINYA.
+
+		$pendidikan=$this->input->post('pendidikan');
+		$tahun_masuk=$this->input->post('tahun_masuk');
+		$tahun_keluar=$this->input->post('tahun_keluar');
+		$instansi=$this->input->post('instansi');
+		$jurusan=$this->input->post('jurusan');
+		$pascasarjana=$this->input->post('pascasarjana');
+		if ($pascasarjana==1){
+			$instansi_lanjut=$this->input->post('instansi_lanjut');
+			$jurusan_lanjut=$this->input->post('jurusan_lanjut');
+		} else {
+			$instansi_lanjut=NULL;
+			$jurusan_lanjut=NULL;
+		}
+		$beasiswa=$this->input->post('beasiswa');
+
+
+		if($this->input_model->update_pendidkan($this->session->userdata('username'), $pendidikan, $tahun_masuk, $tahun_keluar, $instansi, $jurusan, $pascasarjana, $instansi_lanjut, $jurusan_lanjut, $beasiswa)){
+			$this->session->set_flashdata('report', 'Perubahan Sukses.');
+			redirect('akun/pendidikan');
+
+		} else {
+			$this->session->set_flashdata('report', 'Perubahan Gagal.');
+			redirect('akun');
+		}	
+	}
+
+	public function pekerjaan(){
+		// VALIDASI PEKERJAAN.
+		$profil=$this->input_model->get_profil($this->session->userdata('username'));
+		if($profil->kegiatan==1 || $profil->kegiatan==3){
+			//BELOM DIAMANKAN ISINYA
+			$kegiatan=$this->input->post('kegiatan');
+			if ($kegiatan=='Bekerja' || $kegiatan=='Magang'){
+				$status_pekerjaan=$this->input->post('status_pekerjaan');
+				$tempat_kerja=$this->input->post('tempat_kerja');
+				$bidang=$this->input->post('bidang');
+				if ($bidang=='Lainnya'){
+					$bidang='(Lainnya) '.$this->input->post('lainnya');
+				}
+				$jabatan=$this->input->post('jabatan');
+				$deskripsi_pekerjaan=$this->input->post('deskripsi_pekerjaan');
+				$rencana=NULL;
+
+			} else if($kegiatan=='Koas'){
+				$status_pekerjaan=NULL;
+				$tempat_kerja=NULL;
+				$bidang=NULL;
+				$jabatan=NULL;
+				$deskripsi_pekerjaan=NULL;
+				$rencana=$this->input->post('rencana');
+			}
+
+
+			if($this->input_model->update_pekerjaan($this->session->userdata('username'), $kegiatan, $status_pekerjaan, $tempat_kerja,$bidang, $jabatan, $deskripsi_pekerjaan, $rencana )){
+				$this->session->set_flashdata('report', 'Perubahan Sukses.');
+				redirect('akun/pekerjaan');
+			} else {
+				echo ('Error PB 4');
+			}
+		} else{
+			//RAMASHOK. EDIT DULU.
+		} 
+	}
+
+	public function usaha(){
+		$profil=$this->input_model->get_profil($this->session->userdata('username'));
+		if($profil->kegiatan==2 || $profil->kegiatan==3){
+			//BELOM DIAMANKAN ISINYA
+			$nama_usaha=$this->input->post('nama_usaha');
+			$alamat_usaha=$this->input->post('alamat_usaha');
+			$deskripsi_usaha=$this->input->post('deskripsi_usaha');
+
+			$bidang=$this->input->post('bidang_usaha');
+			if ($bidang=='Lainnya'){
+				$bidang='(Lainnya) '.$this->input->post('lainnya');
+			}
+
+		if($this->input_model->update_usaha($this->session->userdata('username'), $nama_usaha, $bidang, $alamat_usaha, $deskripsi_usaha )){
+			$this->session->set_flashdata('report', 'Perubahan Sukses.');
+			redirect('akun/usaha');
+		} else {
+			echo ('Error PB 5');
+		}
+		} else {
+						//RAMASHOK. EDIT DULU.
+
+		}
+	}
 }

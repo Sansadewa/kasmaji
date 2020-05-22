@@ -9,19 +9,20 @@ class Register_model extends CI_Model {
     $q="SELECT name FROM regencies WHERE province_id=(SELECT id FROM provinces WHERE name='".$prov."')";
     return $this->db->query($q);
   }
-	public function putpass($pa, $email, $username){
+	public function putpass($pa, $email, $username, $tgl_lahir){
       $q="INSERT INTO cek VALUES ('".$username."','".$pa."')";
       $this->db->query($q);
     	$data = array(
               'email' => $email,
               'pass' => md5($pa),
+              'tgl_lahir'=>$tgl_lahir,
               'step' => 1
               );
       $this->db->where('username',$username);
       $this->db->update('orang',$data);
   	}
 
-    public function putprofil($username, $nomorhp,$nomorwa,$linkedin,$facebook,$ig,$twitter,$prov,$kabkot,$alamat_lengkap,$lanjut_belajar,$kegiatan){
+    public function putprofil($username, $nomorhp,$nomorwa,$linkedin,$facebook,$ig,$twitter,$prov,$kabkot,$alamat_lengkap,$prov_dom,$kabkot_dom,$alamat_lengkap_dom,$lanjut_belajar,$kegiatan){
       $data = array (
                 'username' => $username,
                 'nomor_hp' => $nomorhp,
@@ -33,6 +34,9 @@ class Register_model extends CI_Model {
                 'prov' => $prov,
                 'kabkot' => $kabkot,
                 'alamat_lengkap' => $alamat_lengkap,
+                'prov_dom' => $prov_dom,
+                'kabkot_dom' => $kabkot_dom,
+                'alamat_lengkap_dom' => $alamat_lengkap_dom,
                 'lanjut_belajar' => $lanjut_belajar,
                 'kegiatan' => $kegiatan
               );
@@ -142,7 +146,10 @@ class Register_model extends CI_Model {
 	    return $this->db->query($SQL1)->row();
     }
 
-
+    public function mundur($username){
+      $q="UPDATE orang set step=step-1 WHERE username'".$username."';";
+      $this->db->query($q);
+    }
 
     public function update_step($username, $step){
       $this->db->where('username', $username);

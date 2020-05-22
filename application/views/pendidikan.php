@@ -22,7 +22,7 @@
             </div>
           <div class="row mt-1 justify-content-center">
             <div class="col-lg-12 col-sm-12 col-md-12 ml-lg-4">
-              <form class="forms-sample" action="<?php echo base_url().'input/profil' ?>" method="post"> <?php foreach ($pendidikan->result() as $row) { ?>
+              <form class="forms-sample" action="<?php echo base_url().'input/pendidikan' ?>" method="post"> <?php foreach ($pendidikan->result() as $row) { ?>
                   <br>
                   <div class="row">
                     <div class="form-group col-md-6 col-sm-12">

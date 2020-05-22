@@ -42,6 +42,12 @@
                   <label for="email" style="margin-bottom:0">Email</label>
                   <input type="email" class="form-control" placeholder="Email" name="email" reqiured>
                 </div>
+
+                <div class="form-group">
+                    <label for="date">Tanggal Lahir <i>(Format menyesuaikan)</i></label>
+                    <input type='date' id="date" name="tgl_lahir" class="form-control" required>
+                </div>
+
                 <div class="form-group">
                   <label for="pa" style="margin-bottom:0">Password</label>
                   <input type="password" class="form-control" placeholder="Password" name="pa" pattern=".{8,}" title="Password minimal 8 karakter" reqiured>

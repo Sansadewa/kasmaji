@@ -52,7 +52,6 @@
                         </div>
                     </div>
                 </fieldset>
-                <hr>
 
                 <div id="PNS" hidden>
                     <div class="form-group row" style="margin-bottom:0.3em;">
@@ -120,7 +119,7 @@
                         </div>
                     </div>
                     <div class="form-group row" id="lainnya" hidden>
-                    <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Keterangan Bidang Pekerjaan</label>
+                    <label class="col-form-label col-sm-3 text-danger" style="line-height=0;vertical-align: middle">Jika memilih lainnya, sebutkan</label>
                         <div class=" col-sm-9">
                         <input class="form-control asn" placeholder="...." name="lainnya" >
                         </div>

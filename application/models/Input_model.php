@@ -4,137 +4,101 @@ class Input_model extends CI_Model {
 		$this->load->database();
         $this->load->helper('date');
     }
-//UNTUK BTM
-	public function cek_btm($nim){
-    	return $this->db->get_where('sipaju_btm', array('nim' => $nim))->num_rows();
-  }
 
-  public function insert_btm($nim,$namapanggilan,$emailper,$himada){
+  
+	public function update_profilbase($email, $username, $tgl_lahir){
     $data = array(
-                'nim'=>$nim,
-                'namapanggilan'=>$namapanggilan,
-                'email_personal' => $emailper,
-                'himada'=>$himada,
-          );
-      $this->db->insert('sipaju_btm',$data);
+            'email' => $email,
+            'tgl_lahir'=>$tgl_lahir,
+            );
+    $this->db->where('username',$username);
+    $this->db->update('orang',$data);
+    return TRUE;
+ 
   }
 
-	public function update_btm($nim,$namapanggilan,$emailper,$himada){
-	$data = array(
-                'nim'=>$nim,
-                'email_personal' => $emailper,
-                'namapanggilan'=>$namapanggilan,
-                'himada'=>$himada,
-          );
-    	$this->db->where('nim',$nim);
-    	$this->db->update('sipaju_btm',$data);
- }
-//ENDOF UNTUK BTM
-//UNTUK TOPIK
- public function cek_topik($nim){
-      return $this->db->get_where('sipaju_topik', array('nim' => $nim))->num_rows();
+  public function update_profil($username, $nomorhp,$nomorwa,$linkedin,$facebook,$ig,$twitter,$prov,$kabkot,$alamat_lengkap,$prov_dom,$kabkot_dom,$alamat_lengkap_dom,$lanjut_belajar,$kegiatan){
+    $data = array (
+              'nomor_hp' => $nomorhp,
+              'nomor_wa' => $nomorwa,
+              'linkedin' => $linkedin,
+              'facebook' => $facebook,
+              'ig' => $ig,
+              'twitter' => $twitter,
+              'prov' => $prov,
+              'kabkot' => $kabkot,
+              'alamat_lengkap' => $alamat_lengkap,
+              'prov_dom' => $prov_dom,
+              'kabkot_dom' => $kabkot_dom,
+              'alamat_lengkap_dom' => $alamat_lengkap_dom,
+              'lanjut_belajar' => $lanjut_belajar,
+              'kegiatan' => $kegiatan
+            );
+      $this->db->where('username', $username);
+       $this->db->update('profil',$data);
+    return true;
+  }
+  
+  public function update_pendidkan($username, $pendidikan, $tahun_masuk, $tahun_keluar, $instansi, $jurusan, $pascasarjana, $instansi_lanjut, $jurusan_lanjut, $beasiswa){
+    $data = array (
+              'sedang_or_selesai' => $pendidikan,
+              'th_masuk' => $tahun_masuk,
+              'th_keluar' => $tahun_keluar,
+              'instansi' => $instansi,
+              'jurusan' => $jurusan,
+              'pascasarjana' => $pascasarjana,
+              'instansi_lanjut' => $instansi_lanjut,
+              'jurusan_lanjut' => $jurusan_lanjut,
+              'beasiswa' => $beasiswa, 
+            );
+
+
+      $this->db->where('username', $username);
+      $this->db->update('pendidikan',$data);
+    return true;
+
+
   }
 
-  public function insert_topik($nim,$nama,$kelas,$dosbing,$topik,$metode,$y,$lokus,$sumberdata,$periode){
-    $data = array(
-                'nim'=>$nim,
-                'nama'=>$nama,
-                'kelas' => $kelas,
-                'dosbing' => $dosbing,
-                'topik'=>$topik,
-                'metode'=>$metode,
-                'y'=>$y,
-                'lokus'=>$lokus,
-                'sumberdata'=>$sumberdata,
-                'periode'=>$periode
-          );
-      $this->db->insert('sipaju_topik',$data);
+  public function update_pekerjaan($username, $kegiatan, $status_pekerjaan, $tempat_kerja,$bidang, $jabatan, $deskripsi_pekerjaan, $rencana){
+    $data = array (
+              'jenis' => $kegiatan,
+              'status' => $status_pekerjaan,
+              'tempat_kerja' => $tempat_kerja,
+              'bidang' => $bidang,
+              'jabatan' => $jabatan,
+              'deskripsi_kerja' => $deskripsi_pekerjaan,
+              'rencana' => $rencana,
+            );
+
+      $this->db->where('username', $username);
+      $this->db->update('pekerjaan',$data);
+    return true;
   }
 
-  public function update_topik($nim,$nama,$kelas,$dosbing,$topik,$metode,$y,$lokus,$sumberdata,$periode){
-    $data = array(
-                'nim'=>$nim,
-                'nama'=>$nama,
-                'kelas' => $kelas,
-                'dosbing' => $dosbing,
-                'topik'=>$topik,
-                'metode'=>$metode,
-                'y'=>$y,
-                'lokus'=>$lokus,
-                'sumberdata'=>$sumberdata,
-                'periode'=>$periode
-          );
-      //$this->db->where('nim',$nim);
-      $this->db->replace('sipaju_topik',$data);
- }
+  public function update_usaha($username, $nama_usaha, $bidang, $alamat_usaha, $deskripsi_usaha ){
+    $data = array (
+              'nama_usaha' => $nama_usaha,
+              'bidang_usaha' => $bidang,
+              'alamat_usaha' => $alamat_usaha,
+              'deskripsi_usaha' => $deskripsi_usaha
+            );
 
-   public function insert_topikks($nim,$nama,$kelas,$dosbing,$topik,$kelompok_tema,$platform){
-    $data = array(
-                'nim'=>$nim,
-                'nama'=>$nama,
-                'kelas' => $kelas,
-                'dosbing' => $dosbing,
-                'topik'=>$topik,
-                'kelompok_tema'=>$kelompok_tema,
-                'platform'=>$platform
-          );
-      $this->db->insert('sipaju_topik',$data);
+
+      $this->db->where('username', $username);
+       $this->db->update('usaha',$data);
+    return true;
+
+
   }
 
-  public function update_topikks($nim,$nama,$kelas,$dosbing,$topik,$kelompok_tema,$platform){
-   $data = array(
-                'nim'=>$nim,
-                'nama'=>$nama,
-                'kelas' => $kelas,
-                'dosbing' => $dosbing,
-                'topik'=>$topik,
-                'kelompok_tema'=>$kelompok_tema,
-                'platform'=>$platform
-          );
-      //$this->db->where('nim',$nim);
-      $this->db->replace('sipaju_topik',$data);
- }
-
- public function get_alltopik(){
- 		$SQL1="SELECT * FROM sipaju_topik";
- 		$query = $this->db->query($SQL1);
- 		return $query;
- 		$query->free_result();
- }
-
- public function get_mytopik($nim){
- 		$SQL1="SELECT * FROM sipaju_topik WHERE nim='".$nim."'";
- 		$query = $this->db->query($SQL1);
- 		return $query;
- 		$query->free_result();
- }
-// ENDOF UNTUK TOPIK
- public function get_profile($nim){
- 		$SQL1="SELECT * FROM sipaju_profil WHERE nim='".$nim."'";
- 		$query = $this->db->query($SQL1);
- 		return $query;
- 		$query->free_result();
- }
-
- public   function update_profil($nim,$alamat,$ayah,$wali,$no_telp_ortu,$alamat_ortu,$desa,$kodepos,$kecamatan, $kabkot,$provinsi,$teman_dekat, $no_telp_teman,$date)
- {
-   $data = array(
-                'nim' => $nim,
-                'alamat'=>$alamat,
-                'ayah'=>$ayah,
-                'wali'=>$wali,
-                'no_telp_ortu'=>$no_telp_ortu,
-                'alamat_ortu'=>$alamat_ortu,
-                'desa'=>$desa,
-                'kodepos'=>$kodepos,
-                'kecamatan'=>$kecamatan,
-                'kabkot'=>$kabkot,
-                'provinsi'=>$provinsi,
-                'teman_dekat'=>$teman_dekat,
-                'no_telp_teman'=>$no_telp_teman,
-                'date'=>$date
-                );
-   $this->db->where('nim',$nim);
-   $this->db->update('sipaju_profil',$data);
- }
+  public function get_profil($username){
+    $SQL1 ="
+    SELECT username, lanjut_belajar, kegiatan
+    FROM profil
+    WHERE username = '".$username."'
+    ";
+    return $this->db->query($SQL1)->row();
+  }
+	
 }

@@ -28,6 +28,10 @@
             <h2 class="text-center mb-4">Registrasi 2: Data Dasar </h2>
             <div class="auto-form-wrapper">
               <form action="<?php echo base_url().'register/procbase' ?>" method="post">
+              <h3 style="margin-bottom: 0">Kontak</h3><hr>
+              <div class="form-group row">
+                
+              </div>
                 <div class="form-group row">
                   <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Username</label>
                     <div class=" col-sm-9">
@@ -55,7 +59,7 @@
                       <input class="form-control" placeholder="+62 XXXX-XXXX-XXXX" name="nomorwa"  reqiured>
                     </div>
                 </div>
-                <hr>
+                <br><h3 style="margin-bottom: 0">Sosial Media</h3><hr>
                 <div class="form-group row">
                   <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Akun LinkedIn</label>
                     <div class=" col-sm-9">
@@ -83,7 +87,8 @@
                       <input class="form-control" placeholder="" name="twitter">
                     </div>
                 </div>
-                <hr>
+
+                <br><h3 style="margin-bottom: 0">Alamat Rumah</h3><hr>
                 <div class="form-group row">
                   <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Provinsi</label>
                     <div class=" col-sm-9">
@@ -133,7 +138,6 @@
                       </select>
                     </div>
                 </div>
-
                 <div class="form-group row">
                   <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Kabupaten / Kota</label>
                     <div class=" col-sm-9">
@@ -142,14 +146,80 @@
                       </select>
                     </div>
                 </div>
-
                 <div class="form-group row">
                   <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Alamat Lengkap</label>
                     <div class=" col-sm-9">
                       <textarea class="form-control" placeholder="" name="alamat_lengkap" rows="4" required></textarea>
                     </div>
                 </div>
-                <hr>
+
+                <br><h3 style="margin-bottom: 0">Alamat Domisili</h3><hr>
+                <div class="form-group row">
+                  <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Provinsi</label>
+                    <div class=" col-sm-9">
+                      <select class="form-control" name="prov_dom" id="prov_dom" required>
+                      <?php 
+                        $buat_select= array(
+                          "ACEH",
+                          "SUMATERA UTARA",
+                          "SUMATERA BARAT",
+                          "RIAU",
+                          "JAMBI",
+                          "SUMATERA SELATAN",
+                          "BENGKULU",
+                          "LAMPUNG",
+                          "KEPULAUAN BANGKA BELITUNG",
+                          "KEPULAUAN RIAU",
+                          "DKI JAKARTA",
+                          "JAWA BARAT",
+                          "JAWA TENGAH",
+                          "DI YOGYAKARTA",
+                          "JAWA TIMUR",
+                          "BANTEN",
+                          "BALI",
+                         "NUSA TENGGARA BARAT",
+                          "NUSA TENGGARA TIMUR",
+                          "KALIMANTAN BARAT",
+                          "KALIMANTAN TENGAH",
+                          "KALIMANTAN SELATAN",
+                          "KALIMANTAN TIMUR",
+                          "KALIMANTAN UTARA",
+                          "SULAWESI UTARA",
+                          "SULAWESI TENGAH",
+                          "SULAWESI SELATAN",
+                          "SULAWESI TENGGARA",
+                          'GORONTALO',
+                          "SULAWESI BARAT",
+                          "MALUKU",
+                          "MALUKU UTARA",
+                          "PAPUA BARAT",
+                          "PAPUA" ,
+                        );
+                        foreach($buat_select as $lala){
+                            $selected='';
+                            echo "<option value='".$lala."'".$selected.">".$lala."</option>";
+                        }
+                        ?>
+                      </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Kabupaten / Kota</label>
+                    <div class=" col-sm-9">
+                      <select class="form-control" id="kabkot_dom" name="kabkot_dom" required>
+                        <option>-</option>
+                      </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Alamat Lengkap</label>
+                    <div class=" col-sm-9">
+                      <textarea class="form-control" placeholder="" name="alamat_lengkap_dom" rows="4" required></textarea>
+                    </div>
+                </div>
+
+                <br><h3 style="margin-bottom: 0">keterangan Kegiatan</h3><hr>
+
                 <div class="form-group row">
                   <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Melanjutkan Pendidikan Setelah SMA?</label>
                     <div class=" col-sm-9">
@@ -235,6 +305,21 @@ $('[name="prov"]').change(function(){
            }
          });
 });
+
+$('[name="prov_dom"]').change(function(){
+$.ajax({
+         type: "POST",
+         url: "<?php echo base_url(); ?>register/kabkot",
+         data : {
+          "prov" : this.value
+          }, 
+         success: function(res)
+         {
+             $("#kabkot_dom").html(res);
+         }
+       });
+});
+
 });
   </script>
   <!-- endinject -->

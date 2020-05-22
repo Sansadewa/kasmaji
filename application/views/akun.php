@@ -20,10 +20,11 @@
                 <a  class="text-right" data-toggle="modal" data-target="#ModalLoginForm" style="color:#259b87;cursor: pointer;">Edit Data Dasar ></a>
               </div>
             </div>
-          <div class="row mt-1 justify-content-center">
-              <div class=" col-lg-2 col-md-2 col-sm-12 col-xs-12 mt-md-3 mt-lg-2 justify-content-center">
-                <img class="img-fluid rounded-circle row justify-content-center" src="<?php echo base_url();?>public/images/user.svg" alt="Profile image">
-            </div>
+          <div class="d-flex row mt-1 justify-content-center">
+              <div class=" col-lg-2 col-md-2 col-sm-12 col-xs-12 mt-md-1 mt-lg-1 justify-content-center">  
+                  <img class="img-fluid rounded-circle" src="<?php echo base_url();?>public/images/user.svg" alt="Profile image">
+                  <div class="d-flex justify-content-center"><button class="btn text-white col-8 mt-2" style="border-radius:20px">Ganti Foto Profil</button></div>
+              </div>
             <div class="col-lg-9 col-sm-12 col-md-9 ml-lg-4">
               <form class="forms-sample" action="<?php echo base_url().'input/profil' ?>" method="post"> <?php foreach ($profile->result() as $row) { ?>
                   <br>

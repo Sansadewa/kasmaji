@@ -55,7 +55,7 @@ background:transparent; border:none; border-bottom:1px solid white;
       <div class="navbar-menu-wrapper d-flex align-items-center">
         <!-- //Searchbox -->
         <div style="float:left" class="d-inline-block">
-        <form action="<?php echo base_url().'search' ?>" method="post" style="margin-bottom:0;">
+        <form action="<?php echo base_url().'search' ?>" method="get" style="margin-bottom:0;">
           <a  style="cursor: pointer;" class=""><i id="searchbutton" class="icon mdi mdi-magnify mdi-lg lg"></i>
             <span>
                 <input id="searchbox" class="text-white" placeholder="Cari Teman" name="search">

@@ -34,7 +34,7 @@
             </div>
             <div class="row mt-5 justify-content-center">
               <div class="col-4 text-center mt-xl-2">
-                <a class="font-weight-medium btn btn-primary submit-btn btn-block" style="background-color:white; border-color:white; color:#007280; border-radius:4rem" href="<?php echo base_url();?>akun">Balik lagi yuk!</a>
+                <a class="font-weight-medium btn btn-primary submit-btn btn-block" style="background-color:white; border-color:white; color:#007280; border-radius:4rem; padding:0.5rem" href="<?php echo base_url();?>akun">Kembali</a>
               </div>
             </div>
             <div class="row mt-5">

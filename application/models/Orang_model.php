@@ -99,5 +99,19 @@ class Orang_model extends CI_Model
     $this->db->update('orang', $data);
   }
 
+  public function cari($searchquery,$start,$limit){
+    $q="SELECT * FROM orang WHERE LOWER(nama) REGEXP '".$searchquery."' LIMIT ".$start.",".$limit;
+    $qu=$this->db->query($q);
+    return $qu;
+    $query->free_result();
+  }
+
+  public function carifull($searchquery){
+    $q="SELECT * FROM orang WHERE LOWER(nama) REGEXP '".$searchquery."'";
+    $qu=$this->db->query($q);
+    return $qu;
+    $query->free_result();
+  }
+
 
 }

@@ -20,6 +20,8 @@
 
   <!-- inject:css -->
   <link rel="stylesheet" href="<?php echo base_url();?>/public/css/style.css">
+
+
   <!-- endinject -->
 
   <link rel="shortcut icon" href="<?php echo base_url();?>/public/images/favicon.png" />
@@ -46,7 +48,7 @@ background:transparent; border:none; border-bottom:1px solid white;
     <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
         <a class="navbar-brand brand-logo" href="<?php echo base_url(); ?>" style="height:63">
-          <img src="<?php echo base_url(); ?>/public/images/kasmaji-panjang.png" alt="logo" height="63" />
+          <img src="<?php echo base_url(); ?>/public/images/kasmaji-panjang.png" alt="logo" height="60" />
         </a>
         <a class="navbar-brand brand-logo-mini" href="<?php echo base_url(); ?>">
           <img src="<?php echo base_url(); ?>/public/images/logo-mini.jpeg" alt="logo" />
@@ -58,7 +60,7 @@ background:transparent; border:none; border-bottom:1px solid white;
         <form action="<?php echo base_url().'search' ?>" method="get" style="margin-bottom:0;">
           <a  style="cursor: pointer;" class=""><i id="searchbutton" class="icon mdi mdi-magnify mdi-lg lg"></i>
             <span>
-                <input id="searchbox" class="text-white" placeholder="Cari Teman" name="search">
+                <input style="display:none" id="searchbox" class="text-white" placeholder="Cari Teman" name="search">
                 <!-- <button class="btn btn-sm text-white">Cari!</button> -->
             </span>
           </a>
@@ -70,7 +72,8 @@ background:transparent; border:none; border-bottom:1px solid white;
           <li class="nav-item dropdown d-none d-lg-inline-block d-xl-inline-block">
             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
               <span class="profile-text"><?php echo $this->session->userdata('nama'); ?></span>
-              <img class="img-xs rounded-circle" src="<?php echo base_url();?>public/images/user.png" alt="Profile image">
+              <img class="img-xs rounded-circle" style="border: 2px solid #ffffff;
+    padding: 1px;" src="<?php echo base_url()."lihatfoto/".$this->session->userdata('username');?>" alt="Profile image">
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" href="<?php echo base_url();?>akun/logout" aria-labelledby="UserDropdown">
               <a class="dropdown-item mt-2" href="<?php echo base_url();?>akun/logout">
@@ -97,7 +100,8 @@ background:transparent; border:none; border-bottom:1px solid white;
                 <br>
                <div class="profile-image">
                   <!-- <img src="<?php echo base_url(); ?>foto/masukinlinkdisini.jpg" alt="profile image">  -->
-                  <img src="<?php echo base_url(); ?>public/images/user.png" alt="profile image"> 
+                  <img style="border: 2px solid #259b87;
+    padding: 1px;" src="<?php echo base_url()."lihatfoto/".$this->session->userdata('username');?>" alt="profile image"> 
 
                 </div>
                 <div class="text-wrapper">

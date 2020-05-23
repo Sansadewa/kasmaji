@@ -57,6 +57,22 @@ class Akun extends CI_Controller {
 		$this->load->view('akunfooter');
 	}
 
+	public function lihatfoto($username){
+		if(file_exists("./public/profpic/{$username}.png")!=NULL){
+		$remoteImage = "./public/profpic/{$username}.png";
+		} elseif(file_exists("./public/profpic/{$username}.jpg")!=NULL){
+			$remoteImage = "./public/profpic/{$username}.jpg";
+			} elseif(file_exists("./public/profpic/{$username}.jpeg")!=NULL){
+				$remoteImage = "./public/profpic/{$username}.jpeg";
+				} else {
+					$remoteImage = "./public/profpic/default.png";
+				}
+		$imginfo = getimagesize($remoteImage);
+		header("Content-type: {$imginfo['mime']}");
+		readfile($remoteImage);
+		
+	}
+
 	public function logout(){
 		$this->session->sess_destroy();
 		redirect('login');

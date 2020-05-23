@@ -37,9 +37,6 @@
   <script src="<?php echo base_url();?>public/scripts/buttons.html5.min.js"></script>
   <script type="text/javascript">
     $(document).ready(function () {
-      $('#searchbox').animate({
-                width: "toggle"
-        });
       //Trigger Seachbox
       $('#searchbutton').click(function(){
         $('#searchbox').animate({

@@ -1,3 +1,6 @@
+  <!-- crop foto -->
+  <link rel="stylesheet" href="<?php echo base_url();?>/public/css/croppie.css">
+
 <div class="row">
   <div class="col-md-12 grid-margin">
     <div class="row">
@@ -22,8 +25,9 @@
             </div>
           <div class="d-flex row mt-1 justify-content-center">
               <div class=" col-lg-2 col-md-2 col-sm-12 col-xs-12 mt-md-1 mt-lg-1 justify-content-center">  
-                  <img class="img-fluid rounded-circle" src="<?php echo base_url();?>public/images/user.svg" alt="Profile image">
-                  <div class="d-flex justify-content-center"><button class="btn text-white col-8 mt-2" style="border-radius:20px">Ganti Foto Profil</button></div>
+                  <img class="mx-auto d-flex justify-content-center img-fluid rounded-circle" src="<?php echo base_url()."lihatfoto/".$this->session->userdata('username');?>" style="border: 3px solid #259b87;
+    padding: 3px;" alt="Profile image">
+                  <div class="d-flex justify-content-center"><button id="buttonupload" class="btn text-white col-8 mt-2" data-toggle="modal" data-target="#ModalFotoForm" style="border-radius:20px" hidden>Ganti Foto Profil</button></div>
               </div>
             <div class="col-lg-9 col-sm-12 col-md-9 ml-lg-4">
               <form class="forms-sample" action="<?php echo base_url().'input/profil' ?>" method="post"> <?php foreach ($profile->result() as $row) { ?>
@@ -198,7 +202,32 @@
             </div>
           </div>
           
-            
+            <!-- Modal HTML Markup -->
+            <div id="ModalFotoForm" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title text-xs-center">Potong Foto</h4>
+                        </div>
+                        <div class="modal-body">
+                           <form id="form" class="forms-sample" action="<?php echo base_url().'input/fotoprofil' ?>" method="post">
+                           <div class="col-5 text-center mt-xl-2  d-flex justify-content-center mx-auto">
+                           <label  for="fotonya" class="font-weight-medium btn text-white btn-block" style="border-radius:4rem; padding:0.5rem" hidden>Pilih Fotonya</label>
+                              <input id="fotonya" type="file" name="fotonya" accept="image/*" hidden>
+                           </div>
+                            <div id="crop-container" hidden="true"></div>
+                            <input type="hidden" id="imagebase64" name="imagebase64">
+                          <div class="row  d-flex justify-content-center mx-auto" class="sendbutton">
+                          <button type="button" class="btn btn-secondary  data-dismiss="modal">Close</button> &nbsp;&nbsp;&nbsp;
+                          <button type="button" id="kirim" class="btn btn-success mr-2 btn-primary sendbutton" hidden="true">Submit</button>
+                          </div>
+                        </form>
+                       </div>  <!--  endofmodalbody -->
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
+
             <!-- Modal HTML Markup -->
             <div id="ModalLoginForm" class="modal fade" role="dialog">
                 <div class="modal-dialog">
@@ -484,8 +513,62 @@
   </div>
 </div>
 
+<script src="<?php echo base_url();?>/public/js/croppie.min.js"></script>
+
 <script>
 $(document).ready(function () {
+
+  //JS Crop foto
+  var $uploadCrop;
+  $('#buttonupload').attr("hidden", false);
+
+  function readFile(input) {
+      if (input.files && input.files[0]) {
+          var reader = new FileReader();          
+          reader.onload = function (e) {
+              $uploadCrop.croppie('bind', {
+                  url: e.target.result
+              });
+              $('#crop-container').addClass('ready');
+              $('#kirim').attr("hidden", false);
+
+              $('#crop-container').attr("hidden", false);
+
+          }           
+          reader.readAsDataURL(input.files[0]);
+      }
+  }
+
+  $parentWidth=$(".getHeight").css("width", $(".getHeight").parent().width());
+
+  $uploadCrop = $('#crop-container').croppie({
+      viewport: {
+          width: 270,
+          height: 270,
+          type: 'circle'
+      },
+      mouseWheelZoom: 'ctrl',
+      boundary: {
+          width: $parentWidth,
+          height: 450
+      }
+  });
+
+  $('#fotonya').on('change', function () {
+    readFile(this); });
+  $('#kirim').on('click', function (ev) {
+      $uploadCrop.croppie('result', {
+          type: 'canvas',
+          size: 'original'
+      }).then(function (resp) {
+          $('#imagebase64').val(resp);
+          $('#form').submit();
+      });
+  });
+
+
+
+
   // Buat awal, gapake on changed
   var provinsi = $("#prov").val();
   $.ajax({

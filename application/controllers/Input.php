@@ -13,6 +13,28 @@ class Input extends CI_Controller {
 		redirect('Akun');
 	}
 
+	public function fotoprofil(){
+		$data = $this->input->post('imagebase64');
+		if($data==NULL){redirect('penididkan');}
+		if (preg_match('/^data:image\/(\w+);base64,/', $data, $type)) {
+			$data = substr($data, strpos($data, ',') + 1);
+			$type = strtolower($type[1]); // jpg, png, gif
+		
+			if (!in_array($type, [ 'jpg', 'jpeg', 'png' ])) {
+				throw new \Exception('invalid image type');
+			}
+		
+			$data = base64_decode($data);
+		
+			if ($data === false) {
+				throw new \Exception('base64_decode failed');
+			}
+		} else {
+			throw new \Exception('did not match data URI with image data');
+		}
+		$namefile=$this->session->userdata('username');
+		file_put_contents("./public/profpic/{$namefile}.{$type}", $data);
+	}
 	public function profilbase(){
 			//BELOM DIAMANKAN ISINYA.
 			$email=$this->input->post('email');

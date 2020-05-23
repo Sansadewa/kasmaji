@@ -61,3 +61,5 @@ switch ($_SERVER['HTTP_HOST']) {
 $route['default_controller'] = 'landing';
 $route['404_override'] = 'nyasar';
 $route['translate_uri_dashes'] = FALSE;
+$route['lihatfoto/(:any)']='akun/lihatfoto/$1';
+$route['lihatprofil/(:any)']='search/lihatprofil/$1';

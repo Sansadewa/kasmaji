@@ -1,3 +1,8 @@
+<style>
+  button a{
+    color:white;
+  }
+</style>
 <div class="row">
   <div class="col-md-12 grid-margin">
     <div class="row">
@@ -8,13 +13,13 @@
     <?php foreach($data->result() as $row){ ?>
 
       <div class="row">
-        <div class=" d-flex col-lg-2 col-md-2 col-sm-3 col-xs-3 justify-content-center">
-            <img class="img-fluid rounded-circle row" src="<?php echo base_url();?>public/images/user.svg" alt="Profile image"></img><br>
+        <div class=" d-flex col-lg-2 col-md-2 col-sm-3 col-xs-3 justify-content-center my-auto">
+            <img style=" object-fit: contain;" class="rounded-circle" src="<?php echo base_url()."lihatfoto/".$row->username;?>" alt="Profile image"></img><br>
         </div>
-        <div class="col-lg-9 col-sm-9 col-md-9 ml-lg-4 align-self-center">
-              <div class="row ">
+        <div class="col-lg-9 col-sm-9 col-md-9 ml-lg-4 my-auto">
+              <div class="row">
                 <div class="form-group col-md-6 col-sm-12 mb-1">
-                  <a class="text-blue" href="<?php echo base_url()."search/akun/".$row->username;?>" style="cursor:pointer;"><input style="cursor:pointer;" class="form-control-plaintext p-0 text-blue" id="nim" value="<?php echo $row->nama ?>" readonly></a>
+                  <a href="<?php echo base_url()."lihatprofil/".$row->username;?>" style="cursor:pointer;" class=" p-0 text-primary"><?php echo $row->nama ?></a>
                 </div>
               </div>
 

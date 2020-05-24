@@ -27,10 +27,12 @@
           <div class="col-lg-6 mx-auto">
             <h2 class="text-center mb-4">Registrasi 3: Data Pekerjaan </h2>
             <div class="auto-form-wrapper">
+              <a class="text-kasmaji" style="color: #259b87;"><i>*: Data tidak dipublikasikan</i></a>
+
               <form action="<?php echo base_url().'register/prockerja' ?>" method="post">
               <fieldset id="huha">
                 <div class="form-group row" style="margin-bottom:0;">
-                    <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Jenis Kegiatan</label>
+                    <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Jenis Kegiatan*</label>
                         <div class=" col-sm-9">
                             <div class="row" style="margin-bottom:0.3em;">
                                 <div class="form-radio col-sm-4">
@@ -156,8 +158,10 @@
                   }
                   ?></a>
                 <center>
-                <div class="form-group center">
-                  <button class="btn text-white submit-btn btn-block">Next!</button>
+                <br>
+                <div class="form-group d-flex justify-content-between">
+                <a href="<?php echo base_url(); ?>register/back" class="btn ml-0 text-white btn-lg btn-primary">< Kembali</a>
+                  <button type='submit' class="btn btn-lg mr-0 text-white ">Lanjut!</button>
                 </div>
                 </center>
               </form>

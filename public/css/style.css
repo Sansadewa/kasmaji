@@ -14378,6 +14378,10 @@ pre {
 .text-black {
   color: #000; }
 
+  .text-kasmaji{
+    color: #259b87;
+  }
+
 .flex-grow {
   flex-grow: 1; }
 

@@ -27,6 +27,7 @@
           <div class="col-lg-6 mx-auto">
             <h2 class="text-center mb-4">Registrasi 2: Data Dasar </h2>
             <div class="auto-form-wrapper">
+              <a class="text-kasmaji" style="color: #259b87;"><i>*: Data tidak dipublikasikan</i></a>
               <form action="<?php echo base_url().'register/procbase' ?>" method="post">
               <h3 style="margin-bottom: 0">Kontak</h3><hr>
               <div class="form-group row">
@@ -47,14 +48,14 @@
                 </div>
 
                 <div class="form-group row">
-                  <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Nomor HP</label>
+                  <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Nomor HP*</label>
                     <div class=" col-sm-9">
                       <input class="form-control" placeholder="+62 XXXX-XXXX-XXXX" name="nomorhp" reqiured>
                     </div>
                 </div>
                 
                 <div class="form-group row">
-                  <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Nomor WhatsApp</label>
+                  <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Nomor WhatsApp*</label>
                     <div class=" col-sm-9">
                       <input class="form-control" placeholder="+62 XXXX-XXXX-XXXX" name="nomorwa"  reqiured>
                     </div>
@@ -88,7 +89,7 @@
                     </div>
                 </div>
 
-                <br><h3 style="margin-bottom: 0">Alamat Rumah</h3><hr>
+                <br><h3 style="margin-bottom: 0">Alamat Rumah*</h3><hr>
                 <div class="form-group row">
                   <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Provinsi</label>
                     <div class=" col-sm-9">
@@ -212,7 +213,7 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                  <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Alamat Lengkap</label>
+                  <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Alamat Lengkap*</label>
                     <div class=" col-sm-9">
                       <textarea class="form-control" placeholder="" name="alamat_lengkap_dom" rows="4" required></textarea>
                     </div>
@@ -221,7 +222,7 @@
                 <br><h3 style="margin-bottom: 0">keterangan Kegiatan</h3><hr>
 
                 <div class="form-group row">
-                  <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Melanjutkan Pendidikan Setelah SMA?</label>
+                  <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Melanjutkan Pendidikan Setelah SMA?*</label>
                     <div class=" col-sm-9">
                     <div class="form-radio">
                         <label class="form-check-label">
@@ -237,7 +238,7 @@
                 </div>
 
                 <div class="form-group row">
-                  <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Kegiatan Saat Ini</label>
+                  <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Kegiatan Saat Ini*</label>
                     <div class=" col-sm-9">
                     <div class="form-radio">
                         <label class="form-check-label">
@@ -268,8 +269,10 @@
                     echo $informasi;
                   }
                   ?></a>
-                <div class="form-group">
-                  <button class="btn text-white submit-btn btn-block">Next!</button>
+                  <br>
+                <div class="form-group d-flex justify-content-between">
+                <a href="<?php echo base_url(); ?>register/back" class="btn ml-0 text-white btn-lg btn-primary">< Kembali</a>
+                  <button type='submit' class="btn btn-lg mr-0 text-white ">Lanjut!</button>
                 </div>
               </form>
             </div>

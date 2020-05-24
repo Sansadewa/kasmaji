@@ -36,6 +36,7 @@ class Login extends CI_Controller
 				
 				//masukkin data ke userdata
 				$this->session->set_userdata('username', $username);
+				$this->session->set_userdata('role', $aku[0]['role']);
 				$this->session->set_userdata('nama', $aku[0]['nama']);
 				$this->session->set_userdata('email', $aku[0]['email']);
 				$this->session->set_userdata('tgl_lahir', $aku[0]['tgl_lahir']);

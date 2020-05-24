@@ -27,10 +27,12 @@
           <div class="col-lg-6 mx-auto">
             <h2 class="text-center mb-4">Registrasi 2: Data Pendidikan </h2>
             <div class="auto-form-wrapper">
+            <a class="text-kasmaji" style="color: #259b87;"><i>*: Data tidak dipublikasikan</i></a>
+
               <form action="<?php echo base_url().'register/procpend' ?>" method="post">
 
               <div class="form-group row" style="margin-bottom:0;">
-                  <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Pendidikan yg sedang/telah selesai ditempuh setelah lulus SMA</label>
+                  <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Pendidikan yg sedang/telah selesai ditempuh setelah lulus SMA*</label>
                     <div class=" col-sm-9">
                         <div class="row" style="margin-bottom:0.3em;">
                             <div class="form-radio col-sm-3">
@@ -84,8 +86,7 @@
                 <hr>
                 <fieldset id="huha">
                 <div class="form-group row" style="margin-bottom:0.36em;" id="huha">
-                  <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Sedang studi pascasarjana (S2/Profesi) ?</label>
-                    
+                  <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Sedang studi pascasarjana (S2/Profesi)?*</label>
                   <div class=" col-sm-9">
                   <div class="row">
                       <div class="form-radio col-sm-6">
@@ -131,8 +132,10 @@
                   }
                   ?></a>
                 <center>
-                <div class="form-group  center">
-                  <button class="btn text-white submit-btn btn-block">Lanjut!</button>
+                <br>
+                <div class="form-group d-flex justify-content-between">
+                <a href="<?php echo base_url(); ?>register/back" class="btn ml-0 text-white btn-lg btn-primary">< Kembali</a>
+                  <button type='submit' class="btn btn-lg mr-0 text-white ">Lanjut!</button>
                 </div>
                 </center>
               </form>

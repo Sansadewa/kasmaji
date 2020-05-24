@@ -102,7 +102,7 @@
 									<tr>
 										<th>Nama</th>
 										<th>Jenis Kegiatan</th>
-										<th>Status Pekerjaan</th>
+										<?php if($this->session->userdata('role')==99){echo"<th>Status Pekerjaan</th>";}?>
 										<th>Tempat Kerja</th>
 										<th>Bidang Pekerjaan</th>
 										<th>Jabatan</th>
@@ -116,7 +116,7 @@
 									<tr>
 										<td><?php echo $row2->nama; ?></td>
 										<td><?php echo $row2->jenis; ?></td>
-										<td><?php echo $row2->status; ?></td>
+										<?php if($this->session->userdata('role')==99){echo"<td>".$row2->status."</td>";} ?>
 										<td><?php echo $row2->tempat_kerja; ?></td>
 										<td><?php echo $row2->bidang; ?></td>
 										<td><?php echo $row2->jabatan; ?></td>
@@ -129,7 +129,7 @@
 									<tr>
 										<th>Nama</th>
 										<th>Jenis Kegiatan</th>
-										<th>Status Pekerjaan</th>
+										<?php if($this->session->userdata('role')==99){echo"<th>Status Pekerjaan</th>";}?>
 										<th>Tempat Kerja</th>
 										<th>Bidang Pekerjaan</th>
 										<th>Jabatan</th>

@@ -91,8 +91,10 @@
                   }
                   ?></a>
                 <center>
-                <div class="form-group center">
-                  <button class="btn text-white submit-btn btn-block">Next!</button>
+                <br>
+                <div class="form-group d-flex justify-content-between">
+                <a href="<?php echo base_url(); ?>register/back" class="btn ml-0 text-white btn-lg btn-primary">< Kembali</a>
+                  <button type='submit' class="btn btn-lg mr-0 text-white ">Lanjut!</button>
                 </div>
                 </center>
               </form>

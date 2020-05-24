@@ -45,12 +45,14 @@
 											<input type="text" class="form-control-plaintext"
 												value="<?php echo $orangnya->email; ?>" readonly>
 										</div>
+										<?php if($this->session->userdata('role')==99){?>
 										<div class="form-group col-md-6">
 											<label for='date' style="line-height: 5px; margin-bottom:0;">Tanggal
 												Lahir</label>
 											<input type="date" class="form-control-plaintext"
 												value="<?php echo $orangnya->tgl_lahir; ?>" readonly>
 										</div>
+										<?php }?>
 									</div>
 								</form>
 							</div>
@@ -75,8 +77,8 @@
 						<div class="row mt-3">
 							<div class="col-12">
 								<form>
+									<?php if($this->session->userdata('role')==99){?>
 									<h4 style="margin-bottom: 1rem">Kontak</h4>
-
 									<div class="form-group row ">
 										<label class="col-form-label col-sm-3"
 											style="line-height=0;vertical-align: middle">Nomor
@@ -96,7 +98,7 @@
 												readonly>
 										</div>
 									</div>
-
+									<?php }?>
 									<br>
 									<h4 style="margin-bottom: 1rem">Sosial Media</h4>
 
@@ -139,6 +141,7 @@
 										</div>
 									</div>
 									<br>
+									<?php if($this->session->userdata('role')==99){?>
 									<h4 style="margin-bottom: 1rem">Alamat Rumah</h4>
 									<div class="form-group row">
 										<label class="col-form-label col-sm-3"
@@ -167,7 +170,7 @@
 												readonly><?php echo $orangnya->alamat_lengkap; ?></textarea>
 										</div>
 									</div>
-
+									<?php }?>
 									<br>
 									<h4 style="margin-bottom: 1rem">Alamat Domisili</h4>
 									<div class="form-group row">
@@ -188,7 +191,7 @@
 												readonly>
 										</div>
 									</div>
-
+									<?php if($this->session->userdata('role')==99){?>
 									<div class="form-group row">
 										<label class="col-form-label col-sm-3"
 											style="line-height=0;vertical-align: middle">Alamat
@@ -198,6 +201,7 @@
 												readonly><?php echo $orangnya->alamat_lengkap_dom; ?></textarea>
 										</div>
 									</div>
+
 									<br>
 									<h4 style="margin-bottom: 1rem">Kegiatan</h4>
 									<div class="form-group row">
@@ -206,8 +210,8 @@
 											Pendidikan Setelah SMA?</label>
 										<div class=" col-sm-9">
 											<input class="form-control" value='<?php  if($orangnya->lanjut_belajar == 1) { echo 'Ya\'';} else {echo'\' hidden';} ?> readonly>
-											<input class="form-control" value='
-												<?php  if($orangnya->lanjut_belajar == 0) { echo 'Tidak\'';} else {echo'\' hidden';} ?>>
+											<input class="form-control" value=' <?php  if($orangnya->lanjut_belajar == 0) { echo 'Tidak\'';} else {echo'\' hidden';} ?>
+												readonly>
 										</div>
 									</div>
 
@@ -222,10 +226,9 @@
 											<input class="form-control" value='<?php  if($orangnya->kegiatan == 3) { echo 'Keduanya\'';} else {echo'\' hidden';} ?> readonly>
 											<input class="form-control" value=' <?php  if($orangnya->kegiatan == 4) { echo 'Belum Bekerja &amp; Tidak Memiliki Usaha\'';} else {echo'\' hidden';} ?>
 												readonly>
-
-
 										</div>
 									</div>
+									<?php }?>
 								</form>
 							</div>
 						</div>
@@ -236,91 +239,6 @@
 	</div>
 </div>
 
-
-
-<div class="row">
-	<div class="col-md-12 grid-margin">
-		<div class="row ">
-			<div class="col-12">
-				<div class="card">
-					<div class="card-body">
-						<div class="row">
-							<h3 class="col-12" style="margin-bottom: 0"> Pekerjaan </h3>
-						</div>
-						<hr class="my-0">
-
-						<div class="row mt-1 justify-content-center">
-							<div class="col-lg-12 col-sm-12 col-md-12 ml-lg-4">
-								<form class="forms-sample">
-									<br>
-									<div class="row">
-										<div class="form-group col-md-6 col-sm-12">
-											<label for="nim"
-												style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Jenis
-												Kegiatan</label>
-											<input class="form-control" id="" value="<?php echo $orangnya->jenis; ?>"
-												readonly>
-										</div>
-										<div class="form-group col-md-3 col-sm-12">
-											<label for="nama"
-												style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Status
-												Pekerjaan</label>
-											<input class="form-control" id="thmasuk"
-												value="<?php echo strtoupper($orangnya->status);?>" readonly>
-										</div>
-										<div class="form-group col-md-3 col-sm-12">
-											<label for="nama"
-												style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Nama
-												Instansi/Tempat Kerja</label>
-											<input class="form-control" id="thkeluar"
-												value="<?php echo strtoupper($orangnya->tempat_kerja);?>" readonly>
-										</div>
-									</div>
-
-									<div class="row">
-										<div class="form-group col-md-6 col-sm-12">
-											<label for='email'
-												style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Bidang
-												Pekerjaan</label>
-											<input class="form-control" value="<?php echo $orangnya->bidang;?>"
-												readonly>
-										</div>
-										<div class="form-group col-md-6">
-											<label for='date'
-												style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Jabatan</label>
-											<input class="form-control" value="<?php echo $orangnya->jabatan;?>"
-												readonly>
-										</div>
-									</div>
-									<div class="row">
-										<div class="form-group col-md-6 col-sm-12">
-											<label for='email'
-												style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Deskripsi
-												Pekerjaan</label>
-											<input class="form-control asn" placeholder="Instansi (S2/Profesi)"
-												Value="<?php echo $orangnya->deskripsi_kerja;?>" readonly>
-
-										</div>
-
-										<div class="form-group col-md-6 col-sm-12">
-											<label for='email'
-												style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Rencana
-												Setelah Mendapatkan Surat Izin</label>
-											<input class="form-control asn" placeholder="Jurusan (S2/Profesi)"
-												Value="<?php echo $orangnya->rencana;?>" readonly>
-
-										</div>
-										<hr>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
 
 <div class="row">
 	<div class="col-md-12 grid-margin">
@@ -338,6 +256,8 @@
 								<form class="forms-sample">
 
 									<br>
+									<?php if($this->session->userdata('role')==99){?>
+
 									<div class="row">
 										<div class="form-group col-md-6 col-sm-12">
 											<label for="nim"
@@ -362,7 +282,7 @@
 												value="<?php echo strtoupper($orangnya->th_keluar);?>" readonly>
 										</div>
 									</div>
-
+									<?php }?>
 									<div class="row">
 										<div class="form-group col-md-6 col-sm-12">
 											<label for='email'
@@ -378,6 +298,12 @@
 												readonly>
 										</div>
 									</div>
+									<?php if($this->session->userdata('role')==99){?>
+									<div class="form-group row">
+									<label for='pascasarjana' style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Lanjut S2?</label>
+											<input class="form-control" value="<?php echo $row->pascasarjana;?>" readonly>
+									</div>
+									<?php }?>
 									<div class="row">
 										<div class="form-group col-md-6 col-sm-12">
 											<label for='email'
@@ -420,6 +346,93 @@
 	</div>
 </div>
 
+<div class="row">
+	<div class="col-md-12 grid-margin">
+		<div class="row ">
+			<div class="col-12">
+				<div class="card">
+					<div class="card-body">
+						<div class="row">
+							<h3 class="col-12" style="margin-bottom: 0"> Pekerjaan </h3>
+						</div>
+						<hr class="my-0">
+
+						<div class="row mt-1 justify-content-center">
+							<div class="col-lg-12 col-sm-12 col-md-12 ml-lg-4">
+								<form class="forms-sample">
+									<br>
+									<div class="row">
+										<div class="form-group <?php ($this->session->userdata('role')==99? "col-md-6" : "col-md-12")?> col-sm-12">
+											<label for="nim"
+												style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Jenis
+												Kegiatan</label>
+											<input class="form-control" id="" value="<?php echo $orangnya->jenis; ?>"
+												readonly>
+										</div>
+										<?php if($this->session->userdata('role')==99){?>
+										<div class="form-group col-md-6 col-sm-12">
+											<label for="nama"
+												style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Status
+												Pekerjaan</label>
+											<input class="form-control" id="thmasuk"
+												value="<?php echo strtoupper($orangnya->status);?>" readonly>
+										</div>
+										<?php }?>
+									</div>
+
+									<div class="row">
+										<div class="form-group col-md-6 col-sm-12">
+											<label for="nama"
+												style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Nama
+												Instansi/Tempat Kerja</label>
+											<input class="form-control" id="thkeluar"
+												value="<?php echo strtoupper($orangnya->tempat_kerja);?>" readonly>
+										</div>
+										<div class="form-group col-md-6 col-sm-12">
+											<label for='email'
+												style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Bidang
+												Pekerjaan</label>
+											<input class="form-control" value="<?php echo $orangnya->bidang;?>"
+												readonly>
+										</div>
+										
+									</div>
+									<div class="row">
+									<div class="form-group col-md-6">
+											<label for='date'
+												style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Jabatan</label>
+											<input class="form-control" value="<?php echo $orangnya->jabatan;?>"
+												readonly>
+										</div>
+										<div class="form-group col-md-6 col-sm-12">
+											<label for='email'
+												style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Deskripsi
+												Pekerjaan</label>
+											<input class="form-control asn" placeholder="Instansi (S2/Profesi)"
+												Value="<?php echo $orangnya->deskripsi_kerja;?>" readonly>
+
+										</div>
+
+										<div class="form-group col-md-6 col-sm-12">
+											<label for='email'
+												style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Rencana
+												Setelah Mendapatkan Surat Izin</label>
+											<input class="form-control asn" placeholder="Jurusan (S2/Profesi)"
+												Value="<?php echo $orangnya->rencana;?>" readonly>
+
+										</div>
+										<hr>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
 
 <div class="row">
 	<div class="col-md-12 grid-margin">
@@ -441,32 +454,34 @@
 											<label for="nim"
 												style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Nama
 												Usaha</label>
-											<input class="form-control" id=""
+											<input class="form-control" id="" placeholder="-"
 												value="<?php echo $orangnya->nama_usaha; ?>" readonly>
 										</div>
-										<div class="form-group col-md-3 col-sm-12">
+										<div class="form-group col-md-6 col-sm-12">
 											<label for="nama"
 												style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Bidang
 												Usaha</label>
-											<input class="form-control" id="thmasuk"
+											<input class="form-control" id="thmasuk" placeholder="-"
 												value="<?php echo strtoupper($orangnya->bidang_usaha);?>" readonly>
 										</div>
-										<div class="form-group col-md-3 col-sm-12">
+									</div>
+									
+									<div class="row">
+									<div class="form-group col-md-12 col-sm-12">
 											<label for="nama"
 												style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Alamat
 												Usaha</label>
-											<input class="form-control" id="thkeluar"
-												value="<?php echo strtoupper($orangnya->alamat_usaha);?>" readonly>
+											<textarea class="form-control" id="thkeluar" placeholder="-"
+												value="" readonly><?php echo $orangnya->alamat_usaha;?></textarea>
 										</div>
 									</div>
-
 									<div class="row">
 										<div class="form-group col-md-12 col-sm-12">
 											<label for='email'
 												style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Deskripsi
 												Usaha</label>
-											<input class="form-control asn" placeholder="Instansi (S2/Profesi)"
-												Value="<?php echo $orangnya->deskripsi_usaha;?>" readonly>
+											<textarea class="form-control asn" placeholder="-"
+												Value="" readonly><?php echo $orangnya->deskripsi_usaha;?></textarea>
 										</div>
 										<hr>
 									</div>
@@ -479,4 +494,3 @@
 		</div>
 	</div>
 </div>
-

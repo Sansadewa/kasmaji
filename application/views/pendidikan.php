@@ -58,25 +58,33 @@
 											<input class="form-control" value="<?php echo $row->jurusan;?>" readonly>
 										</div>
 									</div>
+									
+
+									
 									<div class="row">
+									<div class="form-group col-md-6 col-sm-12">
+									<label for='pascasarjana'
+												style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Lanjut S2?</label>
+											<input class="form-control" value="<?php echo $row->pascasarjana;?>" readonly>
+									</div>
 										<div class="form-group col-md-6 col-sm-12">
 											<label for='email' style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Instansi
 												S2</label>
 											<input class="form-control asn" placeholder="Instansi (S2/Profesi)"
 												Value="<?php echo $row->instansi_lanjut;?>" name="instansi_lanjut" readonly>
-
 										</div>
 
-										<div class="form-group col-md-6 col-sm-12">
+										
+										<hr>
+									</div>
+									<div class="row">
+									<div class="form-group col-md-6 col-sm-12">
 											<label for='email' style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Jurusan
 												S2</label>
 											<input class="form-control asn" placeholder="Jurusan (S2/Profesi)"
 												Value="<?php echo $row->jurusan_lanjut;?>" name="jurusan_lanjut" readonly>
 
 										</div>
-										<hr>
-									</div>
-									<div class="row">
 										<div class="form-group col-md-6 col-sm-12">
 											<label for='email'
 												style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Beasiswa</label>
@@ -112,26 +120,27 @@
 								<thead>
 									<tr>
 										<th>Nama</th>
-										<th>Pendidikan Setelah SMA</th>
-										<th>Tahun Masuk</th>
-										<th>Tahun Keluar</th>
+										<?php if($this->session->userdata('role')==99){echo"<th>Pendidikan Setelah SMA</th>";}?>
+										<?php if($this->session->userdata('role')==99){echo"<th>Tahun Masuk</th>";}?>
+										<?php if($this->session->userdata('role')==99){echo"<th>Tahun Keluar</th>";}?>
 										<th>Instansi Pendidikan</th>
 										<th>Jurusan</th>
+										<?php if($this->session->userdata('role')==99){echo"<th>Lanjut S2</th>";}?>
 										<th>Instansi S2/Profesi</th>
 										<th>Jurusan S2/Profesi</th>
 										<th>Program Beasiswa</th>
 									</tr>
 								</thead>
 								<tbody>
-									<?php foreach ($tbl_pendidikan->result() as $row2) { 
-                    ?>
+									<?php foreach ($tbl_pendidikan->result() as $row2) { ?>
 									<tr>
 										<td><?php echo $row2->nama; ?></td>
-										<td><?php echo $row2->sedang_or_selesai; ?></td>
-										<td><?php echo $row2->th_masuk; ?></td>
-										<td><?php echo $row2->th_keluar; ?></td>
+										<?php if($this->session->userdata('role')==99){echo"<td>".$row2->sedang_or_selesai."</td>";}?>
+										<?php if($this->session->userdata('role')==99){echo"<td>".$row2->th_masuk."</td>";} ?>
+										<?php if($this->session->userdata('role')==99){echo"<td>".$row2->th_keluar."</td>";} ?>
 										<td><?php echo $row2->instansi; ?></td>
 										<td><?php echo $row2->jurusan; ?></td>
+										<?php if($this->session->userdata('role')==99){echo"<td>".$row2->pascsarjana."</td>";} ?>
 										<td><?php echo $row2->instansi_lanjut; ?></td>
 										<td><?php echo $row2->jurusan_lanjut; ?></td>
 										<td><?php echo $row2->beasiswa; ?></td>
@@ -141,11 +150,12 @@
 								<tfoot>
 									<tr>
 										<th>Nama</th>
-										<th>Pendidikan Setelah SMA</th>
-										<th>Tahun Masuk</th>
-										<th>Tahun Keluar</th>
+										<?php if($this->session->userdata('role')==99){echo"<th>Pendidikan Setelah SMA</th>";}?>
+										<?php if($this->session->userdata('role')==99){echo"<th>Tahun Masuk</th>";}?>
+										<?php if($this->session->userdata('role')==99){echo"<th>Tahun Keluar</th>";}?>
 										<th>Instansi Pendidikan</th>
 										<th>Jurusan</th>
+										<?php if($this->session->userdata('role')==99){echo"<th>Lanjut S2</th>";}?>
 										<th>Instansi S2/Profesi</th>
 										<th>Jurusan S2/Profesi</th>
 										<th>Program Beasiswa</th>

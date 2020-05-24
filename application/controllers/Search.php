@@ -62,8 +62,12 @@ class Search extends CI_Controller {
     }
     
     public function lihatprofil($username){
-        echo "Fitur belum dibuat.";
-    }
+        $this->load->view('akunhead');
+        $data['person']=$this->orang_model->get_full($username);
+        $data['username']=$username;
+        $this->load->view('lihatprofil',$data);
+		$this->load->view('akunfooter');
+        }
 
 	
 }

@@ -113,5 +113,10 @@ class Orang_model extends CI_Model
     $query->free_result();
   }
 
-
+  public function get_full($username){
+    $q="SELECT * FROM orang o LEFT JOIN pekerjaan p ON p.username=o.username LEFT JOIN pendidikan on o.username=pendidikan.username LEFT JOIN profil ON o.username=profil.username LEFT JOIN usaha ON usaha.username=o.username WHERE o.username='".$username."'";
+    $qu=$this->db->query($q);
+    return $qu;
+    $query->free_result();
+  }
 }

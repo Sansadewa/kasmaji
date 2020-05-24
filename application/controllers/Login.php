@@ -43,7 +43,7 @@ class Login extends CI_Controller
 				$this->session->set_userdata('kelas', $aku[0]['kelas']);
 
 				$logintime = date('Y-m-d H:i:s', time());
-				$sess = md5($logintime.$nama);
+				$sess = md5($logintime.$aku[0]['nama']);
 				$this->session->set_userdata('session_token', $sess);
 				$this->orang_model->update_login($username, $logintime, $sess);
 

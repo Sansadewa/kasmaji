@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="<?php base_url();?>public/css/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="<?php base_url();?>public/images/favicon.png" />
+  <link rel="shortcut icon" href="<?php base_url();?>public/images/favicon.ico" />
 </head>
 
 <body>

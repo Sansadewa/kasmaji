@@ -25,6 +25,8 @@
   <!-- endinject -->
 
   <link rel="shortcut icon" href="<?php echo base_url();?>/public/images/favicon.png" />
+  <link rel="shortcut icon" href="<?php base_url();?>public/images/favicon.ico" />
+
   <style type="text/css">
     .sebuah-tabelWrapper {
     width: auto;
@@ -35,7 +37,7 @@
 background:transparent; border:none; border-bottom:1px solid white;
 }
 #searchbox::placeholder {color: white;opacity: 1;}
-}
+
 
   </style>
   <script src="<?php echo base_url();?>/public/vendors/js/vendor.bundle.base.js"></script>

@@ -16114,9 +16114,6 @@ ul {
 /*-------------------------------------------------------------------*/
 /* === Landing screens === */
 /* Auth */
-.auth.auth-bg-1 {
-  background: url("/kasmaji/public/images/auth/angkatan.JPG") no-repeat center center fixed;
-  background-size: cover; }
 
 .auth.register-bg-1 {
   background: rgb(255,255,255) center center no-repeat;

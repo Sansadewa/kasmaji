@@ -15,6 +15,7 @@
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="<?php base_url();?>public/css/style.css">
+  <link rel="stylesheet" href="<?php base_url();?>public/css/untracked.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="<?php base_url();?>public/images/favicon.png" />
   <link rel="shortcut icon" href="<?php base_url();?>public/images/favicon.ico" />

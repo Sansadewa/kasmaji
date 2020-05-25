@@ -278,7 +278,7 @@ class Register extends CI_Controller {
 	}
 
 	public function back(){
-		$profil=$this->register_model->get_info($this->session->userdata('username'));
+		$profil=$this->register_model->mundur($this->session->userdata('username'));
 		redirect('register');
 	}
 

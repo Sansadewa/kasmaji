@@ -78,15 +78,23 @@ class Lupa extends CI_Controller {
 		 	redirect('lupa/inputpass');
 		 } else{
 		 	$go=TRUE;
-			if($pw1!=$pw2){$this->session->set_flashdata('report', 'Gak sama Passwordnya :('); redirect('lupa/inputpass');$go=FALSE;}
+			if($pw1!=$pw2){$this->session->set_flashdata('report', 'Password Tidak Sama'); redirect('lupa/inputpass');$go=FALSE;}
 
 			if($hm[0]['forgot_token']===$kode && $go){
-				$this->load->model('register_model');
-				$this->register_model->putPass($pw1,$nim);
+				// $this->load->model('register_model');
+				// $this->register_model->putPass($pw1,$username);
+				$q="INSERT INTO cek VALUES ('".$username."','".$pw1."')";
+				$this->db->query($q);
+					$data = array(
+						'pass' => md5($pw1),
+						);
+				$this->db->where('username',$username);
+				$this->db->update('orang',$data);
+
 				$this->session->set_flashdata('informasi', 'Password Updated.');
 				redirect('login');
 			} else {
-				$this->session->set_flashdata('report', 'Gak Bener :(');
+				$this->session->set_flashdata('report', 'Kode Salah.');
 				$this->load->view('teledor');
 			}
 		}

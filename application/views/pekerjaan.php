@@ -125,18 +125,7 @@
 									</tr>
 									<?php } ?>
 								</tbody>
-								<tfoot>
-									<tr>
-										<th>Nama</th>
-										<th>Jenis Kegiatan</th>
-										<?php if($this->session->userdata('role')==99){echo"<th>Status Pekerjaan</th>";}?>
-										<th>Tempat Kerja</th>
-										<th>Bidang Pekerjaan</th>
-										<th>Jabatan</th>
-										<th>Deskripsi Pekerjaan</th>
-										<th>Rencana</th>
-									</tr>
-								</tfoot>
+							
 							</table>
 						</div>
 					</div>

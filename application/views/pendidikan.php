@@ -147,20 +147,7 @@
 									</tr>
 									<?php } ?>
 								</tbody>
-								<tfoot>
-									<tr>
-										<th>Nama</th>
-										<?php if($this->session->userdata('role')==99){echo"<th>Pendidikan Setelah SMA</th>";}?>
-										<?php if($this->session->userdata('role')==99){echo"<th>Tahun Masuk</th>";}?>
-										<?php if($this->session->userdata('role')==99){echo"<th>Tahun Keluar</th>";}?>
-										<th>Instansi Pendidikan</th>
-										<th>Jurusan</th>
-										<?php if($this->session->userdata('role')==99){echo"<th>Lanjut S2</th>";}?>
-										<th>Instansi S2/Profesi</th>
-										<th>Jurusan S2/Profesi</th>
-										<th>Program Beasiswa</th>
-									</tr>
-								</tfoot>
+								
 							</table>
 						</div>
 					</div>

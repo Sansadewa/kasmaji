@@ -262,7 +262,7 @@
   											<div id="crop-container" hidden="true"></div>
   											<input type="hidden" id="imagebase64" name="imagebase64">
   											<div class="row  d-flex justify-content-center mx-auto" class="sendbutton">
-  												<button type="button" class="btn btn-secondary  data-dismiss=" modal">Close</button>
+  												<button type="button" class="btn btn-secondary"  data-dismiss="modal">Close</button>
   												&nbsp;&nbsp;&nbsp;
   												<button type="button" id="kirim" class="btn btn-success mr-2 btn-primary sendbutton"
   													hidden="true">Submit</button>
@@ -637,8 +637,8 @@
 
   		$uploadCrop = $('#crop-container').croppie({
   			viewport: {
-  				width: 270,
-  				height: 270,
+  				width: 400,
+  				height: 400,
   				type: 'circle'
   			},
   			mouseWheelZoom: 'ctrl',
@@ -654,7 +654,8 @@
   		$('#kirim').on('click', function (ev) {
   			$uploadCrop.croppie('result', {
   				type: 'canvas',
-  				size: 'original'
+  				size: 'viewport',
+				  quality: 1
   			}).then(function (resp) {
   				$('#imagebase64').val(resp);
   				$('#form').submit();

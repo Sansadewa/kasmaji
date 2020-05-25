@@ -46,35 +46,32 @@
       });
 
       // Tfoot Search
-      // Setup - add a text input to each footer cell
-      $('#sebuah-tabel tfoot th').each( function () {
-          var title = $(this).text();
-          $(this).html( '<input type="text" style="border:none; border-bottom: 2px solid #259b87" placeholder="Search '+title+'" />' );
-      } );
-  
-      // DataTable
-      var table = $('#sebuah-tabel').DataTable({
-        "dom": 'lfrtBip',
+// Setup - add a text input to each footer cell
+$('#sebuah-tabel thead tr').clone(true).appendTo( '#sebuah-tabel thead' );
+    $('#sebuah-tabel thead tr:eq(1) th').each( function (i) {
+        var title = $(this).text();
+        $(this).html( '<input type="text" style="border:none; border-bottom: 2px solid #259b87" placeholder="Search '+title+'" />' );
+ 
+        $( 'input', this ).on( 'keyup change', function () {
+            if ( table.column(i).search() !== this.value ) {
+                table
+                    .column(i)
+                    .search( this.value )
+                    .draw();
+            }
+        } );
+    } );
+ 
+    var table = $('#sebuah-tabel').DataTable( {
+        orderCellsTop: true,
+        fixedHeader: true,
+        "dom": '<hr>lfrtBip',
           "scrollX": true,
-          initComplete: function () {
-              // Apply the search
-              this.api().columns().every( function () {
-                  var that = this;
-  
-                  $( 'input', this.footer() ).on( 'keyup change clear', function () {
-                      if ( that.search() !== this.value ) {
-                          that
-                              .search( this.value )
-                              .draw();
-                      }
-                  } );
-              } );
-          },
           buttons: [{extend:'copy',className:'btn btn-outline-info btn-sm'},
                 // {extend:'print',className:'btn btn-outline-info btn-sm'},
                 {extend:'excel',className:'btn btn-outline-info btn-sm'}],
-      });
-
+    } );
+      
       // $('.dataTables_length').addClass('bs-select');
       // $('#sebuah-tabelbtm').DataTable({"scrollX": true,  "order": [[ 3, "asc" ], [0,"asc"]]});
     });

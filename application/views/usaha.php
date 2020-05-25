@@ -91,15 +91,7 @@
                     </tr>
                   <?php } ?>
                 </tbody>
-                <tfoot>
-                <tr>
-                <th>Nama</th>
-                  <th>Nama Usaha</th>
-                  <th>Bidang Usaha</th>
-                  <th>Alamat Usaha</th>
-                  <th>Deskripsi Usaha</th>
-                </tr>
-                </tfoot>
+
               </table>
             </div>
             </div>

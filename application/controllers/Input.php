@@ -63,8 +63,11 @@ class Input extends CI_Controller {
 		$prov_dom=$this->input->post('prov_dom');
 		$kabkot_dom=$this->input->post('kabkot_dom');
 		$alamat_lengkap_dom=$this->input->post('alamat_lengkap_dom');
+
 		$lanjut_belajar=$this->input->post('lanjut_belajar');
 		$kegiatan=$this->input->post('kegiatan');
+
+		
 
 		if($this->input_model->update_profil($this->session->userdata('username'), $nomorhp,$nomorwa,$linkedin,$facebook,$ig,$twitter,$prov,$kabkot,$alamat_lengkap,$prov_dom,$kabkot_dom,$alamat_lengkap_dom,$lanjut_belajar,$kegiatan)){
 			$this->session->set_flashdata('result', 'Perubahan Sukses.');

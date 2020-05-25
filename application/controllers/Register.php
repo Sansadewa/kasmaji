@@ -100,7 +100,7 @@ class Register extends CI_Controller {
 		$alamat_lengkap=$this->input->post('alamat_lengkap');
 		$prov_dom=$this->input->post('prov_dom');
 		$kabkot_dom=$this->input->post('kabkot_dom');
-		$alamat_lengkap_dom=$this->input->post('alamat_lengkap-dom');
+		$alamat_lengkap_dom=$this->input->post('alamat_lengkap_dom');
 		$lanjut_belajar=$this->input->post('lanjut_belajar');
 		$kegiatan=$this->input->post('kegiatan');
 

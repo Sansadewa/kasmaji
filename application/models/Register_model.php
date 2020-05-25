@@ -23,6 +23,8 @@ class Register_model extends CI_Model {
   	}
 
     public function putprofil($username, $nomorhp,$nomorwa,$linkedin,$facebook,$ig,$twitter,$prov,$kabkot,$alamat_lengkap,$prov_dom,$kabkot_dom,$alamat_lengkap_dom,$lanjut_belajar,$kegiatan){
+      $this->db->where('username', $username);
+      $this->db->delete('profil');
       $data = array (
                 'username' => $username,
                 'nomor_hp' => $nomorhp,
@@ -55,6 +57,8 @@ class Register_model extends CI_Model {
     }
     
     public function putpendidkan($username, $pendidikan, $tahun_masuk, $tahun_keluar, $instansi, $jurusan, $pascasarjana, $instansi_lanjut, $jurusan_lanjut, $beasiswa){
+      $this->db->where('username', $username);
+      $this->db->delete('pendidikan');
       $data = array (
                 'username' => $username,
                 'sedang_or_selesai' => $pendidikan,
@@ -82,6 +86,8 @@ class Register_model extends CI_Model {
     }
 
     public function putpekerjaan($username, $kegiatan, $status_pekerjaan, $tempat_kerja,$bidang, $jabatan, $deskripsi_pekerjaan, $rencana){
+      $this->db->where('username', $username);
+      $this->db->delete('pekerjaan');
       $data = array (
                 'username' => $username,
                 'jenis' => $kegiatan,
@@ -107,6 +113,9 @@ class Register_model extends CI_Model {
     }
 
     public function putusaha($username, $nama_usaha, $bidang, $alamat_usaha, $deskripsi_usaha ){
+      $this->db->where('username', $username);
+      $this->db->delete('usaha');
+
       $data = array (
                 'username' => $username,
                 'nama_usaha' => $nama_usaha,

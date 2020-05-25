@@ -34,6 +34,8 @@ class Input extends CI_Controller {
 		}
 		$namefile=$this->session->userdata('username');
 		file_put_contents("./public/profpic/{$namefile}.{$type}", $data);
+		$this->session->set_flashdata('report', 'Perubahan Foto Berhasil');
+		redirect('akun');
 	}
 	public function profilbase(){
 			//BELOM DIAMANKAN ISINYA.

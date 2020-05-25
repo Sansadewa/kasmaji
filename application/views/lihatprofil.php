@@ -301,7 +301,7 @@
 									<?php if($this->session->userdata('role')==99){?>
 									<div class="form-group row">
 									<label for='pascasarjana' style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Lanjut S2?</label>
-											<input class="form-control" value="<?php echo $row->pascasarjana;?>" readonly>
+											<input class="form-control" value="<?php echo $orangnya->pascasarjana;?>" readonly>
 									</div>
 									<?php }?>
 									<div class="row">

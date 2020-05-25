@@ -140,7 +140,7 @@
 										<?php if($this->session->userdata('role')==99){echo"<td>".$row2->th_keluar."</td>";} ?>
 										<td><?php echo $row2->instansi; ?></td>
 										<td><?php echo $row2->jurusan; ?></td>
-										<?php if($this->session->userdata('role')==99){echo"<td>".$row2->pascsarjana."</td>";} ?>
+										<?php if($this->session->userdata('role')==99){echo"<td>".$row2->pascasarjana."</td>";} ?>
 										<td><?php echo $row2->instansi_lanjut; ?></td>
 										<td><?php echo $row2->jurusan_lanjut; ?></td>
 										<td><?php echo $row2->beasiswa; ?></td>

@@ -34,7 +34,7 @@ class Input extends CI_Controller {
 		}
 		$namefile=$this->session->userdata('username');
 		file_put_contents("./public/profpic/{$namefile}.{$type}", $data);
-		$this->session->set_flashdata('report', 'Perubahan Foto Berhasil');
+		$this->session->set_flashdata('result', 'Perubahan Foto Berhasil');
 		redirect('akun');
 	}
 	public function profilbase(){
@@ -44,7 +44,7 @@ class Input extends CI_Controller {
 			if($this->input_model->update_profilbase($email,$this->session->userdata('username'),$tgl_lahir)){
 				$this->session->set_userdata('email', $email);
 				$this->session->set_userdata('tgl_lahir', $tgl_lahir);
-				$this->session->set_flashdata('report', 'Perubahan Sukses.');
+				$this->session->set_flashdata('result', 'Perubahan Sukses.');
 				redirect('akun');
 			}		
 	}
@@ -67,10 +67,10 @@ class Input extends CI_Controller {
 		$kegiatan=$this->input->post('kegiatan');
 
 		if($this->input_model->update_profil($this->session->userdata('username'), $nomorhp,$nomorwa,$linkedin,$facebook,$ig,$twitter,$prov,$kabkot,$alamat_lengkap,$prov_dom,$kabkot_dom,$alamat_lengkap_dom,$lanjut_belajar,$kegiatan)){
-			$this->session->set_flashdata('report', 'Perubahan Sukses.');
+			$this->session->set_flashdata('result', 'Perubahan Sukses.');
 			redirect('akun');
 		} else {
-			$this->session->set_flashdata('report', 'Perubahan Gagal.');
+			$this->session->set_flashdata('result', 'Perubahan Gagal.');
 			redirect('akun');
 		}
 	}
@@ -96,11 +96,11 @@ class Input extends CI_Controller {
 
 
 		if($this->input_model->update_pendidkan($this->session->userdata('username'), $pendidikan, $tahun_masuk, $tahun_keluar, $instansi, $jurusan, $pascasarjana, $instansi_lanjut, $jurusan_lanjut, $beasiswa)){
-			$this->session->set_flashdata('report', 'Perubahan Sukses.');
+			$this->session->set_flashdata('result', 'Perubahan Sukses.');
 			redirect('akun/pendidikan');
 
 		} else {
-			$this->session->set_flashdata('report', 'Perubahan Gagal.');
+			$this->session->set_flashdata('result', 'Perubahan Gagal.');
 			redirect('akun');
 		}	
 	}
@@ -133,7 +133,7 @@ class Input extends CI_Controller {
 
 
 			if($this->input_model->update_pekerjaan($this->session->userdata('username'), $kegiatan, $status_pekerjaan, $tempat_kerja,$bidang, $jabatan, $deskripsi_pekerjaan, $rencana )){
-				$this->session->set_flashdata('report', 'Perubahan Sukses.');
+				$this->session->set_flashdata('result', 'Perubahan Sukses.');
 				redirect('akun/pekerjaan');
 			} else {
 				echo ('Error PB 4');
@@ -157,7 +157,7 @@ class Input extends CI_Controller {
 			}
 
 		if($this->input_model->update_usaha($this->session->userdata('username'), $nama_usaha, $bidang, $alamat_usaha, $deskripsi_usaha )){
-			$this->session->set_flashdata('report', 'Perubahan Sukses.');
+			$this->session->set_flashdata('result', 'Perubahan Sukses.');
 			redirect('akun/usaha');
 		} else {
 			echo ('Error PB 5');

@@ -68,7 +68,7 @@
 
 										<div class="form-group col-md-6 col-sm-12">
 											<label for='email' style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Rencana
-												Setelah Mendapatkan Surat Izin</label>
+												Setelah Mendapatkan Surat Izin Praktek</label>
 											<input class="form-control asn" placeholder="Jurusan (S2/Profesi)"
 												Value="<?php echo $row->rencana;?>" readonly>
 

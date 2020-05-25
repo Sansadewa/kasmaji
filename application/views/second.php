@@ -252,7 +252,8 @@
                       </div>
                       <div class="form-radio">
                         <label class="form-check-label">
-                          <input type="radio" class="form-check-input" name="kegiatan" id="keduanya" value="3"> Keduanya
+                          <input type="radio" class="form-check-input" name="kegiatan" id="keduanya" value="3"> Bekerja &amp; Memiliki
+  															Usaha
                         <i class="input-helper"></i></label>
                       </div>
                       <div class="form-radio">

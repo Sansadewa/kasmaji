@@ -331,7 +331,10 @@
   												<label for="nama" style="line-height: 10px; font-size: 13px;">Nama Lengkap</label>
   												<input class="form-control" id="nama"
   													value="<?php echo strtoupper($this->session->userdata('nama')) ?>" disabled>
-  											</div>
+											  </div>
+											  <br>
+  											<h3 style="margin-bottom: 0">Kontak</h3>
+												<hr>
   											<div class="form-group">
   												<label for="nama" style="line-height: 10px; font-size: 13px;">Nomor HP</label>
   												<input class="form-control" name="nomor_hp" id="nomor_hp"
@@ -340,7 +343,11 @@
   											<div class="form-group">
   												<label for="date">Nomor Whatsapp</label>
   												<input name="nomor_wa" class="form-control" value="<?php echo $row->nomor_wa; ?>" />
-  											</div>
+											  </div>
+											  <br>
+  											<h3 style="margin-bottom: 0">Media Sosial</h3>
+												<hr>
+											  
   											<div class="form-group row">
   												<label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Akun
   													LinkedIn</label>
@@ -375,6 +382,9 @@
   														value="<?php echo $row->twitter; ?>">
   												</div>
   											</div>
+											  <br>
+  											<h3 style="margin-bottom: 0">Alamat Rumah</h3>
+
   											<hr>
   											<div class="form-group row">
   												<label class="col-form-label col-sm-3"
@@ -526,8 +536,10 @@
   												</div>
   											</div>
 
-
-  											<hr>
+											  <br>
+  											<h3 style="margin-bottom: 0">Kegiatan</h3>
+												<hr>
+  											
   											<div class="form-group row">
   												<label class="col-form-label col-sm-3"
   													style="line-height=0;vertical-align: middle">Melanjutkan Pendidikan Setelah SMA?</label>
@@ -546,7 +558,7 @@
   													</div>
   												</div>
   											</div>
-
+											  
   											<div class="form-group row">
   												<label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Kegiatan
   													Saat Ini</label>
@@ -566,7 +578,8 @@
   													<div class="form-radio">
   														<label class="form-check-label">
   															<input type="radio" class="form-check-input" name="kegiatan" id="keduanya" value="3"
-  																<?php if ($row->kegiatan == 3) echo "checked"; ?>> Keduanya
+  																<?php if ($row->kegiatan == 3) echo "checked"; ?>>Bekerja &amp; Memiliki
+  															Usaha
   															<i class="input-helper"></i></label>
   													</div>
   													<div class="form-radio">

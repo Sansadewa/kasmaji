@@ -63,3 +63,4 @@ $route['404_override'] = 'nyasar';
 $route['translate_uri_dashes'] = FALSE;
 $route['lihatfoto/(:any)']='akun/lihatfoto/$1';
 $route['lihatprofil/(:any)']='search/lihatprofil/$1';
+$route['lihatsharing/(:any)']='akun/lihatsharing/$1';

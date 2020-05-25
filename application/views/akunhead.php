@@ -162,11 +162,18 @@ background:transparent; border:none; border-bottom:1px solid white;
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="<?php echo base_url(); ?>akun/sharing">
+              <i class="menu-icon mdi mdi-book-open-page-variant"></i>
+              <span class="menu-title">Sharing Kasmaji</span>
+            </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url(); ?>akun/logout">
               <i class="menu-icon mdi mdi-logout-variant"></i>
               <span class="menu-title">Logout</span>
             </a>
           </li>
+          
         </ul>
       </nav>
       <!-- partial -->

@@ -85,6 +85,31 @@ class Orang_model extends CI_Model
       $query->free_result();
     }
 
+
+    //QUERY NOT OPTIMIZED
+    public function get_all_sharing(){
+      $SQL1 = "SELECT * FROM sharing a JOIN orang b On a.username=b.username";
+      $query = $this->db->query($SQL1);
+      return $query;
+      $query->free_result();
+    }
+
+        //QUERY NOT OPTIMIZED
+        public function get_own_sharing($username){
+          $SQL1 = "SELECT * FROM sharing a JOIN orang b On a.username=b.username AND b.username='".$username."'";
+          $query = $this->db->query($SQL1);
+          return $query;
+          $query->free_result();
+        }
+
+        public function search_sharing($username, $kodesharing){
+          $SQL1 = "SELECT * FROM sharing b where  b.username='".$username."' AND b.kodesharing='".$kodesharing."'";
+          $query = $this->db->query($SQL1);
+          return $query;
+          $query->free_result();
+        }
+    
+
   public function update_login($username, $last, $sess)
   {
     $data = array('last_login' => $last, 'session_token' => $sess);

@@ -57,6 +57,33 @@ class Akun extends CI_Controller {
 		$this->load->view('akunfooter');
 	}
 
+	public function sharing()
+	{
+		$data['sharing']=$this->orang_model->get_own_sharing($this->session->userdata('username'));
+		$data['tbl_sharing']=$this->orang_model->get_all_sharing();
+		$this->load->view('akunhead');
+		$this->load->view('sharing',$data);
+		$this->load->view('akunfooter');
+	}
+
+	public function hapussharing($kodesharing)
+	{
+		$datanya=$this->orang_model->search_sharing($this->session->userdata('username'),$kodesharing);
+		if($datanya->num_rows()){
+		$this->load->model('input_model');
+		$data['tbl_sharing']=$this->input_model->delete_sharing($kodesharing);
+		$this->session->set_flashdata('result', 'Berhasil menghapus');
+		// echo (FCPATH.'public/lihatsharing/'.$kodesharing);s
+		// echo getcwd();
+		unlink(getcwd()."public/lihatsharing/".$datanya->row()->gambar);
+		unlink(FCPATH."public/lihatsharing/".$datanya->row()->gambar);
+		redirect('akun/sharing');
+		} else {
+			$this->session->set_flashdata('result', 'Terjadi Kesalahan. Sharing bukan milik anda.');
+		redirect('akun/sharing');
+		}
+	}
+
 	public function lihatfoto($username){
 		if(file_exists("./public/profpic/{$username}.png")!=NULL){
 		$remoteImage = "./public/profpic/{$username}.png";
@@ -67,6 +94,16 @@ class Akun extends CI_Controller {
 				} else {
 					$remoteImage = "./public/profpic/default.png";
 				}
+		$imginfo = getimagesize($remoteImage);
+		header("Content-type: {$imginfo['mime']}");
+		readfile($remoteImage);
+		
+	}
+
+	public function lihatsharing($username){
+		if(file_exists("./public/lihatsharing/{$username}")!=NULL){
+		$remoteImage = "./public/lihatsharing/{$username}";
+		} else {$remoteImage = "./public/lihatsharing/missing.png";}
 		$imginfo = getimagesize($remoteImage);
 		header("Content-type: {$imginfo['mime']}");
 		readfile($remoteImage);

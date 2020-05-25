@@ -61,8 +61,39 @@ $('#sebuah-tabel thead tr').clone(true).appendTo( '#sebuah-tabel thead' );
             }
         } );
     } );
+
+    $('#sebuah-tabela thead tr').clone(true).appendTo( '#sebuah-tabela thead' );
+    $('#sebuah-tabela thead tr:eq(1) th').each( function (i) {
+        var title = $(this).text();
+        $(this).html( '<input type="text" style="border:none; border-bottom: 2px solid #259b87" placeholder="Search '+title+'" />' );
+ 
+        $( 'input', this ).on( 'keyup change', function () {
+            if ( table.column(i).search() !== this.value ) {
+                table
+                    .column(i)
+                    .search( this.value )
+                    .draw();
+            }
+        } );
+    } );
  
     var table = $('#sebuah-tabel').DataTable( {
+      "language": {
+      "emptyTable": "Tidak ada data"
+      },
+        orderCellsTop: true,
+        fixedHeader: true,
+        "dom": '<hr>lfrtBip',
+          "scrollX": true,
+          buttons: [{extend:'copy',className:'btn btn-outline-info btn-sm'},
+                // {extend:'print',className:'btn btn-outline-info btn-sm'},
+                {extend:'excel',className:'btn btn-outline-info btn-sm'}],
+    } );
+
+    var table = $('#sebuah-tabela').DataTable( {
+      "language": {
+      "emptyTable": "Kamu belum melakukan Sharing apapun"
+      },
         orderCellsTop: true,
         fixedHeader: true,
         "dom": '<hr>lfrtBip',

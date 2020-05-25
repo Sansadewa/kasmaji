@@ -5,7 +5,25 @@ class Input_model extends CI_Model {
         $this->load->helper('date');
     }
 
-  
+   public function put_sharing($nama,$username,$judul,$jenis_sharing,$deskripsi_sharing, $kodesharing, $tgl_unggah, $namagambar){
+      $data=array(
+        'nama'=> $nama,
+        'username'=>$username,
+        'judul'=>$judul,
+        'jenis_sharing'=>$jenis_sharing,
+        'deskripsi_sharing'=>$deskripsi_sharing,
+        'kodesharing'=>$kodesharing,
+        'tgl_unggah'=>$tgl_unggah,
+        'gambar'=>$namagambar,
+      );
+      $this->db->insert('sharing',$data);
+    }
+
+    public function delete_sharing($kodesharing){
+      $this->db->where('kodesharing', $kodesharing);
+      $this->db->delete('sharing');
+    }
+
 	public function update_profilbase($email, $username, $tgl_lahir){
     $data = array(
             'email' => $email,

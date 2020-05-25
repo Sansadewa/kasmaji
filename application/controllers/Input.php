@@ -37,6 +37,51 @@ class Input extends CI_Controller {
 		$this->session->set_flashdata('result', 'Perubahan Foto Berhasil');
 		redirect('akun');
 	}
+
+	public function sharing(){
+		// print_r( $this->input->post()); die();
+		$judul=$this->input->post('judul');
+		$jenis_sharing=$this->input->post('jenis_sharing');
+		$deskripsi_sharing=$this->input->post('deskripsi_sharing');
+		$nama=$this->session->userdata('nama');
+		$username=$this->session->userdata('username');
+		$characters = '123456789zxcvbnmasdfghjkqwertyuipZXCVBNMASDFGHJKLQWERTYUP'; //membuat string dengan semua kemungkinan karakter yang ada
+	    $password_token = ''; //membuat password baru
+	    for ($i = 0; $i<13; $i++) {
+	      $password_token .=$characters[rand(0, strlen($characters)-1)];
+	    } 
+		$kodesharing=$username.$password_token;
+				$tgl_unggah=date('Y-m-d H:i:s', time());
+		//kalo ada gambar masuk sini
+		if(!empty($_FILES['uploadgambarsharing']['name'])){
+			$namagambar=$kodesharing;
+			$config['upload_path'] = './public/lihatsharing/';
+			$config['file_name'] = $kodesharing;
+			$config['allowed_types'] = 'gif|jpg|png|jpeg';
+			$config['max_size']	= '5120';
+			$this->load->library('upload', $config);
+			if ( ! $this->upload->do_upload('uploadgambarsharing'))
+			{
+				$this->session->set_flashdata('result', $this->upload->display_errors());
+				redirect('akun/sharing');
+			}
+			else
+			{
+				$this->input_model->put_sharing($nama,$username,$judul,$jenis_sharing,$deskripsi_sharing, $kodesharing, $tgl_unggah, $this->upload->data('file_name'));
+				$this->session->set_flashdata('result', 'Sharing Berhasil');
+				redirect('akun/sharing');
+			}
+		} else {
+			//kalo gaada gambar masuk sini
+			$this->input_model->put_sharing($nama,$username,$judul,$jenis_sharing,$deskripsi_sharing, $kodesharing, $tgl_unggah, NULL);
+			$this->session->set_flashdata('result', 'Sharing Berhasil');
+			redirect('akun/sharing');
+
+
+
+		}
+	}
+
 	public function profilbase(){
 			//BELOM DIAMANKAN ISINYA.
 			$email=$this->input->post('email');

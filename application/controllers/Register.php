@@ -35,12 +35,33 @@ class Register extends CI_Controller {
 
 		} elseif ($aku->step==5){
 			//kalau udah pass sama email, masuk ke biodata dasar
-			redirect('register/selesai');
+			redirect('register/sixth');
+		} elseif ($aku->step==6){
+		//kalau udah pass sama email, masuk ke biodata dasar
+		redirect('register/selesai');
+	} elseif ($aku->step==7){
+			//awalan
+			redirect('register/tos');
 			
 		} else {
 			$this->session->set_flashdata('informasi', 'Error pada registrasi.');
 			redirect('login');
 		}
+	}
+
+	public function tos(){
+		$aku=$this->register_model->get_info($this->session->userdata('username'));
+		//yang boleh kesini cuma yang step=0, yg belom pernah masuk samsasekali.
+		if ($aku->step!=7) redirect('register');
+ 		$this->load->view('tos');		
+	}
+
+	public function agreetos(){
+		$aku=$this->register_model->get_info($this->session->userdata('username'));
+		//yang boleh kesini cuma yang step=0, yg belom pernah masuk samsasekali.
+		if ($aku->step!=7) redirect('register');
+		$this->register_model->update_step($this->session->userdata('username'),0);
+		redirect('register/first');
 	}
 
 	public function first() {
@@ -159,6 +180,7 @@ class Register extends CI_Controller {
 		}
 	}
 
+	//VIEW KERJA
 	public function fourth() {
 		$aku=$this->register_model->get_info($this->session->userdata('username'));
 		if($aku->step!=3){
@@ -181,6 +203,7 @@ class Register extends CI_Controller {
 		}
 	}
 
+	//INPUT KERJA
 	public function prockerja(){
 		$aku=$this->register_model->get_info($this->session->userdata('username'));
 		if ($aku->step!=3) redirect('register');
@@ -220,6 +243,7 @@ class Register extends CI_Controller {
 		}
 	}
 
+	//ISI USAHA
 	public function fifth() {
 		$aku=$this->register_model->get_info($this->session->userdata('username'));
 		if($aku->step!=4){
@@ -237,6 +261,7 @@ class Register extends CI_Controller {
 		}
 	}
 
+	// INPUT USAHA
 	public function procusaha(){
 		$aku=$this->register_model->get_info($this->session->userdata('username'));
 		if ($aku->step!=4) redirect('register');
@@ -263,9 +288,44 @@ class Register extends CI_Controller {
 		}
 	}
 
-	public function selesai(){
+	public function sixth(){
 		$profil=$this->register_model->get_info($this->session->userdata('username'));
 		if ($profil->step!=5) redirect('register');
+		$this->load->view('regisfoto');
+	}
+
+	public function fotoprofil(){
+		$profil=$this->register_model->get_info($this->session->userdata('username'));
+		if ($profil->step!=5) redirect('register');
+		$data = $this->input->post('imagebase64');
+		if($data==NULL){redirect('register');}
+		if (preg_match('/^data:image\/(\w+);base64,/', $data, $type)) {
+			$data = substr($data, strpos($data, ',') + 1);
+			$type = strtolower($type[1]); // jpg, png, gif
+		
+			if (!in_array($type, [ 'jpg', 'jpeg', 'png' ])) {
+				throw new \Exception('invalid image type');
+			}
+		
+			$data = base64_decode($data);
+		
+			if ($data === false) {
+				throw new \Exception('base64_decode failed');
+			}
+		} else {
+			throw new \Exception('did not match data URI with image data');
+		}
+		$namefile=$this->session->userdata('username');
+		file_put_contents("./public/profpic/{$namefile}.{$type}", $data);
+		$this->session->set_flashdata('result', 'Perubahan Foto Berhasil');
+		$this->register_model->update_step($this->session->userdata('username'),6);
+		redirect('register');
+	}
+
+
+	public function selesai(){
+		$profil=$this->register_model->get_info($this->session->userdata('username'));
+		if ($profil->step!=6) redirect('register');
 		$this->load->view('selesai');
 	}
 
@@ -297,6 +357,12 @@ class Register extends CI_Controller {
 	}
 	public function aaaaa(){
 		$this->load->view('fifth');
+	}
+	public function aaaaaa(){
+		$this->load->view('selesai');
+	}
+	public function aaaaaaa(){
+		$this->load->view('tos');
 	}
 
 }

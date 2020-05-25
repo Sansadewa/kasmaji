@@ -44,8 +44,8 @@
         </div>
         <br><br><br><br>
         <center>
-          <h1 style="color:white" data-aos="flip-up" data-aos-delay="300"><b>SELAMAT DATANG SEDULUR KASMAJI 15!</b></h1>
-          <p style="color:rgba(255,255,255,0.7); padding: 0 10%;" data-aos="flip-down" data-aos-delay="600">"Sebagai alumni SMA yang rata-rata sedang mulai meniti karir profesional setelah menyelesaikan masa perkuliahan, Kasmaji 2015 dihadapkan dengan banyak pilihan penting. Pada momen seperti ini, sangatlah baik untuk dapat mengumpulkan informasi dan pengetahuan sebanyak-banyaknya. Salah satu alternatif sarana untuk memeroleh hal-hal tersebut bisa melalui suatu jaringan sosial yang dekat, kredibel, dan terpercaya. Website Database Kasmaji 2015 hadir untuk memenuhi kebutuhan teersebut."</p>
+          <h1 style="color:white" data-aos="flip-up" data-aos-delay="300"><b>SELAMAT DATANG SEDULUR KASMAJI 2015!</b></h1>
+          <p style="color:rgba(255,255,255,0.9); padding: 0 10%;" data-aos="flip-down" data-aos-delay="600">"Kasmaji 2015  saat ini sedang melewati fase awal dalam meniti karir profesional setelah menyelesaikan masa perkuliahan. Pada masa seperti ini, sering dihadapkan dengan banyak pilihan hidup yang penting, yang harus dipikirkan dengan pertimbangan serta pengetahuan yang matang. Salah satu cara untuk memperoleh informasi tersebut melalui orang-orang kompeten di bidang masing-masing. Tentunya, informasi ini akan lebih mudah didapat dan lebih terpercaya apabila bersumber dari orang-orang yang sudah dikenal. Website Database Kasmaji 2015 membantu memenuhi kebutuhan referensi informasi yang terpercaya, sesuai keahliannya, dan dari orang yang dikenal."</p>
           <br><br>
           <a class="btn d-lg-block d-md-block d-sm-block d-block" style="background-color: white; color: #259b87  !important; border-radius: 99px; max-width: 150px" href="<?php echo base_url(); ?>login"> &nbsp;&nbsp;&nbsp; Login &nbsp;&nbsp;&nbsp;</a>
         </center>
@@ -54,8 +54,9 @@
     <div class="bg-grey" style="padding: 50px 0">
       <div class="container">
         <!-- countdown -->
-        <div class="card" data-aos="fade-up" style="top: -220px; padding: 20px 0; max-width: 700px; margin: 0 auto -180px;">
-          <div class="card-body">
+        <div class="row">
+        <div class="card" data-aos="fade-up" style="top: -220px; padding: 20px 0;  width:90%; max-width: 800px; margin: 0 auto -180px;">
+          <div class="card-body d-flex justify-content-center">
             <center><div class="col-12">
               <h4 class="card-title"><b>Countdown Pengisian Database</b></h4>
               <hr>
@@ -65,60 +66,31 @@
                 <li><span id="minutes"></span>Minutes</li>
                 <li><span id="seconds"></span>Seconds</li>
               </ul>
-            </div></center>
+            </div>
+          </center>
           </div>
         </div>
-        <!-- timeline -->
-        <center>
-          <h3 data-aos="fade-up"> P U S A T &nbsp;&nbsp; B A N T U A N </h3><br><br>
-        </center>  
-        <section id="timeline">
-          <article data-aos="fade-up">
-            <div class="inner">
-              <span class="date">
-                <span class="day"></span>
-                <span class="month"></span>
-                <!-- <span class="year">2014</span> -->
-              </span>
-              <h2>Admin 1</h2>
-              <p>085156326385</p>
+        </div>
+
+        <div class="row">
+        <div class="card" data-aos="fade-up" style="padding: 20px 0; width:90%; max-width: 800px; margin: auto;">
+          <div class="card-body">
+            <center><div class="col-12">
+              <img src="<?php echo base_url(); ?>public/images/customer-service.png" class="mx-auto img-fluid d-sm-block d-md-none" style="width:auto; max-width: 150px">
+              <img src="<?php echo base_url(); ?>public/images/customer-service.png" class="mx-auto img-fluid d-none d-sm-none d-md-block" style="width:auto; max-width:250px">
+              <h4 class="card-title text-kasmaji" style="color:#259b87"><b>Pusat Bantuan</b></h4><br>
+              <div class="row">
+              <div class="col-sm-6 col-md-3"><h5><b style="color:#259b87"><i class="mdi mdi-account"></i> Admin 1</b><br> <i class="mdi mdi-phone"></i> 085156326385</h5></div>
+              <div class="col-sm-6 col-md-3"><h5><b style="color:#259b87"><i class="mdi mdi-account"></i> Admin 2</b><br> <i class="mdi mdi-phone"></i> 088290026071</h5></div>
+              <div class="col-sm-6 col-md-3"><h5><b style="color:#259b87"><i class="mdi mdi-account"></i> Admin 3</b><br> <i class="mdi mdi-phone"></i> 081818897485</h5></div>
+              <div class="col-sm-6 col-md-3"><h5><b style="color:#259b87"><i class="mdi mdi-account"></i> Admin 4</b><br> <i class="mdi mdi-phone"></i> 08782418809</h5></div>
+
+              </div>
             </div>
-          </article>
-          <article data-aos="fade-up">
-            <div class="inner">
-              <span class="date">
-                <span class="day"></span>
-                <span class="month"></span>
-                <!-- <span class="year">2014</span> -->
-              </span>
-              <h2>Admin 2</h2>
-              <p>088290026071</p>
-            </div>
-          </article>
-          <article data-aos="fade-up">
-            <div class="inner">
-              <span class="date">
-                <span class="day"></span>
-                <span class="month"></span>
-                <!-- <span class="year">2014</span> -->
-              </span>
-              <h2>Admin 3</h2>
-              <p>081818897485</p>
-            </div>
-          </article>
-          <article data-aos="fade-up">
-            <div class="inner">
-              <span class="date">
-                <span class="day"></span>
-                <span class="month"></span>
-                <!-- <span class="year">2014</span> -->
-              </span>
-              <h2>Admin 4</h2>
-              <p>08782418809</p>
-            </div>
-          </article>
-          
-        </section>
+          </center>
+          </div>
+        </div>
+        </div>
 
       </div>
     </div>

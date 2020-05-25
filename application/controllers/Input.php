@@ -15,7 +15,7 @@ class Input extends CI_Controller {
 
 	public function fotoprofil(){
 		$data = $this->input->post('imagebase64');
-		if($data==NULL){redirect('penididkan');}
+		if($data==NULL){redirect('akun');}
 		if (preg_match('/^data:image\/(\w+);base64,/', $data, $type)) {
 			$data = substr($data, strpos($data, ',') + 1);
 			$type = strtolower($type[1]); // jpg, png, gif

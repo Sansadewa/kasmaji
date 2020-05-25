@@ -255,7 +255,7 @@
   										<form id="form" class="forms-sample" action="<?php echo base_url() . 'input/fotoprofil' ?>"
   											method="post">
   											<div class="col-5 text-center mt-xl-2  d-flex justify-content-center mx-auto">
-  												<label for="fotonya" class="font-weight-medium btn text-white btn-block"
+  												<label for="fotonya" id="buttoncrop" class="font-weight-medium btn text-white btn-block"
   													style="border-radius:4rem; padding:0.5rem" hidden>Pilih Fotonya</label>
   												<input id="fotonya" type="file" name="fotonya" accept="image/*" hidden>
   											</div>
@@ -601,6 +601,7 @@
   		//JS Crop foto
   		var $uploadCrop;
   		$('#buttonupload').attr("hidden", false);
+  		$('#buttoncrop').attr("hidden", false);
 
   		function readFile(input) {
   			if (input.files && input.files[0]) {

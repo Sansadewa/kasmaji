@@ -147,7 +147,7 @@ class Register_model extends CI_Model {
     }
 
     public function mundur($username){
-      $q="UPDATE orang set step=step-1 WHERE username'".$username."';";
+      $q="UPDATE orang set step=step-1 WHERE username='".$username."';";
       $this->db->query($q);
     }
 

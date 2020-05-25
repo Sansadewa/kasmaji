@@ -15,7 +15,7 @@
       <div class="row">
         <div class=" d-flex col-lg-2 col-md-2 col-sm-3 col-xs-3 justify-content-center my-auto">
             <img style=" object-fit: contain; border: 3px solid #259b87;
-              padding: 3px;" class="rounded-circle" src="<?php echo base_url()."lihatfoto/".$row->username;?>" alt="Profile image"></img><br>
+              padding: 3px;" class="img-fluid rounded-circle" src="<?php echo base_url()."lihatfoto/".$row->username;?>" alt="Profile image"></img><br>
         </div>
         <div class="col-lg-9 col-sm-9 col-md-9 ml-lg-4 my-auto">
               <div class="row">

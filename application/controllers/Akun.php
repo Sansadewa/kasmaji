@@ -75,7 +75,7 @@ class Akun extends CI_Controller {
 		$this->session->set_flashdata('result', 'Berhasil menghapus');
 		// echo (FCPATH.'public/lihatsharing/'.$kodesharing);s
 		// echo getcwd();
-		unlink(getcwd()."public/lihatsharing/".$datanya->row()->gambar);
+		// unlink(getcwd()."public/lihatsharing/".$datanya->row()->gambar);
 		unlink(FCPATH."public/lihatsharing/".$datanya->row()->gambar);
 		redirect('akun/sharing');
 		} else {

@@ -52,7 +52,7 @@
                             </div>
                             <div class="form-radio col-sm-3">
                                 <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="pendidikan" id="d4" value="D4"> D4/S1
+                                <input type="radio" class="form-check-input" name="pendidikan" id="d4" value="D4/S1"> D4/S1
                                 <i class="input-helper"></i></label>
                             </div>
                         </div>

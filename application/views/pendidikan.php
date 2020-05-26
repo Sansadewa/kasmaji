@@ -64,8 +64,8 @@
 									<div class="row">
 									<div class="form-group col-md-6 col-sm-12">
 									<label for='pascasarjana'
-												style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Lanjut S2?</label>
-											<input class="form-control" value="<?php echo $row->pascasarjana;?>" readonly>
+												style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Sedang studi pascasarjana (S2/Profesi)?</label>
+											<input class="form-control" value="<?php echo ($row->pascasarjana=='0'? "Tidak":"Ya");?>" readonly>
 									</div>
 										<div class="form-group col-md-6 col-sm-12">
 											<label for='email' style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Instansi
@@ -115,7 +115,7 @@
 						<p class="card-description">
 						</p>
 						<div class="table-responsive sebuah-tabelWrapper">
-							<table id="sebuah-tabel" class="table table-striped table-bordered" cellspacing="0" style="width:100%"
+							<table id="sebuah-tabel" class="table table-striped" cellspacing="0" style="width:100%"
 								width="100%">
 								<thead>
 									<tr>
@@ -125,7 +125,7 @@
 										<?php if($this->session->userdata('role')==99){echo"<th>Tahun Keluar</th>";}?>
 										<th>Instansi Pendidikan</th>
 										<th>Jurusan</th>
-										<?php if($this->session->userdata('role')==99){echo"<th>Lanjut S2</th>";}?>
+										<?php if($this->session->userdata('role')==99){echo"<th>Sedang studi pascasarjana (S2/Profesi)?</th>";}?>
 										<th>Instansi S2/Profesi</th>
 										<th>Jurusan S2/Profesi</th>
 										<th>Program Beasiswa</th>
@@ -140,14 +140,25 @@
 										<?php if($this->session->userdata('role')==99){echo"<td>".$row2->th_keluar."</td>";} ?>
 										<td><?php echo $row2->instansi; ?></td>
 										<td><?php echo $row2->jurusan; ?></td>
-										<?php if($this->session->userdata('role')==99){echo"<td>".$row2->pascasarjana."</td>";} ?>
+										<?php if($this->session->userdata('role')==99){echo"<td>".($row2->pascasarjana=='0'? "Tidak":($row2->pascasarjana=='1'?"Ya":" "))."</td>";} ?>
 										<td><?php echo $row2->instansi_lanjut; ?></td>
 										<td><?php echo $row2->jurusan_lanjut; ?></td>
 										<td><?php echo $row2->beasiswa; ?></td>
 									</tr>
 									<?php } ?>
 								</tbody>
-								
+								<tfoot><tr>
+										<th>Nama</th>
+										<?php if($this->session->userdata('role')==99){echo"<th>Pendidikan Setelah SMA</th>";}?>
+										<?php if($this->session->userdata('role')==99){echo"<th>Tahun Masuk</th>";}?>
+										<?php if($this->session->userdata('role')==99){echo"<th>Tahun Keluar</th>";}?>
+										<th>Instansi Pendidikan</th>
+										<th>Jurusan</th>
+										<?php if($this->session->userdata('role')==99){echo"<th>Lanjut S2</th>";}?>
+										<th>Instansi S2/Profesi</th>
+										<th>Jurusan S2/Profesi</th>
+										<th>Program Beasiswa</th>
+									</tr></tfoot>
 							</table>
 						</div>
 					</div>
@@ -191,7 +202,7 @@
 								</div>
 								<div class="form-radio col-sm-3">
 									<label class="form-check-label">
-										<input type="radio" class="form-check-input" name="pendidikan" id="d4" value="D4"
+										<input type="radio" class="form-check-input" name="pendidikan" id="d4" value="D4/S1"
 											<?php if($row->sedang_or_selesai=='D4'){echo "checked";} ?>> D4/S1
 										<i class="input-helper"></i></label>
 								</div>

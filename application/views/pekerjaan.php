@@ -125,7 +125,18 @@
 									</tr>
 									<?php } ?>
 								</tbody>
-							
+							<tfoot>
+							<tr>
+										<th>Nama</th>
+										<th>Jenis Kegiatan</th>
+										<?php if($this->session->userdata('role')==99){echo"<th>Status Pekerjaan</th>";}?>
+										<th>Tempat Kerja</th>
+										<th>Bidang Pekerjaan</th>
+										<th>Jabatan</th>
+										<th>Deskripsi Pekerjaan</th>
+										<th>Rencana</th>
+									</tr>
+							</tfoot>
 							</table>
 						</div>
 					</div>
@@ -204,7 +215,7 @@
 							</div>
 						</div>
 						<div class="form-group row">
-							<label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">bidang
+							<label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Bidang
 								Pekerjaan</label>
 							<div class=" col-sm-9">
 								<select class="form-control asn" name="bidang">
@@ -236,7 +247,9 @@
                                             communication specialist, copywriter, dll)",
                                             "Perikanan",
                                             "Pertanian/perkebunan",
-                                            "PNS"
+											"PNS",
+											"Perdagangan",
+											"Jasa"
                                         );
                                         foreach($buat_select as $lala){
                                             if($lala==$row->bidang){
@@ -280,12 +293,17 @@
 					<div id="PNSwasta" <?php if($row->jenis=='Bekerja' || $row->jenis=='Magang'){echo "hidden";} ?>>
 						<div class="form-group row">
 							<label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Rencana setelah
-								selesai internship dan mendapatkan surat izin praktek</label>
+								selesai internship dan mendapatkan surat izin praktek<br><i style="font-size: 12px;">(Tuliskan selengkap mungkin bagaimana anda ingin orang lain mendapatkan informasi tentang  rencana karir anda di dunia medis)</i></label>
 							<div class=" col-sm-9">
-								<input class="form-control ass" placeholder="Contoh: Spesialis, Profesi, S2, dll" name="rencana"
-									value="<?php echo $row->rencana; ?>">
+								<textarea class="form-control ass" placeholder="Contoh: Spesialis, Profesi, S2, dll" name="rencana"
+									value="<?php echo $row->rencana; ?>"></textarea>
 							</div>
 						</div>
+						<div class="row">
+                    <p class="col-md-3 col-sm-12">Contoh Jawaban:</p>
+                                        <p class="col-md-9 col-sm-12">"Rencana mengambil studi lanjut setingkat S2-S3 dengan peminatan medical education, jika ada kesempatan selanjutnya, mengambil spesialis anak sub kardiologi & vaskuler. Kemudian menjadi salah satu staff pengajar di universitas. 
+<br>Rencana ingin membuat gerakan sosial mencegah anak gizi kurang di kalangan penduduk di daerah 3T."</p>
+                </div>
 					</div>
 
 					<a class="text-danger"><?php

@@ -121,7 +121,13 @@
 									</tr>
 									<?php } ?>
 								</tbody>
-
+<tfoot><tr>
+                                        <th>Judul</th>
+                                        <th>Jenis</th>
+										<th>Deskripsi</th>
+										<th>Tanggal Unggah</th>
+										<th>Aksi</th>
+									</tr></tfoot>
 							</table>
 						</div>
 					</div>
@@ -169,7 +175,17 @@
 									</tr>
 									<?php } ?>
 								</tbody>
+<tfoot>
+<tr>
+                                        <th>Judul</th>
+                                        <th>Jenis</th>
+										<th>Deskripsi</th>
+										<th>Pengunggah</th>
+										<th>Gambar</th>
+										<th>Tanggal Unggah</th>
 
+									</tr>
+</tfoot>
 							</table>
 						</div>
 					</div>

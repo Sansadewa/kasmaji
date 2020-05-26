@@ -79,13 +79,11 @@
 										style="line-height=0;vertical-align: middle">Nomor HP*</label>
 									<div class=" col-sm-9">
 
-										<div class="input-group">
-											<div class="input-group-prepend">
-												<span class="input-group-text">+62</span>
-											</div>
-											<input class="form-control" placeholder="8XXX-XXXX-XXXX" name="nomorhp"
+										
+											
+											<input class="form-control" placeholder="08XXX-XXXX-XXXX" name="nomorhp"
 												style="border-right: 1px solid #e5e5e5" required>
-										</div>
+										
 									</div>
 								</div>
 
@@ -94,13 +92,10 @@
 										style="line-height=0;vertical-align: middle">Nomor
 										WhatsApp*</label>
 									<div class=" col-sm-9">
-										<div class="input-group">
-											<div class="input-group-prepend">
-												<span class="input-group-text">+62</span>
-											</div>
-											<input class="form-control" placeholder="8XXX-XXXX-XXXX"
+										
+											<input class="form-control" placeholder="08XXX-XXXX-XXXX"
 												style="border-right: 1px solid #e5e5e5" name="nomorwa" required>
-										</div>
+										
 									</div>
 								</div>
 								<br>

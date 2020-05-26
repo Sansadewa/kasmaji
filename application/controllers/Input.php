@@ -184,10 +184,12 @@ class Input extends CI_Controller {
 				$this->session->set_flashdata('result', 'Perubahan Sukses.');
 				redirect('akun/pekerjaan');
 			} else {
-				echo ('Error PB 4');
+				$this->session->set_flashdata('result', 'Perubahan GAGAL.');
+				redirect('akun/pekerjaan');
 			}
 		} else{
-			//RAMASHOK. EDIT DULU.
+			$this->session->set_flashdata('result', 'Perubahan GAGAL. Profil Menyatakan anda tidak bekerja.');
+				redirect('akun/pekerjaan');
 		} 
 	}
 
@@ -211,7 +213,8 @@ class Input extends CI_Controller {
 			echo ('Error PB 5');
 		}
 		} else {
-						//RAMASHOK. EDIT DULU.
+			$this->session->set_flashdata('result', 'Perubahan GAGAL. Profil Menyatakan anda tidak memiliki usaha.');
+			redirect('akun/pekerjaan');
 
 		}
 	}

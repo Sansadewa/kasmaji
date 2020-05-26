@@ -32,6 +32,8 @@ class Akun extends CI_Controller {
 	public function pendidikan()
 	{
 		$data['pendidikan']=$this->orang_model->get_pendidikan($this->session->userdata('username'));
+		$data['profile']=$this->orang_model->get_profile($this->session->userdata('username'));
+		
 		$data['tbl_pendidikan']=$this->orang_model->get_all_pendidikan();
 		$this->load->view('akunhead');
 		$this->load->view('pendidikan',$data);
@@ -40,6 +42,7 @@ class Akun extends CI_Controller {
 
 	public function pekerjaan()
 	{
+		$data['profile']=$this->orang_model->get_profile($this->session->userdata('username'));
 		$data['pekerjaan']=$this->orang_model->get_pekerjaan($this->session->userdata('username'));
 		$data['tbl_pekerjaan']=$this->orang_model->get_all_pekerjaan();
 		$this->load->view('akunhead');
@@ -49,6 +52,7 @@ class Akun extends CI_Controller {
 
 	public function usaha()
 	{
+		$data['profile']=$this->orang_model->get_profile($this->session->userdata('username'));
 		$data['usaha']=$this->orang_model->get_usaha($this->session->userdata('username'));
 		$data['tbl_usaha']=$this->orang_model->get_all_usaha();
 

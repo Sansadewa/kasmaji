@@ -153,6 +153,7 @@
 				<h4 class="modal-title text-xs-center">Edit Data Pekerjaan</h4>
 			</div>
 			<div class="modal-body">
+			<?php if($profile->row()->kegiatan==1 || $profile->row()->kegiatan==3) {?>
 				<form action="<?php echo base_url().'input/pekerjaan' ?>" method="post">
 					<?php foreach ($pekerjaan->result() as $row) { ?>
 					<fieldset id="huha">
@@ -292,11 +293,11 @@
 					</div>
 					<div id="PNSwasta" <?php if($row->jenis=='Bekerja' || $row->jenis=='Magang'){echo "hidden";} ?>>
 						<div class="form-group row">
-							<label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Rencana setelah
+							<label class="col-form-label col-sm-12" style="line-height=0;vertical-align: middle">Rencana setelah
 								selesai internship dan mendapatkan surat izin praktek<br><i style="font-size: 12px;">(Tuliskan selengkap mungkin bagaimana anda ingin orang lain mendapatkan informasi tentang  rencana karir anda di dunia medis)</i></label>
-							<div class=" col-sm-9">
+							<div class=" col-sm-12">
 								<textarea class="form-control ass" placeholder="Contoh: Spesialis, Profesi, S2, dll" name="rencana"
-									value="<?php echo $row->rencana; ?>"></textarea>
+									><?php echo $row->rencana; ?></textarea>
 							</div>
 						</div>
 						<div class="row">
@@ -316,6 +317,7 @@
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 					<button type="submit" class="btn btn-success mr-2 btn-primary">Submit</button>
 				</form> <?php } ?>
+				<?php } else { echo '<div class="alert-warning">Ubah dulu bagian Kegiatan pada bagian profil untuk mengedit entrian ini.</div>';}?>
 			</div> <!--  endofmodalbody -->
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal-dialog -->

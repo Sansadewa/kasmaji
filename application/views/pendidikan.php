@@ -65,7 +65,7 @@
 									<div class="form-group col-md-6 col-sm-12">
 									<label for='pascasarjana'
 												style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Sedang studi pascasarjana (S2/Profesi)?</label>
-											<input class="form-control" value="<?php echo ($row->pascasarjana=='0'? "Tidak":"Ya");?>" readonly>
+											<input class="form-control" value="<?php echo ($row->pascasarjana=='0'? "Tidak":($row->pascasarjana=='1'?"Ya":" "));?>" readonly>
 									</div>
 										<div class="form-group col-md-6 col-sm-12">
 											<label for='email' style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Instansi
@@ -174,7 +174,7 @@
 			<div class="modal-header">
 				<h4 class="modal-title text-xs-center">Edit Data Pendidikan</h4>
 			</div>
-			<div class="modal-body">
+			<div class="modal-body"> <?php if($profile->row()->lanjut_belajar==1) {?>
 				<form action="<?php echo base_url().'input/pendidikan' ?>" method="post">
 					<?php foreach ($pendidikan->result() as $row) { ?>
 					<div class="form-group row" style="margin-bottom:0;">
@@ -300,6 +300,7 @@
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 					<button type="submit" class="btn btn-success mr-2 btn-primary">Submit</button>
 				</form> <?php }?>
+						<?php } else { echo '<div class="alert-warning">Ubah dulu bagian Melanjutkan Pendidikan pada bagian profil untuk mengedit entrian ini.</div>';}?>
 			</div> <!--  endofmodalbody -->
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal-dialog -->

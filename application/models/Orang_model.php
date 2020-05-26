@@ -36,7 +36,7 @@ class Orang_model extends CI_Model
     //QUERY NOT OPTIMIZED
     public function get_pendidikan($username)
   {
-    $SQL1 = "SELECT * FROM pendidikan WHERE username='" . $username . "'";
+    $SQL1 = "SELECT * FROM orang LEFT JOIN pendidikan on orang.username=pendidikan.username WHERE orang.username='" . $username . "'";
     $query = $this->db->query($SQL1);
     return $query;
     $query->free_result();
@@ -45,7 +45,7 @@ class Orang_model extends CI_Model
     //QUERY NOT OPTIMIZED
     public function get_pekerjaan($username)
   {
-    $SQL1 = "SELECT * FROM pekerjaan WHERE username='" . $username . "'";
+    $SQL1 = "SELECT * FROM orang LEFT JOIN pekerjaan on orang.username=pekerjaan.username WHERE orang.username='" . $username . "'";
     $query = $this->db->query($SQL1);
     return $query;
     $query->free_result();
@@ -54,7 +54,7 @@ class Orang_model extends CI_Model
     //QUERY NOT OPTIMIZED
     public function get_usaha($username)
   {
-    $SQL1 = "SELECT * FROM usaha WHERE username='" . $username . "'";
+    $SQL1 = "SELECT * FROM orang LEFT JOIN usaha on orang.username=usaha.username WHERE orang.username='" . $username . "'";
     $query = $this->db->query($SQL1);
     return $query;
     $query->free_result();

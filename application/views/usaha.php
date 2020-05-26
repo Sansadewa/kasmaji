@@ -123,6 +123,8 @@
 				<h4 class="modal-title text-xs-center">Edit Data Usaha</h4>
 			</div>
 			<div class="modal-body">
+			<?php if($profile->row()->kegiatan==2 || $profile->row()->kegiatan==3) {?>
+
 				<form action="<?php echo base_url().'input/usaha' ?>" method="post">
 					<?php foreach ($usaha->result() as $row) { ?>
 
@@ -196,6 +198,8 @@
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 					<button type="submit" class="btn btn-success mr-2 btn-primary">Submit</button>
 				</form> <?php } ?>
+				<?php } else { echo '<div class="alert-warning">Ubah dulu bagian Kegiatan pada bagian profil untuk mengedit entrian ini.</div>';}?>
+
 			</div> <!--  endofmodalbody -->
 		</div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

@@ -35,12 +35,12 @@
               <form action="<?php echo base_url().'register/procpass' ?>" method="post">
               <div class="form-group">
                     <label for="nama" style="margin-bottom:0">Nama</label>
-                    <input class="form-control" value="<?php echo($this->session->userdata('nama')); ?>" name="nama" id="nama" style="margin-top:0" reqiured disabled>
+                    <input class="form-control" value="<?php echo($this->session->userdata('nama')); ?>" name="nama" id="nama" style="margin-top:0" required disabled>
               </div>
 
                 <div class="form-group">
                   <label for="email" style="margin-bottom:0">Email</label>
-                  <input type="email" class="form-control" placeholder="Email" name="email" reqiured>
+                  <input type="email" class="form-control" placeholder="Email" name="email" required>
                 </div>
 
                 <div class="form-group">
@@ -50,7 +50,7 @@
 
                 <div class="form-group">
                   <label for="pa" style="margin-bottom:0">Password</label>
-                  <input type="password" class="form-control" placeholder="Password" name="pa" pattern=".{8,}" title="Password minimal 8 karakter" reqiured>
+                  <input type="password" class="form-control" placeholder="Password" name="pa" pattern=".{8,}" title="Password minimal 8 karakter" required>
                 </div>
                 <div class="form-group">
                   <label for="pb" style="margin-bottom:0">Re-type Password</label>

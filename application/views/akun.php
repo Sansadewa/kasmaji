@@ -532,7 +532,7 @@
   													Lengkap</label>
   												<div class=" col-sm-9">
   													<textarea class="form-control" placeholder="" name="alamat_lengkap_dom" rows="4"
-  														required></textarea>
+  														required><?php echo $row->alamat_lengkap_dom; ?></textarea>
   												</div>
   											</div>
 

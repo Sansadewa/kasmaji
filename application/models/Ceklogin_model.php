@@ -49,7 +49,7 @@ class Ceklogin_model extends CI_Model {
         redirect('login'); //redirect ke controller login
       }
 
-      if($valid[1][0]['step']<8){
+      if($valid[1][0]['step']<6){
         redirect('register');
       } 
     } else { //jika session tidak lengkap

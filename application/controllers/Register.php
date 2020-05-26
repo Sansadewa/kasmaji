@@ -39,7 +39,7 @@ class Register extends CI_Controller {
 		} elseif ($aku->step==6){
 		//kalau udah pass sama email, masuk ke biodata dasar
 		redirect('register/selesai');
-	} elseif ($aku->step==7){
+	} elseif ($aku->step==-1){
 			//awalan
 			redirect('register/tos');
 			
@@ -52,14 +52,14 @@ class Register extends CI_Controller {
 	public function tos(){
 		$aku=$this->register_model->get_info($this->session->userdata('username'));
 		//yang boleh kesini cuma yang step=0, yg belom pernah masuk samsasekali.
-		if ($aku->step!=7) redirect('register');
+		if ($aku->step!=-1) redirect('register');
  		$this->load->view('tos');		
 	}
 
 	public function agreetos(){
 		$aku=$this->register_model->get_info($this->session->userdata('username'));
 		//yang boleh kesini cuma yang step=0, yg belom pernah masuk samsasekali.
-		if ($aku->step!=7) redirect('register');
+		if ($aku->step!=-1) redirect('register');
 		$this->register_model->update_step($this->session->userdata('username'),0);
 		redirect('register/first');
 	}

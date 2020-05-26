@@ -27,6 +27,21 @@
           <div class="col-lg-8 mx-auto">
             <h2 class="text-center mb-4">Registrasi 3: Data Pekerjaan </h2>
             <div class="auto-form-wrapper">
+            <div class="row w-100">
+								<div class="col mx-auto">
+									<div class="wrapper w-100">
+										<div class="d-flex justify-content-between">
+											<h5 class="mb-2">Progress Registrasi</h5>
+											<p class="mb-2 text-primary">80%</p>
+										</div>
+										<div class="progress">
+											<div class="progress-bar bg-primary progress-bar-striped progress-bar-animated"
+												role="progressbar" style="width: 80%" aria-valuenow="80"
+												aria-valuemin="0" aria-valuemax="100"></div>
+										</div>
+									</div>
+								</div>
+							</div><br>
               <a class="text-kasmaji" style="color: #259b87;"><i>*: Data tidak dipublikasikan</i></a>
 
               <form action="<?php echo base_url().'register/prockerja' ?>" method="post">
@@ -146,7 +161,7 @@
                 <div class="form-group row" >
                     <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Rencana setelah selesai internship dan mendapatkan surat izin praktek<br><i style="font-size: 12px;">(Tuliskan selengkap mungkin bagaimana anda ingin orang lain mendapatkan informasi tentang  rencana karir anda di dunia medis)</i></label>
                         <div class=" col-sm-9">
-                        <textarea class="form-control ass" placeholder="Contoh: Spesialis, Profesi, S2, dll" name="rencana"></textarea>
+                        <textarea class="form-control ass" placeholder="Contoh: Spesialis, Profesi, S2, dll" name="rencana" minlength="100"></textarea>
                         </div>
                     </div>
                 <div class="row">

@@ -27,11 +27,26 @@
 <body>
 	<div class="container-scroller">
 		<div class="container-fluid page-body-wrapper full-page-wrapper auth-page">
-			<div class="content-wrapper d-flex align-items-center auth register-bg-1 theme-one">
+			<div class="content-wrapper mt-5 pt-5 d-flex align-items-center auth register-bg-1 theme-one">
 				<div class="row w-100">
 					<div class="col-lg-6 mx-auto">
 						<h2 class="text-center mb-4">Registrasi 2: Data Dasar </h2>
 						<div class="auto-form-wrapper">
+							<div class="row w-100">
+								<div class="col mx-auto">
+									<div class="wrapper w-100">
+										<div class="d-flex justify-content-between">
+											<h5 class="mb-2">Progress Registrasi</h5>
+											<p class="mb-2 text-primary">40%</p>
+										</div>
+										<div class="progress">
+											<div class="progress-bar bg-primary progress-bar-striped progress-bar-animated"
+												role="progressbar" style="width: 40%" aria-valuenow="40"
+												aria-valuemin="0" aria-valuemax="100"></div>
+										</div>
+									</div>
+								</div>
+							</div><br>
 							<a class="text-kasmaji" style="color: #259b87;"><i>*: Data tidak dipublikasikan</i></a>
 							<form action="<?php echo base_url().'register/procbase' ?>" method="post">
 								<h3 style="margin-bottom: 0">Kontak</h3>
@@ -40,23 +55,28 @@
 
 								</div>
 								<div class="form-group row">
-									<label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Username</label>
+									<label class="col-form-label col-sm-3"
+										style="line-height=0;vertical-align: middle">Username</label>
 									<div class=" col-sm-9">
-										<input class="form-control" placeholder="<?php echo($this->session->userdata('username')); ?>"
+										<input class="form-control"
+											placeholder="<?php echo($this->session->userdata('username')); ?>"
 											name="username" required disabled>
 									</div>
 								</div>
 
 								<div class="form-group row">
-									<label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Nama</label>
+									<label class="col-form-label col-sm-3"
+										style="line-height=0;vertical-align: middle">Nama</label>
 									<div class=" col-sm-9">
-										<input class="form-control" placeholder="<?php echo($this->session->userdata('nama')); ?>"
-											name="nama" required disabled>
+										<input class="form-control"
+											placeholder="<?php echo($this->session->userdata('nama')); ?>" name="nama"
+											required disabled>
 									</div>
 								</div>
 
 								<div class="form-group row">
-									<label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Nomor HP*</label>
+									<label class="col-form-label col-sm-3"
+										style="line-height=0;vertical-align: middle">Nomor HP*</label>
 									<div class=" col-sm-9">
 
 										<div class="input-group">
@@ -70,14 +90,16 @@
 								</div>
 
 								<div class="form-group row">
-									<label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Nomor
+									<label class="col-form-label col-sm-3"
+										style="line-height=0;vertical-align: middle">Nomor
 										WhatsApp*</label>
 									<div class=" col-sm-9">
 										<div class="input-group">
 											<div class="input-group-prepend">
 												<span class="input-group-text">+62</span>
 											</div>
-											<input class="form-control" placeholder="8XXX-XXXX-XXXX" style="border-right: 1px solid #e5e5e5"  name="nomorwa" required>
+											<input class="form-control" placeholder="8XXX-XXXX-XXXX"
+												style="border-right: 1px solid #e5e5e5" name="nomorwa" required>
 										</div>
 									</div>
 								</div>
@@ -85,53 +107,61 @@
 								<h3 style="margin-bottom: 0">Sosial Media</h3>
 								<hr>
 								<div class="form-group row">
-									<label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Akun
+									<label class="col-form-label col-sm-3"
+										style="line-height=0;vertical-align: middle">Akun
 										LinkedIn</label>
 									<div class=" col-sm-9">
 										<div class="input-group">
 											<div class="input-group-prepend">
 												<span class="input-group-text">linkedin.com/in/</span>
 											</div>
-											<input class="form-control" placeholder="" style="border-right: 1px solid #e5e5e5" name="linkedin">
+											<input class="form-control" placeholder=""
+												style="border-right: 1px solid #e5e5e5" name="linkedin">
 										</div>
 									</div>
 								</div>
 
 								<div class="form-group row">
-									<label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Akun
+									<label class="col-form-label col-sm-3"
+										style="line-height=0;vertical-align: middle">Akun
 										Facebook</label>
 									<div class=" col-sm-9">
-                  <div class="input-group">
+										<div class="input-group">
 											<div class="input-group-prepend">
 												<span class="input-group-text">facebook.com/</span>
 											</div>
-                      <input class="form-control" placeholder="" style="border-right: 1px solid #e5e5e5" name="facebook">
+											<input class="form-control" placeholder=""
+												style="border-right: 1px solid #e5e5e5" name="facebook">
 										</div>
 									</div>
 								</div>
 
 								<div class="form-group row">
-									<label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Akun
+									<label class="col-form-label col-sm-3"
+										style="line-height=0;vertical-align: middle">Akun
 										Instagram</label>
 									<div class=" col-sm-9">
-                  <div class="input-group">
+										<div class="input-group">
 											<div class="input-group-prepend">
 												<span class="input-group-text">instagram.com/</span>
 											</div>
-                      <input class="form-control" placeholder="" style="border-right: 1px solid #e5e5e5" name="ig">
+											<input class="form-control" placeholder=""
+												style="border-right: 1px solid #e5e5e5" name="ig">
 										</div>
 									</div>
 								</div>
 
 								<div class="form-group row">
-									<label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Akun
+									<label class="col-form-label col-sm-3"
+										style="line-height=0;vertical-align: middle">Akun
 										twitter</label>
 									<div class=" col-sm-9">
-                  <div class="input-group">
+										<div class="input-group">
 											<div class="input-group-prepend">
 												<span class="input-group-text">twitter.com/</span>
 											</div>
-                      <input class="form-control" placeholder="" style="border-right: 1px solid #e5e5e5" name="twitter">
+											<input class="form-control" placeholder=""
+												style="border-right: 1px solid #e5e5e5" name="twitter">
 										</div>
 									</div>
 								</div>
@@ -140,7 +170,8 @@
 								<h3 style="margin-bottom: 0">Alamat Rumah*</h3>
 								<hr>
 								<div class="form-group row">
-									<label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Provinsi</label>
+									<label class="col-form-label col-sm-3"
+										style="line-height=0;vertical-align: middle">Provinsi</label>
 									<div class=" col-sm-9">
 										<select class="form-control" name="prov" id="prov" required>
 											<?php 
@@ -189,7 +220,8 @@
 									</div>
 								</div>
 								<div class="form-group row">
-									<label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Kabupaten /
+									<label class="col-form-label col-sm-3"
+										style="line-height=0;vertical-align: middle">Kabupaten /
 										Kota</label>
 									<div class=" col-sm-9">
 										<select class="form-control" id="kabkot" name="kabkot" id="kabkot" required>
@@ -198,10 +230,12 @@
 									</div>
 								</div>
 								<div class="form-group row">
-									<label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Alamat
+									<label class="col-form-label col-sm-3"
+										style="line-height=0;vertical-align: middle">Alamat
 										Lengkap</label>
 									<div class=" col-sm-9">
-										<textarea class="form-control" placeholder="" name="alamat_lengkap" rows="4" required></textarea>
+										<textarea class="form-control" placeholder="" name="alamat_lengkap" rows="4"
+											required></textarea>
 									</div>
 								</div>
 
@@ -209,7 +243,8 @@
 								<h3 style="margin-bottom: 0">Alamat Domisili</h3>
 								<hr>
 								<div class="form-group row">
-									<label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Provinsi</label>
+									<label class="col-form-label col-sm-3"
+										style="line-height=0;vertical-align: middle">Provinsi</label>
 									<div class=" col-sm-9">
 										<select class="form-control" name="prov_dom" id="prov_dom" required>
 											<?php 
@@ -258,7 +293,8 @@
 									</div>
 								</div>
 								<div class="form-group row">
-									<label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Kabupaten /
+									<label class="col-form-label col-sm-3"
+										style="line-height=0;vertical-align: middle">Kabupaten /
 										Kota</label>
 									<div class=" col-sm-9">
 										<select class="form-control" id="kabkot_dom" name="kabkot_dom" required>
@@ -267,7 +303,8 @@
 									</div>
 								</div>
 								<div class="form-group row">
-									<label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Alamat
+									<label class="col-form-label col-sm-3"
+										style="line-height=0;vertical-align: middle">Alamat
 										Lengkap*</label>
 									<div class=" col-sm-9">
 										<textarea class="form-control" placeholder="" name="alamat_lengkap_dom" rows="4"
@@ -280,18 +317,20 @@
 								<hr>
 
 								<div class="form-group row">
-									<label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Melanjutkan
+									<label class="col-form-label col-sm-3"
+										style="line-height=0;vertical-align: middle">Melanjutkan
 										Pendidikan Setelah SMA?*</label>
 									<div class=" col-sm-9">
 										<div class="form-radio">
 											<label class="form-check-label">
-												<input type="radio" class="form-check-input" name="lanjut_belajar" id="iyalanjut" value="1"
-													required> Ya
+												<input type="radio" class="form-check-input" name="lanjut_belajar"
+													id="iyalanjut" value="1" required> Ya
 												<i class="input-helper"></i></label>
 										</div>
 										<div class="form-radio">
 											<label class="form-check-label">
-												<input type="radio" class="form-check-input" name="lanjut_belajar" id="tidaklanjut" value="0">
+												<input type="radio" class="form-check-input" name="lanjut_belajar"
+													id="tidaklanjut" value="0">
 												Tidak
 												<i class="input-helper"></i></label>
 										</div>
@@ -299,31 +338,36 @@
 								</div>
 
 								<div class="form-group row">
-									<label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Kegiatan Saat
+									<label class="col-form-label col-sm-3"
+										style="line-height=0;vertical-align: middle">Kegiatan Saat
 										Ini*</label>
 									<div class=" col-sm-9">
 										<div class="form-radio">
 											<label class="form-check-label">
-												<input type="radio" class="form-check-input" name="kegiatan" id="bekerja" value="1" required>
+												<input type="radio" class="form-check-input" name="kegiatan"
+													id="bekerja" value="1" required>
 												Bekerja/Magang/Koas
 												<i class="input-helper"></i></label>
 										</div>
 										<div class="form-radio">
 											<label class="form-check-label">
-												<input type="radio" class="form-check-input" name="kegiatan" id="usaha" value="2"> Memiliki
+												<input type="radio" class="form-check-input" name="kegiatan" id="usaha"
+													value="2"> Memiliki
 												Usaha
 												<i class="input-helper"></i></label>
 										</div>
 										<div class="form-radio">
 											<label class="form-check-label">
-												<input type="radio" class="form-check-input" name="kegiatan" id="keduanya" value="3"> Bekerja
+												<input type="radio" class="form-check-input" name="kegiatan"
+													id="keduanya" value="3"> Bekerja
 												&amp; Memiliki
 												Usaha
 												<i class="input-helper"></i></label>
 										</div>
 										<div class="form-radio">
 											<label class="form-check-label">
-												<input type="radio" class="form-check-input" name="kegiatan" id="gakerja" value="4"> Belum
+												<input type="radio" class="form-check-input" name="kegiatan"
+													id="gakerja" value="4"> Belum
 												Bekerja &amp; Tidak Memiliki Usaha
 												<i class="input-helper"></i></label>
 										</div>
@@ -338,13 +382,15 @@
                   ?></a>
 								<br>
 								<div class="form-group d-flex justify-content-between">
-									<a  id="back" class="btn ml-0 text-white btn-lg btn-primary">
-										< Kembali</a> <button type='submit' class="btn btn-lg mr-0 text-white ">Lanjut!</button>
+									<a id="back" class="btn ml-0 text-white btn-lg btn-primary">
+										< Kembali</a> <button type='submit' class="btn btn-lg mr-0 text-white ">
+											Lanjut!</button>
 								</div>
 							</form>
 						</div>
 					</div>
 				</div>
+
 			</div>
 			<!-- content-wrapper ends -->
 		</div>
@@ -359,20 +405,22 @@
 	<script src="<?php echo base_url();?>public/js/off-canvas.js"></script>
 	<script src="<?php echo base_url();?>public/js/misc.js"></script>
 	<script>
-
-		window.onpageshow = function(e) { 
+		window.onpageshow = function (e) {
 			$('#prov_dom').trigger("change");
 			$('#prov').trigger("change");
 		}
-		
+
 
 		$(document).ready(function () {
 
 			//buat tombol back
-			$("#back").click(function(){
-				$.ajax({url: "<?php echo base_url(); ?>register/back", success: function(result){
-					window.history.back();
-				}});
+			$("#back").click(function () {
+				$.ajax({
+					url: "<?php echo base_url(); ?>register/back",
+					success: function (result) {
+						window.history.back();
+					}
+				});
 			});
 
 
@@ -382,7 +430,7 @@
 				url: "<?php echo base_url(); ?>register/kabkot",
 				data: {
 					"prov": provinsi,
-					
+
 				},
 				success: function (res) {
 					$("#kabkot").html(res);
@@ -394,7 +442,7 @@
 				url: "<?php echo base_url(); ?>register/kabkot",
 				data: {
 					"prov": provinsia,
-					
+
 				},
 				success: function (res) {
 					$("#kabkot_dom").html(res);

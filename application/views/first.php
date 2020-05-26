@@ -27,11 +27,26 @@
 <body>
   <div class="container-scroller">
     <div class="container-fluid page-body-wrapper full-page-wrapper auth-page">
-      <div class="content-wrapper d-flex align-items-center auth register-bg-1 theme-one">
+      <div class="content-wrapper mt-5 pt-5 d-flex align-items-center auth register-bg-1 theme-one">
         <div class="row w-100">
           <div class="col-lg-5 mx-auto">
             <h2 class="text-center mb-4">Registrasi 1 : Data Login <h2>
             <div class="auto-form-wrapper">
+            <div class="row w-100">
+								<div class="col mx-auto">
+									<div class="wrapper w-100">
+										<div class="d-flex justify-content-between">
+											<h5 class="mb-2">Progress Registrasi</h5>
+											<p class="mb-2 text-primary">20%</p>
+										</div>
+										<div class="progress">
+											<div class="progress-bar bg-primary progress-bar-striped progress-bar-animated"
+												role="progressbar" style="width: 20%" aria-valuenow="40"
+												aria-valuemin="0" aria-valuemax="100"></div>
+										</div>
+									</div>
+								</div>
+							</div><br>
               <form action="<?php echo base_url().'register/procpass' ?>" method="post">
               <div class="form-group">
                     <label for="nama" style="margin-bottom:0">Nama</label>

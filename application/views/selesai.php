@@ -27,6 +27,21 @@
           <div class="col-lg-6 mx-auto">
             <h2 class="text-center mb-4">Registrasi Selesai. </h2>
             <div class="auto-form-wrapper">
+            <div class="row w-100">
+								<div class="col mx-auto">
+									<div class="wrapper w-100">
+										<div class="d-flex justify-content-between">
+											<h5 class="mb-2">Progress Registrasi</h5>
+											<p class="mb-2 text-primary">100%</p>
+										</div>
+										<div class="progress">
+											<div class="progress-bar bg-primary progress-bar-striped progress-bar-animated"
+												role="progressbar" style="width: 100%" aria-valuenow="100"
+												aria-valuemin="0" aria-valuemax="100"></div>
+										</div>
+									</div>
+								</div>
+							</div><br>
             <center>
               <p class="center">Registrasi Selesai, Yuk ke Halaman Akun!</p>
               <div class="form-group col-9 center">

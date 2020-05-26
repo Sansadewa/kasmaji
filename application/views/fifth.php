@@ -27,6 +27,21 @@
           <div class="col-lg-6 mx-auto">
             <h2 class="text-center mb-4">Registrasi 4: Data Usaha </h2>
             <div class="auto-form-wrapper">
+            <div class="row w-100">
+								<div class="col mx-auto">
+									<div class="wrapper w-100">
+										<div class="d-flex justify-content-between">
+											<h5 class="mb-2">Progress Registrasi</h5>
+											<p class="mb-2 text-primary">90%</p>
+										</div>
+										<div class="progress">
+											<div class="progress-bar bg-primary progress-bar-striped progress-bar-animated"
+												role="progressbar" style="width: 90%" aria-valuenow="90"
+												aria-valuemin="0" aria-valuemax="100"></div>
+										</div>
+									</div>
+								</div>
+							</div><br>
               <form action="<?php echo base_url().'register/procusaha' ?>" method="post">
 
               <div class="form-group row" >

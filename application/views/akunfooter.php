@@ -35,6 +35,7 @@
   <script src="<?php echo base_url();?>public/scripts/buttons.flash.min.js"></script>
   <script src="<?php echo base_url();?>public/scripts/jszip.min.js"></script>
   <script src="<?php echo base_url();?>public/scripts/buttons.html5.min.js"></script>
+  <script src="<?php echo base_url();?>public/js/jquery.doubleScroll.js"></script>
   <script src="https://cdn.datatables.net/fixedheader/3.1.7/js/dataTables.fixedHeader.min.js"></script>
   <script type="text/javascript">
     $(document).ready(function () {
@@ -118,7 +119,7 @@ $('#sebuah-tabela tfoot th').each( function () {
         }
     });
     $('#sebuah-tabela tfoot tr').appendTo('#sebuah-tabela thead');
-
+    $('#sebuah-tabelWrapper').doubleScroll();
     });
 </script>
   <!-- End custom js for this page-->

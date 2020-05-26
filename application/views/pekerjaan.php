@@ -296,7 +296,7 @@
 							<label class="col-form-label col-sm-12" style="line-height=0;vertical-align: middle">Rencana setelah
 								selesai internship dan mendapatkan surat izin praktek<br><i style="font-size: 12px;">(Tuliskan selengkap mungkin bagaimana anda ingin orang lain mendapatkan informasi tentang  rencana karir anda di dunia medis)</i></label>
 							<div class=" col-sm-12">
-								<textarea class="form-control ass" placeholder="Contoh: Spesialis, Profesi, S2, dll" name="rencana"
+										<textarea class="form-control ass" placeholder="Contoh: Spesialis, Profesi, S2, dll" name="rencana" minlength="100"
 									><?php echo $row->rencana; ?></textarea>
 							</div>
 						</div>

@@ -338,7 +338,7 @@
                   ?></a>
 								<br>
 								<div class="form-group d-flex justify-content-between">
-									<a href="<?php echo base_url(); ?>register/back" class="btn ml-0 text-white btn-lg btn-primary">
+									<a  id="back" class="btn ml-0 text-white btn-lg btn-primary">
 										< Kembali</a> <button type='submit' class="btn btn-lg mr-0 text-white ">Lanjut!</button>
 								</div>
 							</form>
@@ -359,7 +359,48 @@
 	<script src="<?php echo base_url();?>public/js/off-canvas.js"></script>
 	<script src="<?php echo base_url();?>public/js/misc.js"></script>
 	<script>
+
+		window.onpageshow = function(e) { 
+			$('#prov_dom').trigger("change");
+			$('#prov').trigger("change");
+		}
+		
+
 		$(document).ready(function () {
+
+			//buat tombol back
+			$("#back").click(function(){
+				$.ajax({url: "<?php echo base_url(); ?>register/back", success: function(result){
+					window.history.back();
+				}});
+			});
+
+
+			var provinsi = $("#prov").val();
+			$.ajax({
+				type: "POST",
+				url: "<?php echo base_url(); ?>register/kabkot",
+				data: {
+					"prov": provinsi,
+					
+				},
+				success: function (res) {
+					$("#kabkot").html(res);
+				}
+			});
+			var provinsia = $("#prov_dom").val();
+			$.ajax({
+				type: "POST",
+				url: "<?php echo base_url(); ?>register/kabkot",
+				data: {
+					"prov": provinsia,
+					
+				},
+				success: function (res) {
+					$("#kabkot_dom").html(res);
+				}
+			});
+
 
 			$('[name="prov"]').change(function () {
 

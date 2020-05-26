@@ -24,7 +24,7 @@
     <div class="container-fluid page-body-wrapper full-page-wrapper auth-page">
       <div class="content-wrapper d-flex align-items-center auth register-bg-1 theme-one">
         <div class="row w-100">
-          <div class="col-lg-6 mx-auto">
+          <div class="col-lg-8 mx-auto">
             <h2 class="text-center mb-4">Registrasi 3: Data Pekerjaan </h2>
             <div class="auto-form-wrapper">
               <a class="text-kasmaji" style="color: #259b87;"><i>*: Data tidak dipublikasikan</i></a>
@@ -62,12 +62,12 @@
                             <div class="row" style="margin-bottom:0.3em;">
                                 <div class="form-radio col-sm-6">
                                     <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="status_pekerjaan" id="pemerintahan" value="Pemerintahan" required> Pegawai Pemerintahan
+                                    <input type="radio" class="form-check-input asn" name="status_pekerjaan" id="pemerintahan" value="Pemerintahan" required> Pegawai Pemerintahan
                                     <i class="input-helper"></i></label>
                                 </div>
                                 <div class="form-radio col-sm-6">
                                     <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="status_pekerjaan" id="swasta" value="Swasta"> Pegawai Swasta
+                                    <input type="radio" class="form-check-input asn" name="status_pekerjaan" id="swasta" value="Swasta"> Pegawai Swasta
                                     <i class="input-helper"></i></label>
                                 </div>
                             </div>
@@ -101,7 +101,7 @@
                                             "Manajemen dan konsultasi",
                                             "Manufaktur dan produksi",
                                             "Media dan kreatif (visual designer, UI/UX researcher, UI/UX designer)",
-                                            "Pelayanan publik (LSM?) dan NGO",
+                                            "Pelayanan publik",
                                             "Safety dan security",
                                             "Sales dan marketing",
                                             "Ilmu pengetahuan (pekerjaan di lab, data analyst, data scientist, peneliti)
@@ -144,9 +144,14 @@
                 <div class="form-group row" >
                     <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Rencana setelah selesai internship dan mendapatkan surat izin praktek</label>
                         <div class=" col-sm-9">
-                        <input class="form-control ass" placeholder="Contoh: Spesialis, Profesi, S2, dll" name="rencana">
+                        <textarea class="form-control ass" placeholder="Contoh: Spesialis, Profesi, S2, dll" name="rencana"></textarea>
                         </div>
                     </div>
+                <div class="row">
+                    <p class="col-md-3 col-sm-12">Contoh Jawaban:</p>
+                                        <p class="col-md-9 col-sm-12">"Rencana mengambil studi lanjut setingkat S2-S3 dengan peminatan medical education, jika ada kesempatan selanjutnya, mengambil spesialis anak sub kardiologi & vaskuler. Kemudian menjadi salah satu staff pengajar di universitas. 
+<br>Rencana ingin membuat gerakan sosial mencegah anak gizi kurang di kalangan penduduk di daerah 3T."</p>
+                </div>
                 </div>
 
 
@@ -160,7 +165,7 @@
                 <center>
                 <br>
                 <div class="form-group d-flex justify-content-between">
-                <a href="<?php echo base_url(); ?>register/back" class="btn ml-0 text-white btn-lg btn-primary">< Kembali</a>
+                <a id="back" class="btn ml-0 text-white btn-lg btn-primary">< Kembali</a>
                   <button type='submit' class="btn btn-lg mr-0 text-white ">Lanjut!</button>
                 </div>
                 </center>
@@ -183,7 +188,37 @@
   <script src="<?php echo base_url();?>public/js/misc.js"></script>
   <script>
       $(document).ready(function () {
+                //buat tombol back
+			$("#back").click(function(){
+				$.ajax({url: "<?php echo base_url(); ?>register/back", success: function(result){
+					window.history.back();
+				}});
+            });
 
+        //Untuk pengguna tombol back
+      var gulu = $('#huha input[type="radio"]').val();
+      if (gulu == 'Koas') {
+                $("#PNS").attr("hidden",true);
+                $(".ass").attr("required",true);
+                $(".asn").attr("required",false);
+                $("#PNSwasta").attr("hidden",false);
+            } else if(gulu == 'Magang' || gulu == 'Bekerja') {
+                $("#PNS").attr("hidden",false);
+                $(".asn").attr("required",true);
+                $(".ass").attr("required",false);
+                $("#PNSwasta").attr("hidden",true);
+            }
+      var guli = $('[name="bidang"]').val();
+      if (guli == 'Lainnya'){
+                $("#lainnya").attr("hidden", false);
+                $('[name="lainnya"]').attr("required", true);
+            } else {
+                $("#lainnya").attr("hidden", true);
+                $('[name="lainnya"]').attr("required", false);
+
+            }
+        
+            
       $('#huha input[type="radio"]').change(function() {
 
             if (this.value == 'Koas') {

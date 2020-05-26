@@ -93,7 +93,7 @@
                 <center>
                 <br>
                 <div class="form-group d-flex justify-content-between">
-                <a href="<?php echo base_url(); ?>register/back" class="btn ml-0 text-white btn-lg btn-primary">< Kembali</a>
+                <a id="back" class="btn ml-0 text-white btn-lg btn-primary">< Kembali</a>
                   <button type='submit' class="btn btn-lg mr-0 text-white ">Lanjut!</button>
                 </div>
                 </center>
@@ -115,7 +115,24 @@
   <script src="<?php echo base_url();?>public/js/off-canvas.js"></script>
   <script src="<?php echo base_url();?>public/js/misc.js"></script>
   <script>
+    var gula=$('[name="bidang_usaha"]').val();
+    if (gula == 'Lainnya'){
+                $("#lainnya").attr("hidden", false);
+                $('[name="lainnya"]').attr("required", true);
+            } else {
+                $("#lainnya").attr("hidden", true);
+                $('[name="lainnya"]').attr("required", false);
+
+            }
+
       $(document).ready(function () {
+            //buat tombol back
+			$("#back").click(function(){
+				$.ajax({url: "<?php echo base_url(); ?>register/back", success: function(result){
+					window.history.back();
+				}});
+      });
+
       $('[name="bidang_usaha"]').change(function(){
             if (this.value == 'Lainnya'){
                 $("#lainnya").attr("hidden", false);

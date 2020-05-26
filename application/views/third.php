@@ -96,7 +96,7 @@
                       </div>
                       <div class="form-radio col-6">
                         <label class="form-check-label">
-                          <input type="radio" class="form-check-input" name="pascasarjana" id="no" value="0"> Tidak
+                          <input type="radio" class="form-check-input" name="pascasarjana" id="no" value="0" > Tidak
                         <i class="input-helper"></i></label>
                       </div>
                     </div>
@@ -134,7 +134,7 @@
                 <center>
                 <br>
                 <div class="form-group d-flex justify-content-between">
-                <a href="<?php echo base_url(); ?>register/back" class="btn ml-0 text-white btn-lg btn-primary">< Kembali</a>
+                <a id="back" class="btn ml-0 text-white btn-lg btn-primary">< Kembali</a>
                   <button type='submit' class="btn btn-lg mr-0 text-white ">Lanjut!</button>
                 </div>
                 </center>
@@ -156,7 +156,31 @@
   <script src="<?php echo base_url();?>public/js/off-canvas.js"></script>
   <script src="<?php echo base_url();?>public/js/misc.js"></script>
   <script>
+
+      window.addEventListener('pageshow', function(event) {
+      var gulu = $('#huha input[type="radio"]').val();
+      if (gulu == '1') {
+          $("#instansi_lanjut_div").attr("hidden",false);
+          $(".asn").attr("required",true);
+
+          $("#jurusan_lanjut_div").attr("hidden",false);
+      }
+      else if (gulu == '0') {
+          $("#instansi_lanjut_div").attr("hidden",true);
+          $(".asn").attr("required",false);
+          $("#jurusan_lanjut_div").attr("hidden",true);
+      }
+      });
       $(document).ready(function () {
+
+        //buat tombol back
+			$("#back").click(function(){
+				$.ajax({url: "<?php echo base_url(); ?>register/back", success: function(result){
+					window.history.back();
+				}});
+			});
+
+      
 
       $('#huha input[type="radio"]').change(function() {
 

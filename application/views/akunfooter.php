@@ -85,9 +85,15 @@ $('#sebuah-tabel thead tr').clone(true).appendTo( '#sebuah-tabel thead' );
         fixedHeader: true,
         "dom": '<hr>lfrtBip',
           "scrollX": true,
-          buttons: [{extend:'copy',className:'btn btn-outline-info btn-sm'},
+          buttons: [
+            <?php if($this->session->userdata('role')==99){?>
+            {extend:'copy',className:'btn btn-outline-info btn-sm'},
                 // {extend:'print',className:'btn btn-outline-info btn-sm'},
-                {extend:'excel',className:'btn btn-outline-info btn-sm'}],
+                {extend:'excel',className:'btn btn-outline-info btn-sm'}
+                <?php }?>
+
+              ],
+
     } );
 
     var table = $('#sebuah-tabela').DataTable( {
@@ -98,9 +104,15 @@ $('#sebuah-tabel thead tr').clone(true).appendTo( '#sebuah-tabel thead' );
         fixedHeader: true,
         "dom": '<hr>lfrtBip',
           "scrollX": true,
-          buttons: [{extend:'copy',className:'btn btn-outline-info btn-sm'},
+
+          buttons: [
+            <?php if($this->session->userdata('role')==99){?>
+            {extend:'copy',className:'btn btn-outline-info btn-sm'},
                 // {extend:'print',className:'btn btn-outline-info btn-sm'},
-                {extend:'excel',className:'btn btn-outline-info btn-sm'}],
+                {extend:'excel',className:'btn btn-outline-info btn-sm'}
+                <?php }?>
+
+              ],
     } );
       
       // $('.dataTables_length').addClass('bs-select');

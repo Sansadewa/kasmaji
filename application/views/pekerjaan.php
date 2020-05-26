@@ -227,7 +227,7 @@
                                             "Manajemen dan konsultasi",
                                             "Manufaktur dan produksi",
                                             "Media dan kreatif (visual designer, UI/UX researcher, UI/UX designer)",
-                                            "Pelayanan publik (LSM?) dan NGO",
+                                            "Pelayanan publik",
                                             "Safety dan security",
                                             "Sales dan marketing",
                                             "Ilmu pengetahuan (pekerjaan di lab, data analyst, data scientist, peneliti)

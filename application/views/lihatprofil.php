@@ -300,8 +300,10 @@
 									</div>
 									<?php if($this->session->userdata('role')==99){?>
 									<div class="form-group row">
+									<div class="col-12">
 									<label for='pascasarjana' style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Lanjut S2?</label>
-											<input class="form-control" value="<?php echo $orangnya->pascasarjana;?>" readonly>
+											<input class="form-control" value="<?php echo ($orangnya->pascasarjana=='0'? "Tidak":($orangnya->pascasarjana=='1'?"Ya":" "));?>" readonly>
+									</div>
 									</div>
 									<?php }?>
 									<div class="row">
@@ -416,9 +418,9 @@
 										<div class="form-group col-md-6 col-sm-12">
 											<label for='email'
 												style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Rencana
-												Setelah Mendapatkan Surat Izin</label>
-											<input class="form-control asn" placeholder="Jurusan (S2/Profesi)"
-												Value="<?php echo $orangnya->rencana;?>" readonly>
+												Setelah Mendapatkan Surat Izin Praktek</label>
+											<textarea class="form-control asn" placeholder=""
+												Value="" readonly><?php echo $orangnya->rencana;?></textarea>
 
 										</div>
 										<hr>

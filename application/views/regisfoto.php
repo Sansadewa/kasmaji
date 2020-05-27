@@ -17,6 +17,13 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>/public/css/croppie.css">
     
 	<!-- endinject -->
+	<style> .auth.theme-one .auto-form-wrapper{
+		background: #ffffff;
+    padding: 10px 10px 10px;
+    border-radius: 4px;
+    box-shadow: 0 -25px 37.7px 11.3px rgba(6, 173, 103, 0.07);}
+	.content-wrapper{padding: 1rem 1.1rem;}
+	</style>
 	<link rel="shortcut icon" href="<?php echo base_url();?>public/images/favicon.png" />
 </head>
 
@@ -25,7 +32,7 @@
 		<div class="page-body-wrapper full-page-wrapper auth-page">
 			<div class="content-wrapper d-flex align-items-center auth register-bg-1 theme-one">
 				<div class="row w-100">
-					<div class="col-lg-6 col-md-8 col-sm-12 mx-auto">
+					<div class="col-lg-6 col-md-8 col-sm-12 mx-auto p-sm-0" style="padding:5px">
 						<h2 class="text-center mb-4">Upload Foto Profil</h2>
 						<div class="auto-form-wrapper">
 						<div class="row w-100">
@@ -49,7 +56,7 @@
 									<div class="col-5 text-center mt-xl-2  d-flex justify-content-center mx-auto">
 										<label for="fotonya" id="buttoncrop"
 											class="font-weight-medium btn text-white btn-block"
-											style="border-radius:4rem; padding:0.5rem" hidden>Pilih Foto</label>
+											style="border-radius:4rem; padding:0.5rem" hidden>Pilih<i class="menu-icon mdi mdi-panorama"></i></label>
 										<input id="fotonya" type="file" name="fotonya" accept="image/*" hidden>
 									</div>
 									<div id="crop-container" style="max-height: 500px" hidden="true"></div>
@@ -104,12 +111,15 @@
                 }
             }
 
-            $parentWidth = $(".getWidth").css("width", $(".getWidth").parent().width());
-
+            var huha = $('.auto-form-wrapper').width();
+			if (huha>320){
+				huha=320;
+			} else {huha=huha}
+			$parentWidth = $(".getWidth").css("width", $(".getWidth").parent().width());
             $uploadCrop = $('#crop-container').croppie({
                 viewport: {
-                    width: 300,
-                    height: 300,
+                    width: huha,
+                    height: huha,
                     type: 'circle'
                 },
                 mouseWheelZoom: 'ctrl',

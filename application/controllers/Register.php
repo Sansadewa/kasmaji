@@ -364,5 +364,8 @@ class Register extends CI_Controller {
 	public function aaaaaaa(){
 		$this->load->view('tos');
 	}
+	public function aaaaaaaa(){
+		$this->load->view('regisfoto');
+	}
 
 }

@@ -256,7 +256,7 @@
   											method="post">
   											<div class="col-5 text-center mt-xl-2  d-flex justify-content-center mx-auto">
   												<label for="fotonya" id="buttoncrop" class="font-weight-medium btn text-white btn-block"
-  													style="border-radius:4rem; padding:0.5rem" hidden>Pilih Fotonya</label>
+  													style="border-radius:4rem; padding:0.5rem" hidden><i class="menu-icon mdi mdi-panorama"></i>Pilih</label>
   												<input id="fotonya" type="file" name="fotonya" accept="image/*" hidden>
   											</div>
   											<div id="crop-container" hidden="true"></div>
@@ -633,20 +633,23 @@
   			}
   		}
 
-  		$parentWidth = $(".getHeight").css("width", $(".getHeight").parent().width());
-
-  		$uploadCrop = $('#crop-container').croppie({
-  			viewport: {
-  				width: 400,
-  				height: 400,
-  				type: 'circle'
-  			},
-  			mouseWheelZoom: 'ctrl',
-  			boundary: {
-  				width: $parentWidth,
-  				height: 450
-  			}
-  		});
+  		var huha = $('.forms-sample').width();
+			if (huha>320){
+				huha=320;
+			} else {huha=huha}
+			$parentWidth = $(".getWidth").css("width", $(".getWidth").parent().width());
+            $uploadCrop = $('#crop-container').croppie({
+                viewport: {
+                    width: huha,
+                    height: huha,
+                    type: 'circle'
+                },
+                mouseWheelZoom: 'ctrl',
+                boundary: {
+                    width: $parentWidth,
+                    height: 450
+                }
+            });
 
   		$('#fotonya').on('change', function () {
   			readFile(this);

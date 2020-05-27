@@ -371,6 +371,7 @@
 											<input class="form-control" id="" value="<?php echo $orangnya->jenis; ?>"
 												readonly>
 										</div>
+										<?php if($orangnya->jenis!='koas'){?>
 										<?php if($this->session->userdata('role')==99){?>
 										<div class="form-group col-md-6 col-sm-12">
 											<label for="nama"
@@ -414,14 +415,14 @@
 												Value="<?php echo $orangnya->deskripsi_kerja;?>" readonly>
 
 										</div>
-
-										<div class="form-group col-md-6 col-sm-12">
+										<?php } else { ?>
+										<div class="form-group col-md-12 col-sm-12">
 											<label for='email'
 												style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Rencana
 												Setelah Mendapatkan Surat Izin Praktek</label>
-											<textarea class="form-control asn" placeholder="" row="6"
+											<textarea class="form-control asn" placeholder="" row="12"
 												Value="" readonly><?php echo $orangnya->rencana;?></textarea>
-
+										<?php } ?>
 										</div>
 										<hr>
 									</div>

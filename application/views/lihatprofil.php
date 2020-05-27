@@ -410,7 +410,7 @@
 											<label for='email'
 												style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Deskripsi
 												Pekerjaan</label>
-											<input class="form-control asn" placeholder="Instansi (S2/Profesi)"
+											<input class="form-control asn" placeholder="Deskripsi Pekerjaan"
 												Value="<?php echo $orangnya->deskripsi_kerja;?>" readonly>
 
 										</div>
@@ -419,7 +419,7 @@
 											<label for='email'
 												style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Rencana
 												Setelah Mendapatkan Surat Izin Praktek</label>
-											<textarea class="form-control asn" placeholder=""
+											<textarea class="form-control asn" placeholder="" row="6"
 												Value="" readonly><?php echo $orangnya->rencana;?></textarea>
 
 										</div>

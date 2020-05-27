@@ -153,7 +153,7 @@
                     <div class="form-group row" >
                     <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Deskripsi Pekerjaan</label>
                         <div class=" col-sm-9">
-                        <textarea class="form-control sdn" placeholder="Deskripsi Pekerjaan" name="deskripsi_pekerjaan" row="4"></textarea>
+                        <textarea class="form-control sdn" placeholder="Deskripsi Pekerjaan" name="deskripsi_pekerjaan" row="6"></textarea>
                         </div>
                     </div>
                 </div>
@@ -161,7 +161,7 @@
                 <div class="form-group row" >
                     <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Rencana setelah selesai internship dan mendapatkan surat izin praktek<br><i style="font-size: 12px;">(Tuliskan selengkap mungkin bagaimana anda ingin orang lain mendapatkan informasi tentang  rencana karir anda di dunia medis)</i></label>
                         <div class=" col-sm-9">
-                        <textarea class="form-control ass" placeholder="Contoh: Spesialis, Profesi, S2, dll" name="rencana" minlength="100"></textarea>
+                        <textarea class="form-control ass" placeholder="Contoh: Spesialis, Profesi, S2, dll" row="6" name="rencana" minlength="100"></textarea>
                         </div>
                     </div>
                 <div class="row">

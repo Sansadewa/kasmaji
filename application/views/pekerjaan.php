@@ -58,19 +58,20 @@
 										</div>
 									</div>
 									<div class="row">
-										<div class="form-group col-md-6 col-sm-12">
+										<div class="form-group col-sm-12">
 											<label for='email' style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Deskripsi
 												Pekerjaan</label>
-											<input class="form-control asn" placeholder="Instansi (S2/Profesi)"
-												Value="<?php echo $row->deskripsi_kerja;?>" readonly>
+											<textarea class="form-control asn" placeholder="Deskripsi Pekerjaan" row="6"
+												Value="" readonly><?php echo $row->deskripsi_kerja;?></textarea>
 
 										</div>
 
 										<div class="form-group col-md-6 col-sm-12">
 											<label for='email' style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Rencana
 												Setelah Mendapatkan Surat Izin Praktek</label>
-											<input class="form-control asn" placeholder="Jurusan (S2/Profesi)"
-												Value="<?php echo $row->rencana;?>" readonly>
+											<textarea class="form-control asn" placeholder="Rencana
+												Setelah Mendapatkan Surat Izin Praktek" row="6"
+												Value="" readonly><?php echo $row->rencana;?></textarea>
 
 										</div>
 										<hr>

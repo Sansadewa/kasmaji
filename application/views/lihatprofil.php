@@ -314,7 +314,7 @@
 											<label for='email'
 												style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Rencana
 												Setelah Mendapatkan Surat Izin Praktek</label>
-											<textarea class="form-control asn" placeholder="" row="12"
+											<textarea class="form-control asn" placeholder="" row="12" style="height:100"
 												Value="" readonly><?php echo $orangnya->rencana;?></textarea>
 										</div>
 									</div>

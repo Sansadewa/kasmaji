@@ -99,19 +99,54 @@
                     </div>
                 </div>
                 <hr>
+                <fieldset id="didikprofesi">
+                <div class="form-group row" style="margin-bottom:0.36em;" id="huha">
+                  <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Sedang menempuh jenjang pendidikan profesi(Koas, Akuntan, Notaris, Apoteker, dll)?</label>
+                  <div class=" col-sm-9">
+                  <div class="row">
+                     
+                      <div class="form-radio col-6">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="didikprofesi" value="Tidak" > Tidak
+                        <i class="input-helper"></i></label>
+                      </div>
+                      <div class="form-radio col-sm-6">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="didikprofesi" value="Ya" required> Ya
+                        <i class="input-helper"></i></label>
+                      </div>
+                    </div>
+                    </div>
+                </div>
+                </fieldset>
+                <div id="PNSwasta" hidden>
+                  <div class="form-group row" >
+                      <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Rencana setelah selesai internship dan mendapatkan surat izin praktek<br><i style="font-size: 12px;">(Tuliskan selengkap mungkin bagaimana anda ingin orang lain mendapatkan informasi tentang  rencana karir anda di dunia medis)</i></label>
+                          <div class=" col-sm-9">
+                          <textarea class="form-control ass" placeholder="Contoh: Spesialis, Profesi, S2, dll" row="6" name="rencana" minlength="100"></textarea>
+                          </div>
+                  </div>
+                  <div class="row">
+                      <p class="col-md-3 col-sm-12">Contoh Jawaban:</p>
+                                          <p class="col-md-9 col-sm-12">"Rencana mengambil studi lanjut setingkat S2-S3 dengan peminatan medical education, jika ada kesempatan selanjutnya, mengambil spesialis anak sub kardiologi & vaskuler. Kemudian menjadi salah satu staff pengajar di universitas. 
+  <br>Rencana ingin membuat gerakan sosial mencegah anak gizi kurang di kalangan penduduk di daerah 3T."</p>
+                  </div>
+                </div>
+                <hr>
                 <fieldset id="huha">
                 <div class="form-group row" style="margin-bottom:0.36em;" id="huha">
                   <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Sedang studi pascasarjana (S2/Profesi)?*</label>
                   <div class=" col-sm-9">
                   <div class="row">
-                      <div class="form-radio col-sm-6">
-                        <label class="form-check-label">
-                          <input type="radio" class="form-check-input" name="pascasarjana" id="yes" value="1" required> Ya
-                        <i class="input-helper"></i></label>
-                      </div>
+            
                       <div class="form-radio col-6">
                         <label class="form-check-label">
                           <input type="radio" class="form-check-input" name="pascasarjana" id="no" value="0" > Tidak
+                        <i class="input-helper"></i></label>
+                      </div>
+                      <div class="form-radio col-sm-6">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="pascasarjana" id="yes" value="1" required> Ya
                         <i class="input-helper"></i></label>
                       </div>
                     </div>
@@ -173,7 +208,7 @@
   <script>
 
       window.addEventListener('pageshow', function(event) {
-      var gulu = $('#huha input[type="radio"]').val();
+        var gulu = $('#huha input[type="radio"]').val();
       if (gulu == '1') {
           $("#instansi_lanjut_div").attr("hidden",false);
           $(".asn").attr("required",true);
@@ -184,6 +219,19 @@
           $("#instansi_lanjut_div").attr("hidden",true);
           $(".asn").attr("required",false);
           $("#jurusan_lanjut_div").attr("hidden",true);
+      }
+
+      var didikprofesi = $('#didikprofesi input[type="radio"]').val();
+      if (didikprofesi === 'Ya') {
+          $(".ass").attr("required",true);
+          $("#PNSwasta").attr("hidden",false);
+      }
+      else if (didikprofesi === 'Tidak') {
+        $(".ass").attr("required",false);
+          $("#PNSwasta").attr("hidden",true);
+      } else {
+        $(".ass").attr("required",false);
+          $("#PNSwasta").attr("hidden",true);
       }
       });
       $(document).ready(function () {
@@ -211,6 +259,17 @@
                 $("#jurusan_lanjut_div").attr("hidden",true);
             }
       });
+
+      $('#didikprofesi input[type="radio"]').change(function() {
+        if (this.value == 'Ya') {
+          $(".ass").attr("required",true);
+          $("#PNSwasta").attr("hidden",false);
+        }
+        else if (this.value == 'Tidak') {
+          $(".ass").attr("required",false);
+          $("#PNSwasta").attr("hidden",true);
+        }
+        });
     });
 
   </script>

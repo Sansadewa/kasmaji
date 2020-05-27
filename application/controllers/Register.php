@@ -161,6 +161,8 @@ class Register extends CI_Controller {
 		$tahun_keluar=$this->input->post('tahun_keluar');
 		$instansi=$this->input->post('instansi');
 		$jurusan=$this->input->post('jurusan');
+		$didikprofesi=$this->input->post('didikprofesi');
+		$rencana=($didikprofesi=='Ya' ?  $this->input->post('rencana') : NULL);
 		$pascasarjana=$this->input->post('pascasarjana');
 		if ($pascasarjana==1){
 			$instansi_lanjut=$this->input->post('instansi_lanjut');
@@ -172,7 +174,7 @@ class Register extends CI_Controller {
 		$beasiswa=$this->input->post('beasiswa');
 
 
-		if($this->register_model->putpendidkan($this->session->userdata('username'), $pendidikan, $tahun_masuk, $tahun_keluar, $instansi, $jurusan, $pascasarjana, $instansi_lanjut, $jurusan_lanjut, $beasiswa)){
+		if($this->register_model->putpendidkan($this->session->userdata('username'), $pendidikan, $tahun_masuk, $tahun_keluar, $instansi, $jurusan,$didikprofesi,$rencana, $pascasarjana, $instansi_lanjut, $jurusan_lanjut, $beasiswa)){
 		redirect('register/fourth');
 
 		} else {
@@ -212,7 +214,6 @@ class Register extends CI_Controller {
 		if($profil->kegiatan==1 || $profil->kegiatan==3){
 		//BELOM DIAMANKAN ISINYA
 			$kegiatan=$this->input->post('kegiatan');
-			if ($kegiatan=='Bekerja' || $kegiatan=='Magang'){
 				$status_pekerjaan=$this->input->post('status_pekerjaan');
 				$tempat_kerja=$this->input->post('tempat_kerja');
 				$bidang=$this->input->post('bidang');
@@ -221,19 +222,10 @@ class Register extends CI_Controller {
 				}
 				$jabatan=$this->input->post('jabatan');
 				$deskripsi_pekerjaan=$this->input->post('deskripsi_pekerjaan');
-				$rencana=NULL;
-	
-			} else if($kegiatan=='Koas'){
-				$status_pekerjaan=NULL;
-				$tempat_kerja=NULL;
-				$bidang=NULL;
-				$jabatan=NULL;
-				$deskripsi_pekerjaan=NULL;
-				$rencana=$this->input->post('rencana');
-			}
+	 
 	
 	
-			if($this->register_model->putpekerjaan($this->session->userdata('username'), $kegiatan, $status_pekerjaan, $tempat_kerja,$bidang, $jabatan, $deskripsi_pekerjaan, $rencana )){
+			if($this->register_model->putpekerjaan($this->session->userdata('username'), $kegiatan, $status_pekerjaan, $tempat_kerja,$bidang, $jabatan, $deskripsi_pekerjaan )){
 			redirect('register/selesai');
 			} else {
 				echo ('Error PB 4');

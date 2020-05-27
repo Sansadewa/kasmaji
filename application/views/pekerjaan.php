@@ -8,7 +8,7 @@
 						<p class="card-description">
 						</p>
 						<?php $report=$this->session->flashdata('result');
-            if(!empty($report)){ ?>
+            			if(!empty($report)){ ?>
 						<div class="alert alert-success">
 							<?php echo $report; ?>
 						</div>
@@ -65,18 +65,9 @@
 												Value="" readonly><?php echo $row->deskripsi_kerja;?></textarea>
 
 										</div>
-
-										<div class="form-group col-md-6 col-sm-12">
-											<label for='email' style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Rencana
-												Setelah Mendapatkan Surat Izin Praktek</label>
-											<textarea class="form-control asn" placeholder="Rencana
-												Setelah Mendapatkan Surat Izin Praktek" row="6"
-												Value="" readonly><?php echo $row->rencana;?></textarea>
-
-										</div>
 										<hr>
 									</div>
-                  </form> <?php } ?>
+                  </form> <?php } //endof foreach?> 
 							</div>
 						</div>
 
@@ -108,7 +99,6 @@
 										<th>Bidang Pekerjaan</th>
 										<th>Jabatan</th>
 										<th>Deskripsi Pekerjaan</th>
-										<th>Rencana</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -122,7 +112,6 @@
 										<td><?php echo $row2->bidang; ?></td>
 										<td><?php echo $row2->jabatan; ?></td>
 										<td><?php echo $row2->deskripsi_kerja; ?></td>
-										<td><?php echo $row2->rencana; ?></td>
 									</tr>
 									<?php } ?>
 								</tbody>
@@ -135,7 +124,6 @@
 										<th>Bidang Pekerjaan</th>
 										<th>Jabatan</th>
 										<th>Deskripsi Pekerjaan</th>
-										<th>Rencana</th>
 									</tr>
 							</tfoot>
 							</table>
@@ -162,22 +150,16 @@
 							<label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Jenis Kegiatan</label>
 							<div class=" col-sm-9">
 								<div class="row" style="margin-bottom:0.3em;">
-									<div class="form-radio col-sm-4">
+									<div class="form-radio col-sm-6">
 										<label class="form-check-label">
 											<input type="radio" class="form-check-input" name="kegiatan" id="bekerja" value="Bekerja" required
 												<?php if($row->jenis=='Bekerja'){echo "checked";} ?>> Bekerja
 											<i class="input-helper"></i></label>
 									</div>
-									<div class="form-radio col-sm-4">
+									<div class="form-radio col-sm-6">
 										<label class="form-check-label">
 											<input type="radio" class="form-check-input" name="kegiatan" id="magang" value="Magang"
 												<?php if($row->jenis=='Magang'){echo "checked";} ?>> Magang
-											<i class="input-helper"></i></label>
-									</div>
-									<div class="form-radio col-sm-4">
-										<label class="form-check-label">
-											<input type="radio" class="form-check-input" name="kegiatan" id="koas" value="Koas"
-												<?php if($row->jenis=='Koas'){echo "checked";} ?>> Koas
 											<i class="input-helper"></i></label>
 									</div>
 								</div>
@@ -186,7 +168,7 @@
 					</fieldset>
 					<hr>
 
-					<div id="PNS" <?php if($row->jenis=='Koas'){echo "hidden";} ?>>
+					<div id="PNS">
 						<div class="form-group row" style="margin-bottom:0.3em;">
 							<label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Status
 								Pekerjaan</label>
@@ -292,21 +274,6 @@
 							</div>
 						</div>
 					</div>
-					<div id="PNSwasta" <?php if($row->jenis=='Bekerja' || $row->jenis=='Magang'){echo "hidden";} ?>>
-						<div class="form-group row">
-							<label class="col-form-label col-sm-12" style="line-height=0;vertical-align: middle">Rencana setelah
-								selesai internship dan mendapatkan surat izin praktek<br><i style="font-size: 12px;">(Tuliskan selengkap mungkin bagaimana anda ingin orang lain mendapatkan informasi tentang  rencana karir anda di dunia medis)</i></label>
-							<div class=" col-sm-12">
-										<textarea class="form-control ass" placeholder="Contoh: Spesialis, Profesi, S2, dll" name="rencana" minlength="100"
-									><?php echo $row->rencana; ?></textarea>
-							</div>
-						</div>
-						<div class="row">
-                    <p class="col-md-3 col-sm-12">Contoh Jawaban:</p>
-                                        <p class="col-md-9 col-sm-12">"Rencana mengambil studi lanjut setingkat S2-S3 dengan peminatan medical education, jika ada kesempatan selanjutnya, mengambil spesialis anak sub kardiologi & vaskuler. Kemudian menjadi salah satu staff pengajar di universitas. 
-<br>Rencana ingin membuat gerakan sosial mencegah anak gizi kurang di kalangan penduduk di daerah 3T."</p>
-                </div>
-					</div>
 
 					<a class="text-danger"><?php
                             $informasi = $this->session->flashdata('informasi');
@@ -325,20 +292,6 @@
 	<script>
 		$(document).ready(function () {
 
-			$('#huha input[type="radio"]').change(function () {
-
-				if (this.value == 'Koas') {
-					$("#PNS").attr("hidden", true);
-					$(".ass").attr("required", true);
-					$(".asn").attr("required", false);
-					$("#PNSwasta").attr("hidden", false);
-				} else {
-					$("#PNS").attr("hidden", false);
-					$(".asn").attr("required", true);
-					$(".ass").attr("required", false);
-					$("#PNSwasta").attr("hidden", true);
-				}
-			});
 
 			$('[name="bidang"]').change(function () {
 				if (this.value == 'Lainnya') {

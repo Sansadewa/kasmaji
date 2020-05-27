@@ -57,13 +57,15 @@ class Input_model extends CI_Model {
     return true;
   }
   
-  public function update_pendidkan($username, $pendidikan, $tahun_masuk, $tahun_keluar, $instansi, $jurusan, $pascasarjana, $instansi_lanjut, $jurusan_lanjut, $beasiswa){
+  public function update_pendidkan($username, $pendidikan, $tahun_masuk, $tahun_keluar, $instansi, $jurusan, $didikprofesi, $rencana, $pascasarjana, $instansi_lanjut, $jurusan_lanjut, $beasiswa){
     $data = array (
               'sedang_or_selesai' => $pendidikan,
               'th_masuk' => $tahun_masuk,
               'th_keluar' => $tahun_keluar,
               'instansi' => $instansi,
               'jurusan' => $jurusan,
+              'didikprofesi' => $didikprofesi,
+              'rencana' => $rencana,
               'pascasarjana' => $pascasarjana,
               'instansi_lanjut' => $instansi_lanjut,
               'jurusan_lanjut' => $jurusan_lanjut,
@@ -78,7 +80,7 @@ class Input_model extends CI_Model {
 
   }
 
-  public function update_pekerjaan($username, $kegiatan, $status_pekerjaan, $tempat_kerja,$bidang, $jabatan, $deskripsi_pekerjaan, $rencana){
+  public function update_pekerjaan($username, $kegiatan, $status_pekerjaan, $tempat_kerja,$bidang, $jabatan, $deskripsi_pekerjaan){
     $data = array (
               'jenis' => $kegiatan,
               'status' => $status_pekerjaan,
@@ -86,7 +88,6 @@ class Input_model extends CI_Model {
               'bidang' => $bidang,
               'jabatan' => $jabatan,
               'deskripsi_kerja' => $deskripsi_pekerjaan,
-              'rencana' => $rencana,
             );
 
       $this->db->where('username', $username);

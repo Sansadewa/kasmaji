@@ -50,19 +50,14 @@
                     <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Jenis Kegiatan*</label>
                         <div class=" col-sm-9">
                             <div class="row" style="margin-bottom:0.3em;">
-                                <div class="form-radio col-sm-4">
+                                <div class="form-radio col-sm-6">
                                     <label class="form-check-label">
                                     <input type="radio" class="form-check-input" name="kegiatan" id="bekerja" value="Bekerja" required> Bekerja
                                     <i class="input-helper"></i></label>
                                 </div>
-                                <div class="form-radio col-sm-4">
+                                <div class="form-radio col-sm-6">
                                     <label class="form-check-label">
                                     <input type="radio" class="form-check-input" name="kegiatan" id="magang" value="Magang"> Magang
-                                    <i class="input-helper"></i></label>
-                                </div>
-                                <div class="form-radio col-sm-4">
-                                    <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="kegiatan" id="koas" value="Koas"> Koas
                                     <i class="input-helper"></i></label>
                                 </div>
                             </div>
@@ -70,7 +65,7 @@
                     </div>
                 </fieldset>
 
-                <div id="PNS" hidden>
+                <div id="PNS">
                     <div class="form-group row" style="margin-bottom:0.3em;">
                     <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Status Pekerjaan</label>
                         <div class=" col-sm-9">
@@ -157,21 +152,6 @@
                         </div>
                     </div>
                 </div>
-                <div id="PNSwasta" hidden>
-                <div class="form-group row" >
-                    <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Rencana setelah selesai internship dan mendapatkan surat izin praktek<br><i style="font-size: 12px;">(Tuliskan selengkap mungkin bagaimana anda ingin orang lain mendapatkan informasi tentang  rencana karir anda di dunia medis)</i></label>
-                        <div class=" col-sm-9">
-                        <textarea class="form-control ass" placeholder="Contoh: Spesialis, Profesi, S2, dll" row="6" name="rencana" minlength="100"></textarea>
-                        </div>
-                    </div>
-                <div class="row">
-                    <p class="col-md-3 col-sm-12">Contoh Jawaban:</p>
-                                        <p class="col-md-9 col-sm-12">"Rencana mengambil studi lanjut setingkat S2-S3 dengan peminatan medical education, jika ada kesempatan selanjutnya, mengambil spesialis anak sub kardiologi & vaskuler. Kemudian menjadi salah satu staff pengajar di universitas. 
-<br>Rencana ingin membuat gerakan sosial mencegah anak gizi kurang di kalangan penduduk di daerah 3T."</p>
-                </div>
-                </div>
-
-
                 <br>
                 <a class="text-danger"><?php
                   $informasi = $this->session->flashdata('informasi');
@@ -213,18 +193,6 @@
             });
 
         //Untuk pengguna tombol back
-      var gulu = $('#huha input[type="radio"]').val();
-      if (gulu == 'Koas') {
-                $("#PNS").attr("hidden",true);
-                $(".ass").attr("required",true);
-                $(".asn").attr("required",false);
-                $("#PNSwasta").attr("hidden",false);
-            } else if(gulu == 'Magang' || gulu == 'Bekerja') {
-                $("#PNS").attr("hidden",false);
-                $(".asn").attr("required",true);
-                $(".ass").attr("required",false);
-                $("#PNSwasta").attr("hidden",true);
-            }
       var guli = $('[name="bidang"]').val();
       if (guli == 'Lainnya'){
                 $("#lainnya").attr("hidden", false);
@@ -234,22 +202,6 @@
                 $('[name="lainnya"]').attr("required", false);
 
             }
-        
-            
-      $('#huha input[type="radio"]').change(function() {
-
-            if (this.value == 'Koas') {
-                $("#PNS").attr("hidden",true);
-                $(".ass").attr("required",true);
-                $(".asn").attr("required",false);
-                $("#PNSwasta").attr("hidden",false);
-            } else {
-                $("#PNS").attr("hidden",false);
-                $(".asn").attr("required",true);
-                $(".ass").attr("required",false);
-                $("#PNSwasta").attr("hidden",true);
-            }
-      });
 
       $('[name="bidang"]').change(function(){
             if (this.value == 'Lainnya'){

@@ -297,6 +297,26 @@
 											<input class="form-control" value="<?php echo $orangnya->jurusan;?>"
 												readonly>
 										</div>
+										
+
+										
+									</div>
+									<div class="row">
+									<div class="form-group col-12">
+											<label for='date'
+												style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Sedang menempuh jenjang pendidikan profesi</label>
+											<input class="form-control" value="<?php echo $orangnya->didikprofesi;?>"
+												readonly>
+										</div>
+									</div>
+									<div class="row">
+									<div class="form-group col-md-12 col-sm-12">
+											<label for='email'
+												style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Rencana
+												Setelah Mendapatkan Surat Izin Praktek</label>
+											<textarea class="form-control asn" placeholder="" row="12"
+												Value="" readonly><?php echo $orangnya->rencana;?></textarea>
+										</div>
 									</div>
 									<?php if($this->session->userdata('role')==99){?>
 									<div class="form-group row">
@@ -306,6 +326,7 @@
 									</div>
 									</div>
 									<?php }?>
+									<?php if ($orangnya->pascasarjana=='1'){ ?>
 									<div class="row">
 										<div class="form-group col-md-6 col-sm-12">
 											<label for='email'
@@ -328,8 +349,10 @@
 										</div>
 										<hr>
 									</div>
+									<?php } ?>
+									
 									<div class="row">
-										<div class="form-group col-md-6 col-sm-12">
+										<div class="form-group col-md-12 col-sm-12">
 											<label for='email'
 												style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Beasiswa</label>
 											<input class="form-control asn" placeholder="Jurusan (S2/Profesi)"
@@ -371,7 +394,6 @@
 											<input class="form-control" id="" value="<?php echo $orangnya->jenis; ?>"
 												readonly>
 										</div>
-										<?php if($orangnya->jenis!='koas'){?>
 										<?php if($this->session->userdata('role')==99){?>
 										<div class="form-group col-md-6 col-sm-12">
 											<label for="nama"
@@ -415,15 +437,8 @@
 												Value="<?php echo $orangnya->deskripsi_kerja;?>" readonly>
 
 										</div>
-										<?php } else { ?>
-										<div class="form-group col-md-12 col-sm-12">
-											<label for='email'
-												style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Rencana
-												Setelah Mendapatkan Surat Izin Praktek</label>
-											<textarea class="form-control asn" placeholder="" row="12"
-												Value="" readonly><?php echo $orangnya->rencana;?></textarea>
-										<?php } ?>
-										</div>
+
+
 										<hr>
 									</div>
 								</form>

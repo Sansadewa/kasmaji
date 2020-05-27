@@ -341,7 +341,7 @@
 											<label class="form-check-label">
 												<input type="radio" class="form-check-input" name="kegiatan"
 													id="bekerja" value="1" required>
-												Bekerja/Magang/Koas
+												Bekerja/Magang
 												<i class="input-helper"></i></label>
 										</div>
 										<div class="form-radio">
@@ -354,7 +354,7 @@
 										<div class="form-radio">
 											<label class="form-check-label">
 												<input type="radio" class="form-check-input" name="kegiatan"
-													id="keduanya" value="3"> Bekerja
+													id="keduanya" value="3"> Bekerja/Magang
 												&amp; Memiliki
 												Usaha
 												<i class="input-helper"></i></label>

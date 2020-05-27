@@ -56,7 +56,7 @@ class Register_model extends CI_Model {
   
     }
     
-    public function putpendidkan($username, $pendidikan, $tahun_masuk, $tahun_keluar, $instansi, $jurusan, $pascasarjana, $instansi_lanjut, $jurusan_lanjut, $beasiswa){
+    public function putpendidkan($username, $pendidikan, $tahun_masuk, $tahun_keluar, $instansi, $jurusan,$didikprofesi, $rencana, $pascasarjana, $instansi_lanjut, $jurusan_lanjut, $beasiswa){
       $this->db->where('username', $username);
       $this->db->delete('pendidikan');
       $data = array (
@@ -70,6 +70,8 @@ class Register_model extends CI_Model {
                 'instansi_lanjut' => $instansi_lanjut,
                 'jurusan_lanjut' => $jurusan_lanjut,
                 'beasiswa' => $beasiswa, 
+                'rencana' => $rencana, 
+                'didikprofesi' => $didikprofesi, 
               );
   
       if($this->db->insert('pendidikan',$data)){
@@ -85,7 +87,7 @@ class Register_model extends CI_Model {
   
     }
 
-    public function putpekerjaan($username, $kegiatan, $status_pekerjaan, $tempat_kerja,$bidang, $jabatan, $deskripsi_pekerjaan, $rencana){
+    public function putpekerjaan($username, $kegiatan, $status_pekerjaan, $tempat_kerja,$bidang, $jabatan, $deskripsi_pekerjaan){
       $this->db->where('username', $username);
       $this->db->delete('pekerjaan');
       $data = array (
@@ -96,7 +98,6 @@ class Register_model extends CI_Model {
                 'bidang' => $bidang,
                 'jabatan' => $jabatan,
                 'deskripsi_kerja' => $deskripsi_pekerjaan,
-                'rencana' => $rencana,
               );
   
       if($this->db->insert('pekerjaan',$data)){

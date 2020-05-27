@@ -86,6 +86,8 @@ class Register extends CI_Controller {
 				redirect('register/first');
 			} else{
 				$this->register_model->putpass($pa, $email, $profil->username, $tgl_lahir);
+				$this->session->set_userdata('email', $email);
+				$this->session->set_userdata('tgl_lahir', $tgl_lahir);
 				redirect('register/second');
 			}
 		} else {

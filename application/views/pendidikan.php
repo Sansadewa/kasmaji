@@ -285,7 +285,7 @@
                 </fieldset>
                 <div id="PNSwasta" <?php if($row->didikprofesi=='Ya'){echo "";}else{echo "hidden";} ?>>
                   <div class="form-group row" >
-                      <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Rencana setelah mendapat surat tanda registrasi profesi.(Untuk koas, setelah internship dan mendapat surat ijin praktik)<br><i style="font-size: 12px;">(Tuliskan selengkap mungkin bagaimana anda ingin orang lain mendapatkan informasi tentang  rencana karir anda di dunia medis)</i></label>
+                      <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Rencana setelah mendapat surat tanda registrasi profesi.(Untuk koas, setelah internship dan mendapat surat ijin praktik)<br><br>(Tuliskan selengkap mungkin bagaimana anda ingin orang lain mendapatkan informasi tentang  rencana karir anda di dunia medis)</label>
                           <div class=" col-sm-9">
                           <textarea class="form-control ass" placeholder="Contoh: Spesialis, Profesi, S2, dll" row="12" name="rencana" minlength="100" style="height: 100%"><?php echo $row->rencana; ?></textarea>
                           </div>

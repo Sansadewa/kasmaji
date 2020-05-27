@@ -49,18 +49,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-switch ($_SERVER['HTTP_HOST']) {
-    case 'kontak.stislimatuju.com': 
-
-        $route['(:any)'] = "kontak/$1"; // this will set any uri and add the controler fodler to it
-
-        $route['default_controller'] = "kontak";  // set the default controller for this subdomain
-
-        break;
-}
+$maintenance=FALSE;
+if($maintenance){
+    $route['(:any)'] = 'maintenance';
+    }
 $route['default_controller'] = 'landing';
 $route['404_override'] = 'nyasar';
 $route['translate_uri_dashes'] = FALSE;
 $route['lihatfoto/(:any)']='akun/lihatfoto/$1';
 $route['lihatprofil/(:any)']='search/lihatprofil/$1';
 $route['lihatsharing/(:any)']='akun/lihatsharing/$1';
+

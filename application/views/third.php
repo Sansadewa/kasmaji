@@ -121,9 +121,9 @@
                 </fieldset>
                 <div id="PNSwasta" hidden>
                   <div class="form-group row" >
-                      <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Rencana setelah mendapat surat tanda registrasi profesi.<br>(Untuk koas, setelah internship dan mendapat surat ijin praktik)<br><br>(Tuliskan selengkap mungkin bagaimana anda ingin orang lain mendapatkan informasi tentang  rencana karir anda di dunia medis)</label>
+                      <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Rencana setelah mendapat surat tanda registrasi profesi.<br><br>(Untuk koas, setelah internship dan mendapat surat ijin praktik)</label>
                           <div class=" col-sm-9">
-                          <textarea class="form-control ass" placeholder="Contoh: Spesialis, Profesi, S2, dll" row="6" style="height: 150" name="rencana" minlength="100"></textarea>
+                          <textarea class="form-control ass" placeholder="Tuliskan selengkap mungkin bagaimana anda ingin orang lain mendapatkan informasi tentang rencana karir anda setelah selesai menempuh pendidikan profesi" row="6" style="height: 150" name="rencana" minlength="100"></textarea>
                           </div>
                   </div>
                   <div class="row">

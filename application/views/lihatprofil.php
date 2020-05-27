@@ -220,7 +220,7 @@
 											style="line-height=0;vertical-align: middle">Kegiatan Saat
 											Ini</label>
 										<div class=" col-sm-9">
-											<input class="form-control" value='<?php  if($orangnya->kegiatan == 1) { echo 'Bekerja/Magang/Koas\'';} else {echo'\' hidden';} ?> readonly>
+											<input class="form-control" value='<?php  if($orangnya->kegiatan == 1) { echo 'Bekerja/Magang\'';} else {echo'\' hidden';} ?> readonly>
 											<input class="form-control" value=' <?php  if($orangnya->kegiatan == 2) { echo 'Memiliki Usaha\'';} else {echo'\' hidden';} ?>
 												readonly>
 											<input class="form-control" value='<?php  if($orangnya->kegiatan == 3) { echo 'Keduanya\'';} else {echo'\' hidden';} ?> readonly>

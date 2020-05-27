@@ -121,7 +121,7 @@
                 </fieldset>
                 <div id="PNSwasta" hidden>
                   <div class="form-group row" >
-                      <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Rencana setelah selesai internship dan mendapatkan surat izin praktek<br><i style="font-size: 12px;">(Tuliskan selengkap mungkin bagaimana anda ingin orang lain mendapatkan informasi tentang  rencana karir anda di dunia medis)</i></label>
+                      <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Rencana setelah mendapat surat tanda registrasi profesi.(Untuk koas, setelah internship dan mendapat surat ijin praktik)<br><i style="font-size: 12px;">(Tuliskan selengkap mungkin bagaimana anda ingin orang lain mendapatkan informasi tentang  rencana karir anda di dunia medis)</i></label>
                           <div class=" col-sm-9">
                           <textarea class="form-control ass" placeholder="Contoh: Spesialis, Profesi, S2, dll" row="6" name="rencana" minlength="100"></textarea>
                           </div>
@@ -135,7 +135,7 @@
                 <hr>
                 <fieldset id="huha">
                 <div class="form-group row" style="margin-bottom:0.36em;" id="huha">
-                  <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Sedang studi pascasarjana (S2/Profesi)?*</label>
+                  <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Sedang menempuh jenjang pendidikan pascasarjana (S2)?*</label>
                   <div class=" col-sm-9">
                   <div class="row">
             
@@ -155,14 +155,14 @@
                 </fieldset>
                 
                 <div class="form-group row" id="instansi_lanjut_div" hidden>
-                  <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Instansi Pendidikan (S2/Profesi)</label>
+                  <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Instansi Pendidikan Pascasarjana(S2)</label>
                     <div class=" col-sm-9">
                       <input class="form-control asn" placeholder="Instansi (S2/Profesi)" Value="" name="instansi_lanjut">
                     </div>
                 </div>
 
                 <div class="form-group row" id="jurusan_lanjut_div" hidden>
-                  <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Jurusan (S2/Profesi)</label>
+                  <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Jurusan Pendidikan Pascasarjana (S2)</label>
                     <div class=" col-sm-9">
                       <input class="form-control asn" placeholder="Jurusan (S2/Profesi)" Value="" name="jurusan_lanjut">
                     </div>

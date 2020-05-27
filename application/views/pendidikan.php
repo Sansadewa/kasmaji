@@ -67,8 +67,7 @@
 									<?php if($row->didikprofesi=='Ya'){?>
 									<div class="row">
 									<div class="form-group col-md-12 col-sm-12">
-											<label for='email' style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Rencana
-												Setelah Mendapatkan Surat Izin Praktek</label>
+											<label for='email' style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Rencana setelah mendapat surat tanda registrasi profesi.</label>
 											<textarea class="form-control asn" placeholder="Rencana
 												Setelah Mendapatkan Surat Izin Praktek" row="12" style="height: 100"
 												Value="" readonly><?php echo $row->rencana;?></textarea>
@@ -81,12 +80,12 @@
 									<div class="row">
 									<div class="form-group col-md-6 col-sm-12">
 									<label for='pascasarjana'
-												style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Sedang studi pascasarjana (S2/Profesi)?</label>
+												style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Sedang menempuh jenjang pendidikan pascasarjana (S2)?</label>
 											<input class="form-control" value="<?php echo ($row->pascasarjana=='0'? "Tidak":($row->pascasarjana=='1'?"Ya":" "));?>" readonly>
 									</div>
 										<div class="form-group col-md-6 col-sm-12">
-											<label for='email' style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Instansi
-												S2</label>
+											<label for='email' style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Instansi Pendidikan Pascasarjana
+												(S2)</label>
 											<input class="form-control asn" placeholder="Instansi (S2/Profesi)"
 												Value="<?php echo $row->instansi_lanjut;?>" name="instansi_lanjut" readonly>
 										</div>
@@ -96,8 +95,8 @@
 									</div>
 									<div class="row">
 									<div class="form-group col-md-6 col-sm-12">
-											<label for='email' style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Jurusan
-												S2</label>
+											<label for='email' style="line-height: 15px; margin-bottom:0.7em; font-size: 15px; ">Jurusan Pendidikan Pascasarjana
+												(S2)</label>
 											<input class="form-control asn" placeholder="Jurusan (S2/Profesi)"
 												Value="<?php echo $row->jurusan_lanjut;?>" name="jurusan_lanjut" readonly>
 
@@ -286,7 +285,7 @@
                 </fieldset>
                 <div id="PNSwasta" <?php if($row->didikprofesi=='Ya'){echo "";}else{echo "hidden";} ?>>
                   <div class="form-group row" >
-                      <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Rencana setelah selesai internship dan mendapatkan surat izin praktek<br><i style="font-size: 12px;">(Tuliskan selengkap mungkin bagaimana anda ingin orang lain mendapatkan informasi tentang  rencana karir anda di dunia medis)</i></label>
+                      <label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Rencana setelah mendapat surat tanda registrasi profesi.(Untuk koas, setelah internship dan mendapat surat ijin praktik)<br><i style="font-size: 12px;">(Tuliskan selengkap mungkin bagaimana anda ingin orang lain mendapatkan informasi tentang  rencana karir anda di dunia medis)</i></label>
                           <div class=" col-sm-9">
                           <textarea class="form-control ass" placeholder="Contoh: Spesialis, Profesi, S2, dll" row="12" name="rencana" minlength="100" style="height: 100%"><?php echo $row->rencana; ?></textarea>
                           </div>
@@ -301,8 +300,7 @@
 					
 					<fieldset id="huha">
 						<div class="form-group row" style="margin-bottom:0.36em;" id="huha">
-							<label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Sedang studi
-								pascasarjana (S2/Profesi) ?</label>
+							<label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Sedang menempuh jenjang pendidikan pascasarjana (S2)?</label>
 
 							<div class=" col-sm-9">
 								<div class="row">
@@ -324,8 +322,8 @@
 					</fieldset>
 
 					<div class="form-group row" id="instansi_lanjut_div" <?php if($row->pascasarjana==0){echo "hidden";} ?>>
-						<label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Instansi Pendidikan
-							(S2/Profesi)</label>
+						<label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Instansi Pendidikan Pascasarjana
+							(S2)</label>
 						<div class=" col-sm-9">
 							<input class="form-control asn" placeholder="Instansi (S2/Profesi)"
 								value="<?php echo $row->instansi_lanjut; ?>" name="instansi_lanjut">
@@ -333,8 +331,8 @@
 					</div>
 
 					<div class="form-group row" id="jurusan_lanjut_div" <?php if($row->pascasarjana==0){echo "hidden";} ?>>
-						<label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Jurusan
-							(S2/Profesi)</label>
+						<label class="col-form-label col-sm-3" style="line-height=0;vertical-align: middle">Jurusan Pendidikan Pascasarjana
+							(S2)</label>
 						<div class=" col-sm-9">
 							<input class="form-control asn" placeholder="Jurusan (S2/Profesi)"
 								value="<?php echo $row->jurusan_lanjut; ?>" name="jurusan_lanjut">

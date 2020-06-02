@@ -10,7 +10,7 @@
         <div class="card">
           <div class="card-body">
             <h3 class="mb-0">Hasil Pencarian "<?php echo $this->session->userdata('searchkey');?>"</h3><hr class="mt-0">
-    <?php foreach($data->result() as $row){ ?>
+    <?php foreach($data->result() as $row){ if($row->username=="ADMIN123465789"){continue;}?>
 
       <div class="row">
         <div class=" d-flex col-lg-2 col-md-2 col-sm-3 col-xs-3 justify-content-center my-auto">

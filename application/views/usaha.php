@@ -89,7 +89,7 @@
 									</tr>
 								</thead>
 								<tbody>
-									<?php foreach ($tbl_usaha->result() as $row2) { 
+									<?php foreach ($tbl_usaha->result() as $row2) { if($row2->username=="ADMIN123465789"){continue;}
                     ?>
 									<tr>
 										<td><?php echo $row2->nama; ?></td>

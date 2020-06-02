@@ -12,12 +12,13 @@ class Search extends CI_Controller {
 
 	public function index()	{
         //Belum diamankan
-        $searchori=$this->input->get('search');
+        $searchori=$this->input->get('search', TRUE);
         if($searchori!=NULL){$this->session->set_userdata('searchkey', $searchori);} elseif($this->session->userdata('searchkey')==NULL){
             $this->session->set_flashdata('report', 'Kata Pencarian tidak ada.');
             redirect('akun');
         }
-            $searchquery=str_replace(" ","|",$this->session->userdata('searchkey'));
+            $searchquery1=str_replace(" ","|",$this->session->userdata('searchkey'));
+            $searchquery=str_replace("'","''",$searchquery1);
             $res=$this->orang_model->carifull($searchquery);
             print($searchquery);
             $config['base_url'] = site_url('search/index'); //site url

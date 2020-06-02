@@ -57,7 +57,7 @@
 	if ($_SERVER['SERVER_NAME'] == 'local_server_name') {
     define('ENVIRONMENT', 'development');
 } else {
-    define('ENVIRONMENT', 'development');
+    define('ENVIRONMENT', 'production');
 }
 
 /*

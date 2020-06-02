@@ -61,9 +61,9 @@ $('#sebuah-tabel tfoot th').each( function () {
 
           buttons: [
             <?php if($this->session->userdata('role')==99){?>
-                {extend:'copy',className:'btn btn-outline-info btn-sm'},
+                {extend:'copy',className:'btn btn-outline-primary btn-sm'},
                 // {extend:'print',className:'btn btn-outline-info btn-sm'},
-                {extend:'excel',className:'btn btn-outline-info btn-sm'}
+                {extend:'excel',className:'btn btn-outline-primary btn-sm'}
                 <?php }?>
 
               ],
@@ -97,9 +97,9 @@ $('#sebuah-tabela tfoot th').each( function () {
 
           buttons: [
             <?php if($this->session->userdata('role')==99){?>
-                {extend:'copy',className:'btn btn-outline-info btn-sm'},
+                {extend:'copy',className:'btn btn-outline-primary btn-sm'},
                 // {extend:'print',className:'btn btn-outline-info btn-sm'},
-                {extend:'excel',className:'btn btn-outline-info btn-sm'}
+                {extend:'excel',className:'btn btn-outline-primary btn-sm'}
                 <?php }?>
 
               ],

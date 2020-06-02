@@ -223,7 +223,7 @@
 											<input class="form-control" value='<?php  if($orangnya->kegiatan == 1) { echo 'Bekerja/Magang\'';} else {echo'\' hidden';} ?> readonly>
 											<input class="form-control" value=' <?php  if($orangnya->kegiatan == 2) { echo 'Memiliki Usaha\'';} else {echo'\' hidden';} ?>
 												readonly>
-											<input class="form-control" value='<?php  if($orangnya->kegiatan == 3) { echo 'Keduanya\'';} else {echo'\' hidden';} ?> readonly>
+											<input class="form-control" value='<?php  if($orangnya->kegiatan == 3) { echo 'Bekerja/magang dan Memiliki Usaha\'';} else {echo'\' hidden';} ?> readonly>
 											<input class="form-control" value=' <?php  if($orangnya->kegiatan == 4) { echo 'Belum Bekerja &amp; Tidak Memiliki Usaha\'';} else {echo'\' hidden';} ?>
 												readonly>
 										</div>

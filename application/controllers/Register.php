@@ -80,13 +80,15 @@ class Register extends CI_Controller {
 			$pa=$this->input->post('pa');
 			$pb=$this->input->post('pb');
 			$email=$this->input->post('email');
+			$nama=$this->input->post('nama');
 			$tgl_lahir=$this->input->post('tgl_lahir');
 			if ($pa!=$pb){
 				$this->session->set_flashdata('informasi','Password tidak sama');
 				redirect('register/first');
 			} else{
-				$this->register_model->putpass($pa, $email, $profil->username, $tgl_lahir);
+				$this->register_model->putpass($pa, $nama, $email, $profil->username, $tgl_lahir);
 				$this->session->set_userdata('email', $email);
+				$this->session->set_userdata('nama', $nama);
 				$this->session->set_userdata('tgl_lahir', $tgl_lahir);
 				redirect('register/second');
 			}
@@ -215,15 +217,15 @@ class Register extends CI_Controller {
 		$profil=$this->register_model->get_profil($this->session->userdata('username'));
 		if($profil->kegiatan==1 || $profil->kegiatan==3){
 		//BELOM DIAMANKAN ISINYA
-			$kegiatan=$this->input->post('kegiatan');
-				$status_pekerjaan=$this->input->post('status_pekerjaan');
-				$tempat_kerja=$this->input->post('tempat_kerja');
-				$bidang=$this->input->post('bidang');
+			$kegiatan=$this->input->post('kegiatan',TRUE);
+				$status_pekerjaan=$this->input->post('status_pekerjaan',TRUE);
+				$tempat_kerja=$this->input->post('tempat_kerja',TRUE);
+				$bidang=$this->input->post('bidang',TRUE);
 				if ($bidang=='Lainnya'){
-					$bidang='(Lainnya) '.$this->input->post('lainnya');
+					$bidang='(Lainnya) '.$this->input->post('lainnya',TRUE);
 				}
-				$jabatan=$this->input->post('jabatan');
-				$deskripsi_pekerjaan=$this->input->post('deskripsi_pekerjaan');
+				$jabatan=$this->input->post('jabatan',TRUE);
+				$deskripsi_pekerjaan=$this->input->post('deskripsi_pekerjaan',TRUE);
 	 
 	
 	
@@ -263,13 +265,13 @@ class Register extends CI_Controller {
 		$profil=$this->register_model->get_profil($this->session->userdata('username'));
 		if($profil->kegiatan==2 || $profil->kegiatan==3){
 			//BELOM DIAMANKAN ISINYA
-			$nama_usaha=$this->input->post('nama_usaha');
-			$alamat_usaha=$this->input->post('alamat_usaha');
-			$deskripsi_usaha=$this->input->post('deskripsi_usaha');
+			$nama_usaha=$this->input->post('nama_usaha',TRUE);
+			$alamat_usaha=$this->input->post('alamat_usaha',TRUE);
+			$deskripsi_usaha=$this->input->post('deskripsi_usaha',TRUE);
 
 			$bidang=$this->input->post('bidang_usaha');
 			if ($bidang=='Lainnya'){
-				$bidang='(Lainnya) '.$this->input->post('lainnya');
+				$bidang='(Lainnya) '.$this->input->post('lainnya',TRUE);
 			}
 
 		if($this->register_model->putusaha($this->session->userdata('username'), $nama_usaha, $bidang, $alamat_usaha, $deskripsi_usaha )){

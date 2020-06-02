@@ -50,7 +50,7 @@
               <form action="<?php echo base_url().'register/procpass' ?>" method="post">
               <div class="form-group">
                     <label for="nama" style="margin-bottom:0">Nama</label>
-                    <input class="form-control" value="<?php echo($this->session->userdata('nama')); ?>" name="nama" id="nama" style="margin-top:0" required disabled>
+                    <input class="form-control" value="<?php echo($this->session->userdata('nama')); ?>" name="nama" id="nama" style="margin-top:0" required>
               </div>
 
                 <div class="form-group">

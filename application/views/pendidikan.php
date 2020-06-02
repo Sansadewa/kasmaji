@@ -9,7 +9,7 @@
 						</p>
 						<?php $report=$this->session->flashdata('result');
             if(!empty($report)){ ?>
-						<div class="alert alert-success">
+						<div class="alert alert-warning">
 							<?php echo $report; ?>
 						</div>
 						<?php } ?>

@@ -74,12 +74,12 @@
                         <div class="row">
                             <div class="form-group  col-md-6">
                                 <label for="tahun_masuk" style="margin-bottom:0.5em;">Tahun Masuk</label>
-                                <input class="form-control" placeholder="Tahun Masuk" name="tahun_masuk" id="tahun_masuk" reqiured>
+                                <input class="form-control" placeholder="Tahun Masuk" name="tahun_masuk" id="tahun_masuk" type="number" reqiured>
                             </div>
 
                             <div class="form-group  col-md-6">
                                 <label for="tahun_keluar" style="margin-bottom:0.5em;">Tahun Keluar</label>
-                                <input class="form-control" placeholder="Tahun Keluar" name="tahun_keluar" reqiured>
+                                <input class="form-control" placeholder="Tahun Keluar" name="tahun_keluar" type="number" reqiured>
                             </div>
                             <hr>
                         </div>

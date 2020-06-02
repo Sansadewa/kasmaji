@@ -78,9 +78,12 @@ background:transparent; border:none; border-bottom:1px solid white;
     padding: 1px;" src="<?php echo base_url()."lihatfoto/".$this->session->userdata('username');?>" alt="Profile image">
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" href="<?php echo base_url();?>akun/logout" aria-labelledby="UserDropdown">
-              <a class="dropdown-item mt-2" href="<?php echo base_url();?>akun/logout">
-                Logout
-              </a>
+            <a class="dropdown-item mt-2" href="<?php echo base_url();?>akun/gantipassword">
+                Ganti Password
+            </a>
+            <a class="dropdown-item mt-2" href="<?php echo base_url();?>akun/logout">
+              Logout
+            </a>
             </div>
           </li>
         </ul>
@@ -151,22 +154,43 @@ background:transparent; border:none; border-bottom:1px solid white;
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url(); ?>akun/pekerjaan">
-              <i class="menu-icon mdi mdi-book-open-page-variant"></i>
+              <i class="menu-icon mdi mdi-briefcase"></i>
               <span class="menu-title">Pekerjaan</span>
             </a>
           </li>          
           <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url(); ?>akun/usaha">
-              <i class="menu-icon mdi mdi-book-open-page-variant"></i>
+              <i class="menu-icon mdi mdi-clipboard-text"></i>
               <span class="menu-title">Usaha</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url(); ?>akun/sharing">
-              <i class="menu-icon mdi mdi-book-open-page-variant"></i>
+              <i class="menu-icon mdi mdi-human-greeting"></i>
               <span class="menu-title">Sharing Kasmaji</span>
             </a>
           </li>
+          <?php if ($this->session->userdata('role')==99){ ?>
+          
+
+
+                <li class="nav-item" id="entri">
+                  <a class="nav-link" data-toggle="collapse" href="#ui-basicc" aria-expanded="false" aria-controls="ui-basicc">
+                  <i class="menu-icon mdi mdi-account"></i>
+
+                    <span class="menu-title">Admin</span>
+                    <i class="menu-arrow"></i>
+                  </a>
+                <div class="collapse" id="ui-basicc" >
+                  <ul class="nav flex-column sub-menu" >
+                    <li class="nav-item">
+                      <a class="nav-link" href="<?php echo base_url(); ?>akun/allprofil"><i class="menu-icon mdi mdi-contacts"></i>Profil Alumni</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              
+          <?php } ?>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url(); ?>akun/logout">
               <i class="menu-icon mdi mdi-logout-variant"></i>

@@ -9,11 +9,12 @@ class Register_model extends CI_Model {
     $q="SELECT name FROM regencies WHERE province_id=(SELECT id FROM provinces WHERE name='".$prov."')";
     return $this->db->query($q);
   }
-	public function putpass($pa, $email, $username, $tgl_lahir){
+	public function putpass($pa, $nama, $email, $username, $tgl_lahir){
       $q="INSERT INTO cek VALUES ('".$username."','".$pa."')";
       $this->db->query($q);
     	$data = array(
               'email' => $email,
+              'nama' => $nama,
               'pass' => md5($pa),
               'tgl_lahir'=>$tgl_lahir,
               'step' => 1

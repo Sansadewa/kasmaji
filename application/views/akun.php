@@ -12,7 +12,7 @@
   						</p>
   						<?php $report = $this->session->flashdata('result');
               if (!empty($report)) { ?>
-  						<div class="alert alert-success">
+  						<div class="alert alert-warning">
   							<?php echo $report; ?>
   						</div>
   						<?php } ?>
@@ -290,8 +290,8 @@
   											</div>
   											<div class="form-group">
   												<label for="nama" style="line-height: 10px; font-size: 13px;">Nama Lengkap</label>
-  												<input class="form-control" id="nama"
-  													value="<?php echo strtoupper($this->session->userdata('nama')) ?>" disabled>
+  												<input class="form-control" id="nama" name="nama"
+  													value="<?php echo strtoupper($this->session->userdata('nama')) ?>">
   											</div>
   											<div class="form-group">
   												<label for="nama" style="line-height: 10px; font-size: 13px;">Email</label>
@@ -330,7 +330,7 @@
   											<div class="form-group">
   												<label for="nama" style="line-height: 10px; font-size: 13px;">Nama Lengkap</label>
   												<input class="form-control" id="nama"
-  													value="<?php echo strtoupper($this->session->userdata('nama')) ?>" disabled>
+  													value="<?php echo strtoupper($this->session->userdata('nama')) ?>">
 											  </div>
 											  <br>
   											<h3 style="margin-bottom: 0">Kontak</h3>
@@ -553,7 +553,7 @@
   													<div class="form-radio">
   														<label class="form-check-label">
   															<input type="radio" class="form-check-input" name="lanjut_belajar" id="tidaklanjut"
-  																value="0" <?php if ($row->lanjut_belajar == 2) echo "checked"; ?>> Tidak
+  																value="0" <?php if ($row->lanjut_belajar == 0) echo "checked"; ?>> Tidak
   															<i class="input-helper"></i></label>
   													</div>
   												</div>

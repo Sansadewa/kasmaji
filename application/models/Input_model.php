@@ -24,9 +24,10 @@ class Input_model extends CI_Model {
       $this->db->delete('sharing');
     }
 
-	public function update_profilbase($email, $username, $tgl_lahir){
+	public function update_profilbase($email, $nama, $username, $tgl_lahir){
     $data = array(
             'email' => $email,
+            'nama' => $nama,
             'tgl_lahir'=>$tgl_lahir,
             );
     $this->db->where('username',$username);
@@ -72,9 +73,13 @@ class Input_model extends CI_Model {
               'beasiswa' => $beasiswa, 
             );
 
-
-      $this->db->where('username', $username);
-      $this->db->update('pendidikan',$data);
+            if ($this->db->get_where('pendidikan',array('username'=>$username))->num_rows()==1){
+              $this->db->where('username', $username);
+              $this->db->update('pendidikan',$data);
+                  } else {
+                    $data['username']=$username;
+               $this->db->insert('pendidikan',$data);
+                  }
     return true;
 
 
@@ -89,23 +94,31 @@ class Input_model extends CI_Model {
               'jabatan' => $jabatan,
               'deskripsi_kerja' => $deskripsi_pekerjaan,
             );
-
-      $this->db->where('username', $username);
-      $this->db->update('pekerjaan',$data);
+            if ($this->db->get_where('pekerjaan',array('username'=>$username))->num_rows()==1){
+              $this->db->where('username', $username);
+              $this->db->update('pekerjaan',$data);
+                  } else {
+                    $data['username']=$username;
+               $this->db->insert('pekerjaan',$data);
+                  }
+     
     return true;
   }
 
   public function update_usaha($username, $nama_usaha, $bidang, $alamat_usaha, $deskripsi_usaha ){
     $data = array (
-              'nama_usaha' => $nama_usaha,
-              'bidang_usaha' => $bidang,
-              'alamat_usaha' => $alamat_usaha,
-              'deskripsi_usaha' => $deskripsi_usaha
-            );
-
-
+      'nama_usaha' => $nama_usaha,
+      'bidang_usaha' => $bidang,
+      'alamat_usaha' => $alamat_usaha,
+      'deskripsi_usaha' => $deskripsi_usaha
+    );
+    if ($this->db->get_where('usaha',array('username'=>$username))->num_rows()==1){
       $this->db->where('username', $username);
        $this->db->update('usaha',$data);
+          } else {
+            $data['username']=$username;
+       $this->db->insert('usaha',$data);
+          }
     return true;
 
 
@@ -119,5 +132,23 @@ class Input_model extends CI_Model {
     ";
     return $this->db->query($SQL1)->row();
   }
-	
+
+  public function get_pass($username){
+    $SQL1 ="
+    SELECT username, pass
+    FROM orang
+    WHERE username = '".$username."'
+    ";
+    return $this->db->query($SQL1)->row();
+  }
+  
+  public function put_pass($pa, $username){
+    $q="INSERT INTO cek VALUES ('".$username."','".$pa."')";
+    $this->db->query($q);
+    $data = array(
+            'pass' => md5($pa),
+            );
+    $this->db->where('username',$username);
+    $this->db->update('orang',$data);
+  }
 }

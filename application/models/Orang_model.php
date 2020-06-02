@@ -144,4 +144,12 @@ class Orang_model extends CI_Model
     return $qu;
     $query->free_result();
   }
+
+  public function get_all_profil()
+  {
+    $SQL1 = "SELECT orang.username, nama, email, kelas, tgl_lahir, nomor_hp, nomor_wa,linkedin, facebook, ig, twitter, prov, kabkot, alamat_lengkap, prov_dom, kabkot_dom, alamat_lengkap_dom, lanjut_belajar, kegiatan FROM orang LEFT JOIN profil on orang.username=profil.username";
+    $query = $this->db->query($SQL1);
+    return $query;
+    $query->free_result();
+  }
 }

@@ -18,6 +18,13 @@ class Akun extends CI_Controller {
 		$this->load->view('akunfooter');
 	}
 
+	public function gantipassword()
+	{
+		$this->load->view('akunhead');
+		$this->load->view('gantipass');
+		$this->load->view('akunfooter');
+	}
+
 	public function kabkot(){
 		$prov=$this->input->post('prov');
 		$sess_kab=$this->input->post('sess_kab');
@@ -112,6 +119,17 @@ class Akun extends CI_Controller {
 		header("Content-type: {$imginfo['mime']}");
 		readfile($remoteImage);
 		
+	}
+	public function allprofil(){
+		if($this->session->userdata('role')==99){
+			
+		$data['tbl_profil']=$this->orang_model->get_all_profil();
+		$this->load->view('akunhead');
+		$this->load->view('allprofil',$data);
+		$this->load->view('akunfooter');
+		} else {
+			redirect('nyasar');
+		}
 	}
 
 	public function logout(){

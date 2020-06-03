@@ -35,7 +35,7 @@
 									</tr>
 								</thead>
 								<tbody>
-									<?php foreach ($tbl_profil->result() as $row2) { 
+									<?php foreach ($tbl_profil->result() as $row2) { if($row2->username=="ADMIN123456789"){continue;}
                     ?>
 									<tr>
 										<td><?php echo $row2->username ?></td>

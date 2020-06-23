@@ -110,7 +110,7 @@
       hour = minute * 60,
       day = hour * 24;
 
-      let countDown = new Date('Jun 17, 2020 23:59:00').getTime(),
+      let countDown = new Date('Jun 30, 2020 23:59:00').getTime(),
           x = setInterval(function() {
 
             let now = new Date().getTime(),

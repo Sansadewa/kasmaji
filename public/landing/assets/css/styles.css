@@ -203,5 +203,6 @@ section#timeline article:nth-child(5) div.inner h2:after {
 }
 
 #days, #hours, #minutes, #seconds {
-	color:#259b87 ;
+  /* color:#259b87 ; */
+  color: #e74c3c;
 }

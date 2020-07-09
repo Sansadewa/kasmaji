@@ -56,7 +56,9 @@
         <!-- countdown -->
         <div class="row">
         <div class="card" data-aos="fade-up" style="top: -220px; padding: 20px 0;  width:90%; max-width: 800px; margin: 0 auto -180px;">
-          <div class="card-body d-flex justify-content-center">
+
+          <!-- Jam -->
+          <!-- <div class="card-body d-flex justify-content-center">
             <center><div class="col-12">
               <h4 class="card-title"><b>Countdown Pengisian Database</b></h4>
               <hr>
@@ -68,7 +70,24 @@
               </ul>
             </div>
           </center>
+          </div> -->
+
+          <!-- Pengisian Habis -->
+          <div class="card-body d-flex justify-content-center">
+            <center><div class="col-11">
+              <h4 class="card-title" style="text-align:center;color:#259b87"><b>Batas Waktu Pengisian Database Telah Habis.</b><br>Bagi kamu yang belum mengisi database, <br>bisa hubungi nomor admin di +62 882-9002-6071</h4>
+              <hr style="margin:2em 0 2em 0">
+              <div class="row">
+              <p style="text-align: left; margin-bottom:2em">Kamu punya pertanyaan, keluhan, dan saran untuk <b style="color:#259b87">Databse Kasmaji 2015</b>? Tanyakan langsung ke Hotline Admin di WhatsApp: +62 882-9002-6071. Atau direct message ke akun resmi Kasmaji 2015 di:</p>
+              <div class="col-sm-6 col-md-4"><a href="https://twitter.com/kasmaji2015" style="text-decoration: none"><h4 style="color:#259b87; white-space: nowrap; padding:10px;"><b><i class="mdi mdi-twitter" style="font-size: 2.5rem;vertical-align: middle;"></i> </b></i>&commat;kasmaji15</h4></a></div>
+              <div class="col-sm-6 col-md-4"><a href="https://www.instagram.com/kasmaji2015/" style="text-decoration: none"><h4 style="color:#259b87; white-space: nowrap; padding:10px;"><b><i class="mdi mdi-instagram" style="font-size: 2.5rem; vertical-align: middle;"></i> </b>kasmaji15</h4></a></div>
+              <div class="col-sm-12 col-md-4"><a href="https://line.me/R/nv/chat" style="text-decoration: none"><h4 style="color:#259b87; white-space: nowrap; padding:10px;"><b><img src="<?php echo base_url(); ?>public/landing/assets/img/line.png" style="width: 2.5rem; height:auto;" class="mdi mdi-line"> </b>Kasmaji 2015</h4></a></div>
+
+              </div>
+            </div>
+          </center>
           </div>
+
         </div>
         </div>
 
@@ -80,10 +99,10 @@
               <img src="<?php echo base_url(); ?>public/images/customer-service.png" class="mx-auto img-fluid d-none d-sm-none d-md-block" style="width:auto; max-width:250px">
               <h4 class="card-title text-kasmaji" style="color:#259b87"><b>Pusat Bantuan</b></h4><br>
               <div class="row">
-              <div class="col-sm-6 col-md-3"><h5><b style="color:#259b87"><i class="mdi mdi-account"></i> Admin 1</b><br> <i class="mdi mdi-phone"></i> 085156326385</h5></div>
-              <div class="col-sm-6 col-md-3"><h5><b style="color:#259b87"><i class="mdi mdi-account"></i> Admin 2</b><br> <i class="mdi mdi-phone"></i> 088290026071</h5></div>
-              <div class="col-sm-6 col-md-3"><h5><b style="color:#259b87"><i class="mdi mdi-account"></i> Admin 3</b><br> <i class="mdi mdi-phone"></i> 081818897485</h5></div>
-              <div class="col-sm-6 col-md-3"><h5><b style="color:#259b87"><i class="mdi mdi-account"></i> Admin 4</b><br> <i class="mdi mdi-phone"></i> 08782418809</h5></div>
+              <div class="col-sm-6 col-md-3"><h5><b style="color:#259b87; "><i class="mdi mdi-account"></i> Admin 1</b><br> <i class="mdi mdi-phone"></i> 085156326385</h5></div>
+              <div class="col-sm-6 col-md-3"><h5><b style="color:#259b87; "><i class="mdi mdi-account"></i> Admin 2</b><br> <i class="mdi mdi-phone"></i> 088290026071</h5></div>
+              <div class="col-sm-6 col-md-3"><h5><b style="color:#259b87; "><i class="mdi mdi-account"></i> Admin 3</b><br> <i class="mdi mdi-phone"></i> 081818897485</h5></div>
+              <div class="col-sm-6 col-md-3"><h5><b style="color:#259b87; "><i class="mdi mdi-account"></i> Admin 4</b><br> <i class="mdi mdi-phone"></i> 08782418809</h5></div>
 
               </div>
             </div>
@@ -102,8 +121,14 @@
     <script src="<?php echo base_url(); ?>public/landing/assets/js/jquery.min.js"></script>
     <script src="<?php echo base_url(); ?>public/landing/assets/js/popper.min.js"></script>
     <script src="<?php echo base_url(); ?>public/landing/assets/js/bootstrap.min.js"></script>
+
     <script src="<?php echo base_url(); ?>public/landing/assets/js/aos.js"></script>
     <script>
+      AOS.init();
+    </script>
+
+    <!-- SCRIPT BUAT JAM -->
+    <!-- <script>
       AOS.init();
       const second = 1000,
       minute = second * 60,
@@ -124,13 +149,9 @@
               document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
               document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
             
-            //do something later when date is reached
-            //if (distance < 0) {
-            //  clearInterval(x);
-            //  'IT'S MY BIRTHDAY!;
-            //}
+
 
           }, second)
-    </script>
+    </script> -->
   </body>
 </html>

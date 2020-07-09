@@ -60,7 +60,7 @@
           <!-- Jam -->
           <!-- <div class="card-body d-flex justify-content-center">
             <center><div class="col-12">
-              <h4 class="card-title"><b>Countdown Pengisian Database</b></h4>
+              <h4 class="card-title"><b>Countdown <span class="text-danger">Injury Time </span> Pengisian Database</b></h4>
               <hr>
               <ul class="countdown">
                 <li><span id="days"></span>days</li>
@@ -135,7 +135,7 @@
       hour = minute * 60,
       day = hour * 24;
 
-      let countDown = new Date('Jun 30, 2020 23:59:00').getTime(),
+      let countDown = new Date('Jul 1, 2020 23:59:00').getTime(),
           x = setInterval(function() {
 
             let now = new Date().getTime(),
